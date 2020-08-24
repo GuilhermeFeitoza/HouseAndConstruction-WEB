@@ -1,0 +1,129 @@
+﻿
+@model  IEnumerable<LojaMateriaisParaConstrucao.Models.pesq_cupom_Result>
+@{
+    ViewBag.Title = "Cupons";
+    Layout = "~/Views/Shared/LayoutLogado.cshtml";
+}
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Cupons - House and Construction</title>
+    <style>
+        h1 {
+            text-align: center;
+            font-weight: bold;
+            text-shadow: 0px 0px 3px #1e90ff;
+            color: #1e90ff;
+        }
+
+        .table {
+            width: 50% !important;
+            margin: 50px auto 0px auto !important;
+        }
+
+        #divOpcoes {
+            margin: 50px auto;
+        }
+
+            #divOpcoes li {
+                padding: 50px;
+                border: 1px solid #ccc;
+                margin: 10px 25px 10px 25px;
+                width: 20%;
+                float: left;
+                list-style-type: none;
+            }
+
+        #listaOpcoes {
+            display: inline-block;
+            /*float: left;*/
+            width: 70%;
+            height: 30%;
+            margin: 0 100px 0 325px;
+        }
+
+        #h2 {
+            text-align: center;
+            color: #0094ff;
+            text-shadow: .6px .6px .6px #0094ff;
+            font-weight: bold;
+        }
+
+        #idPara {
+            font-size: 12pt;
+            color: #0094ff;
+            font-weight: bold;
+            text-shadow: 0 .5px 1px #0094ff;
+            text-align: center;
+        }
+
+        #image {
+            margin: 10px 45px;
+        }
+
+        #par {
+            margin: auto auto;
+            text-align: center;
+        }
+
+        td {
+            color: #000;
+            font-weight: bold;
+        }
+
+        th {
+            color: #1e90ff;
+            font-weight: bold;
+        }
+
+        #cp {
+            margin-bottom: 13px;
+            width: 60px;
+            height: 60px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cupons <span><img src="~/img/Icones/IconesMENU/icons8-redeem-64.png" id="cp" /></span></h1>
+
+    <table class="table table-striped">
+
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.CodigoCupom)</th>
+            <th>@Html.DisplayNameFor(model => model.DataInicio)</th>
+            <th>@Html.DisplayNameFor(model => model.DataFim)</th>
+            <th>@Html.DisplayNameFor(model => model.StatusCupom)</th>
+
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td id="campos">@Html.DisplayFor(modelItem => item.CodigoCupom)</td>
+                <td id="campos">@Html.DisplayFor(modelItem => item.DataInicio)</td>
+                <td id="campos">@Html.DisplayFor(modelItem => item.DataFim)</td>
+                <td id="campos">@Html.DisplayFor(modelItem => item.StatusCupom)</td>
+                @*Adicionando os link para editar, detalhes e exliur*@
+                @*<td>
+                        @Html.ActionLink("Editar", "Editar", new { id = item.CodigoPedido }) |
+                        @Html.ActionLink("Detalhes", "Detalhes", new { id = item.CodigoPedido }) |
+                        @Html.ActionLink("Deletar", "Deletar", new { id = item.CodigoPedido })
+                    </td>*@
+            </tr>
+        }
+
+
+    </table><br /><br /><br /><br />
+    <div id="divOpcoes">
+        <ul id="listaOpcoes">
+            <a href="@Url.Action("Cupons","Home")" target="_blank"><li><img src="~/img/Icones/Ic_log/icons8-vale-64.png" id="image" /><p id="par"><span id="idPara">Cupons</span></p></li></a>
+            <a href="@Url.Action("ListaDesejo","Home")" target="_blank"><li><img src="~/img/Icones/Ic_log/icons8-romance-64.png" id="image" /><p id="par"><span id="idPara">Lista de Desejos</span></p></li></a>
+            <a href="@Url.Action("Index","Home")" target="_blank"><li><img src="~/img/Icones/Ic_log/icons8-caminhão-64.png" id="image" /><p id="par"><span id="idPara">Pedidos</span></p></li></a>
+            <a href="@Url.Action("Index","Home")" target="_blank"><li><img src="~/img/Icones/Ic_log/icons8-alterar-usuário-masculino-64.png" id="image" /><p id="par"><span id="idPara">Editar Perfil</span></p></li></a>
+        </ul>
+    </div>
+    <br /><br />
+
+
+</body>
+</html>

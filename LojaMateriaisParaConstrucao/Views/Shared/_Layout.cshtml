@@ -1,0 +1,385 @@
+﻿ <!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/scripts/jquery.min.js"></script>
+    <script src="~/scripts/layout.js"></script>
+
+    <style>
+
+        /*MENU SUPERIOR*/
+        #fundoAzul {
+            background-color: #1e90ff;
+        }
+
+        #MenuSuperior {
+            background-color: #1e90ff;
+            height: 95px;
+            width: 1345px;
+            z-index: 1;
+            margin: auto;
+            /*border: 1px solid #000;*/
+        }
+
+        #ImgLogo {
+            margin-top: -20px;
+            /*margin-left: 80px;*/
+        }
+
+        #divBusca {
+            display: block;
+        }
+
+        #txtBusca {
+            height: 40%;
+            width: 50%;
+            padding-left:10px;
+            position: absolute;
+            top: 25px;
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+            -moz-border-radius: 5px;
+            -webkit-box-shadow: 1px 1px 1px #fff;
+            -moz-box-shadow: 1px 1px 1px #fff;
+            box-shadow: 1px 1px 1px #fff;
+            border:none;
+        }
+
+        #btnBusca {
+            position: absolute;
+            top: 25px;
+            left: 350px;
+            width: 10%;
+            height: 41%;
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+            -moz-border-radius: 10px;
+            background-color: #333;
+            color: #fff;
+            font-weight: bolder;
+            border:none;
+        }
+
+        #entrar {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            /*left: 40px;*/
+            top: 30px;
+            text-align: right;
+            position: relative;
+            transition: background-color .5s;
+            border-radius: 4px 4px 4px;
+            -webkit-border-radius: 4px 4px 4px;
+            -moz-border-radius: 4px 4px 4px;
+        }
+
+            #entrar:hover {
+                background-color: #333;
+                border-radius: 4px 2px 2px;
+                -webkit-border-radius: 4px 4px 4px;
+                -moz-border-radius: 4px 4px 4px;
+            }
+
+        #Login {
+            /*margin-left: 210px;*/
+            /*margin: 0px 0px 0px auto;
+            width: 50px;*/
+        }
+
+        /*MENU */
+
+        #todo {
+            color: #fff;
+          /* margin-right: 5px;*/
+        }
+
+        #fundoPreto{
+            background-color: #333;
+            width: 100%;
+            height: 45px;
+            
+        }
+
+        #divMenu {
+            background-color: #333;
+            width: 1345px;
+            margin: auto;
+            
+        }
+
+        .menu {
+            list-style-type: none;
+            border: 1px;
+            float: left;
+            background-color: #333;
+            margin: auto;
+            width: 100%;
+            
+            /*min-width: 1903px;
+            max-width: 2903px;*/
+            z-index: 1;
+        }
+
+            .menu li {
+                position: relative;
+                float: left;
+                border-right: 1px;
+                margin-right: 5px;
+                left: 0px;
+            }
+
+                .menu li a {
+                    color: #fff;
+                    text-decoration: none;
+                    margin-right: 0px;
+                    padding: 5px 10px;
+                    display: block;
+                    transition: background-color .5s;
+                    font-size: 15pt;
+                }
+
+                    .menu li a:hover {
+                        background: #2991e0;
+                        color: #fff;
+                        -webkit-box-shadow: 0 3px 10px 0 #ccc;
+                        -moz-box-shadow: 0 3px 10px 0 #ccc;
+                        text-shadow: 0px 0px 5px #fff;
+                    }
+
+                .menu li ul {
+                    position: absolute;
+                    top: 41px;
+                    left: 0px;
+                    width: 275px;
+                    background-color: #333;
+                    display: none;
+                }
+
+                .menu li:hover ul, .menu li.over ul {
+                    display: block;
+                    z-index: 1;
+                }
+
+                .menu li ul li {
+                    border: 1px;
+                    display: block;
+                    width: 300px;
+                    margin: 0 -5px 5px -40px;
+                    left: 0;
+                }
+
+        #tinta {
+            margin-bottom: -5px;
+        }
+
+        /*FOOTER*/
+        .fundoFooter {
+            background-color: #333;
+        }
+
+        .footer {
+            position: relative;
+            left: 0;
+            bottom: 0;
+            width: 1345px;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            height: 100%;
+            margin: auto auto 0px auto;
+        }
+
+            .footer a {
+                color: #fff;
+            }
+
+                .footer a:hover {
+                    text-decoration: underline;
+                }
+
+        .rodape {
+            margin: 0px 450px;
+            text-align: left;
+        }
+
+        .coluna-esquerda {
+            height: 200px;
+            width: 300px;
+            float: left;
+        }
+
+        .coluna-direita {
+            height: 200px;
+            width: 250px;
+            float: left;
+            border-right: solid 1px #fff;
+        }
+
+        .coluna-maisdireita {
+            margin-left: 20px;
+            height: 200px;
+            width: 400px;
+            float: left;
+        }
+
+        .copyright {
+            text-align: center;
+            position: relative;
+            margin: 180px 500px 0px 0px;
+        }
+
+
+        .barra {
+            font-size: 12pt;
+        }
+
+        .number {
+            font-size: 10pt;
+        }
+
+        #whats {
+            max-width: 20px;
+            margin-left: 30px;
+        }
+
+        #face {
+            max-width: 20px;
+        }
+
+        #insta {
+            max-width: 20px;
+        }
+
+        .navtop a {
+            font-size: 10pt;
+            text-decoration: none;
+            color: #000;
+            padding: 0px 0px 0px 5px;
+        }
+
+        span {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 10pt;
+        }
+
+
+        .h1 {
+            margin: 0px 0px 0px 50px;
+            color: #1E90FF;
+            text-shadow: 1px 1px 1px #1E90FF;
+        }
+
+        #divLogoRodape{
+            position:absolute;
+            margin: auto auto auto 0px;
+            height: 150px;
+        }
+
+        #imgLogoRodape{
+            height: 150px;
+        }
+
+    </style>
+
+</head>
+<body>
+    <header>
+
+        <div id="fundoAzul">
+            <div class="row" id="MenuSuperior">
+                <div class="col-sm-4" id="ImgLogo">
+
+                    <a href="@Url.Action("Index","Home")" id="logo"><img src="~/img/logo.png" style="height:130px; width: 300px" /></a>
+                </div>
+                <div class="col-sm-7">
+                    <div id="divBusca">
+                        <input type="text" placeholder="Digite o que você procura..." id="txtBusca" maxlength="40" />
+                        <button type="submit" id="btnBusca">Buscar</button>
+                    </div>
+                </div>
+                <div class="col-sm-1" id="Login">
+                    <a id="entrar" href="@Url.Action("Loginn","Login")">Entrar</a> <br />
+                    <img src="~/img/Icones/Ic/ventas.png" style="height: 50px; color: #fff;"/>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <div id="fundoPreto" style="background-color: #333;">
+            <div id="divMenu">
+                <ul class="menu">
+                    <li>
+                        <a id="todo">Todos Departamentos</a>
+                        <ul>
+                            <li><a href="@Url.Action("AreaExterna","Home")">Área Externa</a></li>
+                            <li><a href="@Url.Action("Banheiro","Home")">Banheiro</a></li>
+                            <li><a href="@Url.Action("Cozinha","Home")">Cozinha</a></li>
+                            <li><a href="@Url.Action("Eletrica","Home")">Elétrica</a></li>
+                            <li><a href="@Url.Action("Ferramentas","Home")">Ferramentas</a></li>
+                            <li><a href="@Url.Action("Iluminacao","Home")">Iluminação</a> </li>
+                            <li><a href="@Url.Action("Materiais","Home")">Materiais para Construção</a> </li>
+                            <li><a href="@Url.Action("Pisos","Home")">Pisos e Revestimentos</a> </li>
+                            <li><a href="@Url.Action("Portas","Home")">Portas e Janelas</a> </li>
+                            <li><a id="tinta" href="@Url.Action("Tintas","Home")">Tintas</a> </li>
+
+                        </ul>
+                    </li>
+                    <li><a href="@Url.Action("Materiais","Home")">Materiais para Construção</a> </li>
+                    <li><a href="@Url.Action("Ferramentas","Home")">Ferramentas</a> </li>
+                    <li><a href="@Url.Action("Pisos","Home")">Pisos e Revestimentos</a> </li>
+                    <li><a href="@Url.Action("Iluminacao","Home")">Iluminação</a> </li>
+                    <li><a href="@Url.Action("Portas","Home")">Portas e Janelas</a> </li>
+
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    @RenderBody()
+
+    
+    <footer class="fundoFooter">
+        <div class="footer">
+            <div id="divLogoRodape">
+                <img src="~/img/logo.png" id="imgLogoRodape" />
+            </div>
+            <div>
+                <p style="margin: auto;">
+                    <a href="@Url.Action("Index","Home")#quemsomos">Quem Somos</a>&nbsp;&nbsp;
+                    <a href="@Url.Action("FaleConosco","Fale")">Fale Conosco</a>
+                </p> <br /> <br />
+                <p style="margin: auto; ">
+                    <span style="margin-left:50px;">
+                        <img src="~/img/IconesRedesSociais/whatsapp.png" width="15" id="whats" />
+                        <span class="number"> (11) 91245-6780</span> <span class="barra">|</span>
+                    </span>
+                    <span>
+                        <img src="~/img/IconesRedesSociais/facebook.png" width="15" id="face" />
+                        <span class="number">houseandconstruction</span> <span class="barra">|</span>
+                    </span>
+                    <span>
+                        <img src="~/img/IconesRedesSociais/instagram.png" width="17" id="insta" />
+                        <span class="number">handc</span> <span class="barra">|</span>
+                    </span>
+                    <span>Email: houseandconstruction@gmail.com</span>
+                </p>
+
+            </div> <br /> <br />
+            <p style="margin-bottom: 0px; padding-bottom: 5px;">&copy;House and Construction - Todos os direitos reservados.</p>
+        </div>
+
+
+
+
+    </footer>
+
+</body>
+
+
+</html>

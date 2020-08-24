@@ -1,0 +1,632 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{118405F7-77A2-4218-B533-8B76A16C78C2}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LojaMateriaisParaConstrucao</RootNamespace>
+    <AssemblyName>LojaMateriaisParaConstrucao</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\animacao.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\card.css" />
+    <Content Include="Content\cards.css" />
+    <Content Include="Content\contato.css" />
+    <Content Include="Content\css\animacao1.css" />
+    <Content Include="Content\css\animacao2.css" />
+    <Content Include="Content\css\AreaExterna.css" />
+    <Content Include="Content\css\Banheiro.css" />
+    <Content Include="Content\css\Cozinha.css" />
+    <Content Include="Content\css\Dashboard.css" />
+    <Content Include="Content\css\demo.css" />
+    <Content Include="Content\css\Eletrica.css" />
+    <Content Include="Content\css\Ferramentas.css" />
+    <Content Include="Content\css\Iluminacao.css" />
+    <Content Include="Content\css\Materiais.css" />
+    <Content Include="Content\css\Pisos.css" />
+    <Content Include="Content\css\Portas.css" />
+    <Content Include="Content\css\Tintas.css" />
+    <Content Include="Content\css\w3css.css" />
+    <Content Include="Content\entrar.css" />
+    <Content Include="Content\css\FaleConosco.css" />
+    <Content Include="Content\fotos.css" />
+    <Content Include="Content\img\icons8-female-user-50.png" />
+    <Content Include="Content\img\icons8-user-male-50.png" />
+    <Content Include="Content\index.css" />
+    <Content Include="Content\modelo.css" />
+    <Content Include="Content\quemsomos.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="img\Desenho.jpg" />
+    <Content Include="img\IconesRedesSociais\facebook.png" />
+    <Content Include="img\IconesRedesSociais\instagram.png" />
+    <Content Include="img\IconesRedesSociais\whatsapp.png" />
+    <Content Include="img\Icones\Ic\57c7cc92-1a58-4ea3-8826-58bfb617fec7.png" />
+    <Content Include="img\Icones\Ic\7930e032-e5ac-47d5-8c19-3c6f0bc9e86c.png" />
+    <Content Include="img\Icones\Ic\boss_man-128.png" />
+    <Content Include="img\Icones\Ic\Calculator_32px.png" />
+    <Content Include="img\Icones\Ic\Camera_48px.png" />
+    <Content Include="img\Icones\Ic\cerrar.png" />
+    <Content Include="img\Icones\Ic\clientes.png" />
+    <Content Include="img\Icones\Ic\Clock_64px.png" />
+    <Content Include="img\Icones\Ic\compras.png" />
+    <Content Include="img\Icones\Ic\download.jpg" />
+    <Content Include="img\Icones\Ic\download1.jpg" />
+    <Content Include="img\Icones\Ic\empleados.png" />
+    <Content Include="img\Icones\Ic\icon cerrar2.png" />
+    <Content Include="img\Icones\Ic\icon maximizar.png" />
+    <Content Include="img\Icones\Ic\icon minimizar.png" />
+    <Content Include="img\Icones\Ic\icon restaurar.png" />
+    <Content Include="img\Icones\IconesMENU\Add New_50px.png" />
+    <Content Include="img\Icones\IconesMENU\Duration Finance_50px.png" />
+    <Content Include="img\Icones\IconesMENU\icons8-carrinho-de-compras-26.png" />
+    <Content Include="img\Icones\IconesMENU\icons8-carrinho-de-compras-32.png" />
+    <Content Include="img\Icones\IconesMENU\icons8-exit-32.png" />
+    <Content Include="img\Icones\IconesMENU\icons8-redeem-64.png" />
+    <Content Include="img\Icones\IconesMENU\List_50px.png" />
+    <Content Include="img\Icones\IconesMENU\Lock_50px.png" />
+    <Content Include="img\Icones\IconesMENU\Product_50px.png" />
+    <Content Include="img\Icones\IconesMENU\Schedule_50px.png" />
+    <Content Include="img\Icones\Ic\icons8-consultas-de-mídia-32.png" />
+    <Content Include="img\Icones\Ic\icons8-contabilidade-32.png" />
+    <Content Include="img\Icones\Ic\icons8-empresa-cliente-32.png" />
+    <Content Include="img\Icones\Ic\icons8-fornecedor-32.png" />
+    <Content Include="img\Icones\Ic\icons8-gestão-de-desenvolvimento-comercial-32.png" />
+    <Content Include="img\Icones\Ic\icons8-orçamento-32.png" />
+    <Content Include="img\Icones\Ic\icons8-produto-32.png" />
+    <Content Include="img\Icones\Ic\icons8-salário-32.png" />
+    <Content Include="img\Icones\Ic\icons8-serviços-32.png" />
+    <Content Include="img\Icones\Ic\icons8_Add_User_Group_Woman_Man_64px.png" />
+    <Content Include="img\Icones\Ic\icons8_Add_User_Male_50px_1.png" />
+    <Content Include="img\Icones\Ic\icons8_Checkmark_52px_1.png" />
+    <Content Include="img\Icones\Ic\icons8_Checkmark_52px_11.png" />
+    <Content Include="img\Icones\Ic\icons8_Checkmark_52px_12.png" />
+    <Content Include="img\Icones\Ic\icons8_Product_52px.png" />
+    <Content Include="img\Icones\Ic\icons8_Shopping_Cart_64px.png" />
+    <Content Include="img\Icones\Ic\icons8_Truck_52px_1.png" />
+    <Content Include="img\Icones\Ic\icons8_User_Account_50px_3.png" />
+    <Content Include="img\Icones\Ic\icons8_User_Groups_50px_1.png" />
+    <Content Include="img\Icones\Ic\IMO2.png" />
+    <Content Include="img\Icones\Ic\Logo Branco.png" />
+    <Content Include="img\Icones\Ic\logo.png" />
+    <Content Include="img\Icones\Ic\logo5.png" />
+    <Content Include="img\Icones\Ic\LOGOS.png" />
+    <Content Include="img\Icones\Ic\marca.png" />
+    <Content Include="img\Icones\Ic\maxi.png" />
+    <Content Include="img\Icones\Ic\minimazar.png" />
+    <Content Include="img\Icones\Ic\Mobile-Menu-Icon.png" />
+    <Content Include="img\Icones\Ic_log\icons8-alterar-usuário-masculino-64.png" />
+    <Content Include="img\Icones\Ic_log\icons8-caminhão-64.png" />
+    <Content Include="img\Icones\Ic_log\icons8-romance-64.png" />
+    <Content Include="img\Icones\Ic_log\icons8-vale-64.png" />
+    <Content Include="img\Icones\new iconos\Clientes.png" />
+    <Content Include="img\Icones\new iconos\compras.png" />
+    <Content Include="img\Icones\new iconos\empleados.png" />
+    <Content Include="img\Icones\new iconos\icon cerrar2.png" />
+    <Content Include="img\Icones\new iconos\icon maximizar.png" />
+    <Content Include="img\Icones\new iconos\icon minimizar.png" />
+    <Content Include="img\Icones\new iconos\icon restaurar.png" />
+    <Content Include="img\Icones\new iconos\pagos.png" />
+    <Content Include="img\Icones\new iconos\prodcutos.png" />
+    <Content Include="img\Icones\new iconos\reloj.png" />
+    <Content Include="img\Icones\new iconos\ventas.png" />
+    <Content Include="img\Icones\Ic\New Product_50px.png" />
+    <Content Include="img\Icones\Ic\pagos.png" />
+    <Content Include="img\Icones\Ic\Plus Math_32px.png" />
+    <Content Include="img\Icones\Ic\prodcutos.png" />
+    <Content Include="img\Icones\Ic\producto.png" />
+    <Content Include="img\Icones\Ic\Refresh_40px.png" />
+    <Content Include="img\Icones\Ic\relo3.png" />
+    <Content Include="img\Icones\Ic\reloj.png" />
+    <Content Include="img\Icones\Ic\reportes.png" />
+    <Content Include="img\Icones\Ic\res.png" />
+    <Content Include="img\Icones\Ic\salir.png" />
+    <Content Include="img\Icones\Ic\Search_32px.png" />
+    <Content Include="img\Icones\Ic\Search_48px.png" />
+    <Content Include="img\Icones\Ic\Search_64px.png" />
+    <Content Include="img\Icones\Ic\semimagem.jpg" />
+    <Content Include="img\Icones\Ic\Services_52px.png" />
+    <Content Include="img\Icones\Ic\User_32px.png" />
+    <Content Include="img\Icones\Ic\venta.png" />
+    <Content Include="img\Icones\Ic\ventas.png" />
+    <Content Include="img\Icones\Ic\View Details_32px.png" />
+    <Content Include="img\Icones\Ic_log\icons8-cartão-presente-100.png" />
+    <Content Include="img\localizacao.png" />
+    <Content Include="img\logo.png" />
+    <Content Include="img\logomain.jpeg" />
+    <Content Include="img\Produtos\armario.jpg" />
+    <Content Include="img\Produtos\banheira-fundobranco.png" />
+    <Content Include="img\Produtos\banheira.png" />
+    <Content Include="img\Produtos\Banheiro\1_Gabinete_Banheiro_Evora_Com_Pia_2_Gavetas_Cor_Amendoa_Branco.jpg" />
+    <Content Include="img\Produtos\Banheiro\1_Torneira_Banheiro_Mesa_Alavanca_1198_C-70_1-4_Volta.jpg" />
+    <Content Include="img\Produtos\Banheiro\1_Vaso_Sanitário_com_Caixa_Acoplada_3-6L_Sabatini_Branco-Icasa.png" />
+    <Content Include="img\Produtos\Banheiro\2_conjunto-vaso-sanitario-com-caixa-acoplada-e-assento-soft-close-boss-incepa_branco.jpg" />
+    <Content Include="img\Produtos\Banheiro\2_Gabinete_Banheiro_Evora_80cm_com_Pia_2_Gavetas_Branco.jpg" />
+    <Content Include="img\Produtos\Banheiro\2_torneira-para-lavatorio-de-mesa-e-uso-geral-bica-movel-cromada.png" />
+    <Content Include="img\Produtos\Banheiro\3_Gabinete_Banheiro_Armario_Evora_CPia_2_Gavetas_Branco_Preto.jpg" />
+    <Content Include="img\Produtos\Banheiro\3_Torneira_Lavatório_Mesa_Bica_Móvel_1-4_de_Volta_C40.jpg" />
+    <Content Include="img\Produtos\Banheiro\4_Gabinete_Banheiro_Lavabo_Travertino_Branco_80Cm-Tomdo.jpg" />
+    <Content Include="img\Produtos\Banheiro\armario.jpg" />
+    <Content Include="img\Produtos\Banheiro\banheira-fundobranco.png" />
+    <Content Include="img\Produtos\Banheiro\banheira.png" />
+    <Content Include="img\Produtos\Banheiro\cesto_roupas.jpg" />
+    <Content Include="img\Produtos\Banheiro\chuveiro.jpg" />
+    <Content Include="img\Produtos\Banheiro\gabinete.jpg" />
+    <Content Include="img\Produtos\Banheiro\vaso_sanitario.jpg" />
+    <Content Include="img\Produtos\cesto_roupas.jpg" />
+    <Content Include="img\Produtos\chuveiro.jpg" />
+    <Content Include="img\Produtos\cimento.png" />
+    <Content Include="img\Produtos\Elétrica\10_Cabo_Flexível_1,5MM_750V_SIL_Preto.jpg" />
+    <Content Include="img\Produtos\Elétrica\1_Conjunto-Interruptor-Simples-Tomada-Eletrica-10A-BRAVA.jpg" />
+    <Content Include="img\Produtos\Elétrica\2_Conjunto-Tomada-Branco-2PT-10A-250V-tramontina.jpg" />
+    <Content Include="img\Produtos\Elétrica\3_tomada-tramontina-giz-3-entradas-universais-10a.jpg" />
+    <Content Include="img\Produtos\Elétrica\4_Tomada-10A-250V-com-placa-branca-Miluz-Schneider.png" />
+    <Content Include="img\Produtos\Elétrica\5_adaptador-de-tomada-benjamin-novo-padrao-3-tomadas-branco.jpg" />
+    <Content Include="img\Produtos\Elétrica\6_kit-10-tomada-20a-2p-t-placa-interruptor-2-teclas.jpg" />
+    <Content Include="img\Produtos\Elétrica\7_Interruptor_Simples_+_Tomada_20A_com_Placa_Habitat-FAME.jpg" />
+    <Content Include="img\Produtos\Elétrica\8_Tomada_Universal_2P+T_10A_Com_Placa_4x2_%28Branco%29_-Montreal_Plus.jpg" />
+    <Content Include="img\Produtos\Elétrica\9_cabo_flex_25mm_1kv_preto.jpg" />
+    <Content Include="img\Produtos\Elétrica\adaptador_universal_2pt_2tomadas.jpg" />
+    <Content Include="img\Produtos\Elétrica\cabo_flexivel_cobrecom.jpg" />
+    <Content Include="img\Produtos\Elétrica\interruptor-vertical-4x2-modulo-interruptor-paralelo-liz-branco-10a-250v.jpg" />
+    <Content Include="img\Produtos\Elétrica\kit-conectores-eletrofita-3-pistas-20a-tomada.jpg" />
+    <Content Include="img\Produtos\Elétrica\plug_tomada_femea_2p+t_branco.jpg" />
+    <Content Include="img\Produtos\Elétrica\tomada-com-2-polos-terra-horizontal-com-placa-branco.png" />
+    <Content Include="img\Produtos\Ferramentas\1_Trena_aço_10mx25mm_curta_emborrachada-Vonder_Plus.jpg" />
+    <Content Include="img\Produtos\Ferramentas\2_Trena_de_5_Metros_com_Freio_Duplo-tramontina.jpg" />
+    <Content Include="img\Produtos\Ferramentas\3_trena_com_fita_de_aco_de_5_metros_com_trava.jpg" />
+    <Content Include="img\Produtos\Ferramentas\4_Alicate-Universal-de-8-Pol.jpg" />
+    <Content Include="img\Produtos\Ferramentas\5_Alicate_Universal_8_Pol_Especial_com_Cortador_de_arame.jpg" />
+    <Content Include="img\Produtos\Ferramentas\6_ferramenta-manual-alicate-de-corte-turquesa.jpg" />
+    <Content Include="img\Produtos\Ferramentas\alicate.jpg" />
+    <Content Include="img\Produtos\Ferramentas\Arco-de-Serra-Fixo-12-Pol-tramontina.jpg" />
+    <Content Include="img\Produtos\Ferramentas\caixa_ferramenta.jpg" />
+    <Content Include="img\Produtos\Ferramentas\furadeira-de-impacto.jpg" />
+    <Content Include="img\Produtos\Ferramentas\jogo-de-chaves-de-fenda-com-7-pecas-tramontina.png" />
+    <Content Include="img\Produtos\Ferramentas\martelo.jpg" />
+    <Content Include="img\Produtos\Ferramentas\regua.jpg" />
+    <Content Include="img\Produtos\Ferramentas\serra_circular_185mm_7_1_4_5007n_220v_p_makita_7269_1_20180827144942.jpg" />
+    <Content Include="img\Produtos\Ferramentas\trena-emborrachada-ima-3mx16mm-patroll.png" />
+    <Content Include="img\Produtos\Ferramentas\trena-starrett.jpg" />
+    <Content Include="img\Produtos\gabinete.jpg" />
+    <Content Include="img\Produtos\Iluminacao\1_pendente-nix-preto-e-dourado-aluminio-luminaria-30cm.jpg" />
+    <Content Include="img\Produtos\Iluminacao\2_luminaria-05l-trevisan-wengue.jpg" />
+    <Content Include="img\Produtos\Iluminacao\3_luminaria_pendente_prismatica_16_pol_cristal_pendente_branco.png" />
+    <Content Include="img\Produtos\Iluminacao\4_abajur-elegante-de-madeira-Bivolt.jpg" />
+    <Content Include="img\Produtos\Iluminacao\5_abatjour-de-vidro-com-4-bolas-Carmelia.jpg" />
+    <Content Include="img\Produtos\Iluminacao\6_abajur-de-mesa-02-cor-branco-metal-com-vidro.jpg" />
+    <Content Include="img\Produtos\Iluminacao\7_abajur-baju-preto-bronze-37339-occa-moderna.jpg" />
+    <Content Include="img\Produtos\Iluminacao\8_abajur-cristal-mesa-quarto-sala-decoracao-47cm.jpg" />
+    <Content Include="img\Produtos\Iluminacao\lampada-halogena-a55-70w-110v-2700k-golden.png" />
+    <Content Include="img\Produtos\Iluminacao\lampada-halogena-bulbo-70w-110v-2800k-luz-amarela-osram.png" />
+    <Content Include="img\Produtos\Iluminacao\lampada-led-buldo-13.5-100w-e27-3000k-100-240v-philips.jpg" />
+    <Content Include="img\Produtos\Iluminacao\lustre-candelabro-cristal-12-braços-nice-startec.jpg" />
+    <Content Include="img\Produtos\Iluminacao\Lustre_Pendente_De_Cristal_Acrílico_Manucrillic_Magnifico.jpg" />
+    <Content Include="img\Produtos\Iluminacao\Lâmpada_Halógena_Econômica_42W_127V_E27_OL_Iluminação.jpg" />
+    <Content Include="img\Produtos\Iluminacao\Lâmpada_LED_16W_E27_Branco_Frio_Inmetro.jpg" />
+    <Content Include="img\Produtos\Iluminacao\Lâmpada_Led_Bulbo_9w_Bivolt_Luz_Branca_Lúmens_Galaxy.jpg" />
+    <Content Include="img\Produtos\MateriaisConstrucao\1_bloco-ceramico-vedacao-frisado-6-furos-9x14x24.jpg" />
+    <Content Include="img\Produtos\MateriaisConstrucao\2_bloco_ceramico_vedacao_11,5x14x24cm_nova_conquista.jpg" />
+    <Content Include="img\Produtos\MateriaisConstrucao\3_bloco-ceramico-11-5x14x11-5cm-avermelhado-ceramica-nova-uniao.png" />
+    <Content Include="img\Produtos\MateriaisConstrucao\4_bloco-ceramico-vedacao-115x19x29.jpg" />
+    <Content Include="img\Produtos\MateriaisConstrucao\5_Cimento_Csn_cp_Ii-e-32_%28saco 50kg%29.jpg" />
+    <Content Include="img\Produtos\MateriaisConstrucao\6_cimento-obras-estruturais-50kg-votorantim.png" />
+    <Content Include="img\Produtos\MateriaisConstrucao\7_argamassa-colante-para-porcelanato-interno-branco-saco-plastico-20kg-quartzolit.png" />
+    <Content Include="img\Produtos\MateriaisConstrucao\8_Escada-Tesoura-com-Duplo-Acesso-195-Metr-cogumelo.jpg" />
+    <Content Include="img\Produtos\MateriaisConstrucao\acoplador-circular-aquapluv.jpg" />
+    <Content Include="img\Produtos\MateriaisConstrucao\bloco-ceramico-5x14x24cm-avermelhado-ceramica-nova-uniao.png" />
+    <Content Include="img\Produtos\MateriaisConstrucao\cimento.png" />
+    <Content Include="img\Produtos\MateriaisConstrucao\cimentovotoran.jpg.png" />
+    <Content Include="img\Produtos\MateriaisConstrucao\condutor-circular-aquapluv-style-88mm-branco-tigre.png" />
+    <Content Include="img\Produtos\MateriaisConstrucao\JOELHO_90°_ESGOTO_50MM_AMANCO.jpg" />
+    <Content Include="img\Produtos\MateriaisConstrucao\mini_bloco_de_vidro_classico_incolor_14,6x14,6x8cm_seves_glass_block_300x300.jpg" />
+    <Content Include="img\Produtos\MateriaisConstrucao\telha-ondulada-stilo-200x95cm-onduline.png" />
+    <Content Include="img\Produtos\MateriaisConstrucao\TelhadeFibrocimento_Ondulada_5mm_244x92cm-Infibra.jpg" />
+    <Content Include="img\Produtos\PisosRevestimentos\1_porcelanato-esmaltado-borda-reta-goiania-49x49cm-incefra.png" />
+    <Content Include="img\Produtos\PisosRevestimentos\2_porcelanato-deck-legno-borda-reta-maso-marrom-60x60cm-biancogres.png" />
+    <Content Include="img\Produtos\PisosRevestimentos\3_porcelanato-realce-acetinado-native-marfim-61x61.jpg" />
+    <Content Include="img\Produtos\PisosRevestimentos\4_Porcelanato_Delta_Vesúvio_70x70_Acetinado.jpg" />
+    <Content Include="img\Produtos\PisosRevestimentos\5_Piso_Cerejeira_45x45_Caixa_2,50m²_12_Peças_PEI3-Triunfo.jpg" />
+    <Content Include="img\Produtos\PisosRevestimentos\6_piso-ceramico-Hd-borda-bold-Ethios-bege-45x45cm-formigres.png" />
+    <Content Include="img\Produtos\PisosRevestimentos\7_Piso_Cerbras_46x46_Carajás_2,30mts_na_Caixa.jpg" />
+    <Content Include="img\Produtos\PisosRevestimentos\8_piso-laminado-eucafloor-evidence-click-7mmx21-7cmx1-35m.jpg" />
+    <Content Include="img\Produtos\PisosRevestimentos\argamassa-multiplo-uso-gsl-santaluzia.jpg" />
+    <Content Include="img\Produtos\PisosRevestimentos\Argamassa-Porcelanato-Interno-Cinza-20-KG.jpg" />
+    <Content Include="img\Produtos\PisosRevestimentos\porcelanato-esmaltado-acetinado-borda-bold-nice-plus-branco-60x60cm-eliane.png" />
+    <Content Include="img\Produtos\PisosRevestimentos\Porcelanato-retificado-90x90cm-Carrara-polido-bianco-Portobello.jpg" />
+    <Content Include="img\Produtos\PisosRevestimentos\porcelanato-retificado-delta-bege-amadeirado-54-x-54-cm_z_large.jpg" />
+    <Content Include="img\Produtos\PisosRevestimentos\porcelanato-retificado-vercelli-64x64.jpg" />
+    <Content Include="img\Produtos\PisosRevestimentos\Rejunte-Acrilico-1Kg-branco-Quartzolit.jpg" />
+    <Content Include="img\Produtos\PisosRevestimentos\REJUNTE-CERAMICAS-PLASTICO-1KG-SIMP.png" />
+    <Content Include="img\Produtos\PortasJanelas\1_porta_lisa_semi_solida_angelim.jpg" />
+    <Content Include="img\Produtos\PortasJanelas\2_kit_porta_pronta_branca_lisa_Pormade.jpg" />
+    <Content Include="img\Produtos\PortasJanelas\3_porta-de-correr-de-madeira-pantografica-arco.jpg" />
+    <Content Include="img\Produtos\PortasJanelas\4_Porta_De_Alumínio_Social_Postigo_2,10x0,80_Direita_Linha_All_Modular.jpg" />
+    <Content Include="img\Produtos\PortasJanelas\5_porta-de-correr-balcao-6-folhas-aluminio-plus.jpg" />
+    <Content Include="img\Produtos\PortasJanelas\6_Porta_PalhetaCom_Visor_Duplo_Alumínio_Brilhan_e_Linha_Design.jpg" />
+    <Content Include="img\Produtos\PortasJanelas\7_janela-de-correr-aluminio-4-folhas-com-grade-e-vidro-caribe-100cmx120cm-branco.jpg" />
+    <Content Include="img\Produtos\PortasJanelas\8_Janela_Extra_100x12x150cm_Grade_Quadrada-Crv.jpg" />
+    <Content Include="img\Produtos\PortasJanelas\folha-de-porta-standard-freijo-210x80cm-vert.png" />
+    <Content Include="img\Produtos\PortasJanelas\janela-basculante-aluminio-2-folhas-sasazaki-60cmx60cmx3-3cm1500x1500.jpg" />
+    <Content Include="img\Produtos\PortasJanelas\janela-de-aluminio-ramassol-slim-modular.jpg" />
+    <Content Include="img\Produtos\PortasJanelas\janela-integrada-veneziana-aluminio-3-folhas-120cm-150cm-sasazaki1500x1500.jpg" />
+    <Content Include="img\Produtos\PortasJanelas\JaneladeCorreremMadeiraEucaliptoQuadriculadacomFerragens-Batentede10_Cm.jpg" />
+    <Content Include="img\Produtos\PortasJanelas\Janela_basculante_3folhasbranco_080x080x3_3_Sasazaki.jpg" />
+    <Content Include="img\Produtos\PortasJanelas\porta_pivotante_madeira_maciça_cedro_rosa_com_batente.jpg" />
+    <Content Include="img\Produtos\PortasJanelas\Porta_Standard_Lisa_Primer_Branca_62cm.jpg" />
+    <Content Include="img\Produtos\vaso_sanitario.jpg" />
+    <Content Include="img\QuemSomos\q5.jpg" />
+    <Content Include="img\QuemSomos\q3.jpg" />
+    <Content Include="img\QuemSomos\q4.png" />
+    <Content Include="img\QuemSomos\q6.jpg" />
+    <Content Include="img\QuemSomos\q7.jpg" />
+    <Content Include="img\QuemSomos\qs1.jpg" />
+    <Content Include="img\QuemSomos\qs2.png" />
+    <Content Include="img\Slider\i1.jpg" />
+    <Content Include="img\Slider\i2.jpg" />
+    <Content Include="img\Slider\i3.jpg" />
+    <Content Include="Models\LoginModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LoginModel.edmx</DependentUpon>
+      <LastGenOutput>LoginModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\LoginModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LoginModel.edmx</DependentUpon>
+      <LastGenOutput>LoginModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="scripts\bootstrap.bundle.js" />
+    <Content Include="scripts\bootstrap.bundle.min.js" />
+    <Content Include="scripts\bootstrap.js" />
+    <Content Include="scripts\bootstrap.min.js" />
+    <None Include="scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="scripts\Cadastro.js" />
+    <Content Include="scripts\FaleConosco.js" />
+    <Content Include="scripts\Index.js" />
+    <Content Include="scripts\jquery-1.10.2.js" />
+    <Content Include="scripts\jquery-1.10.2.min.js" />
+    <Content Include="scripts\jquery.js" />
+    <Content Include="scripts\jquery.mask.js" />
+    <Content Include="scripts\jquery.mask.min.js" />
+    <Content Include="scripts\jquery.min.js" />
+    <Content Include="scripts\jquery.slim.js" />
+    <Content Include="scripts\jquery.slim.min.js" />
+    <Content Include="scripts\layout.js" />
+    <Content Include="scripts\login.js" />
+    <Content Include="scripts\modernizr-2.6.2.js" />
+    <Content Include="scripts\Validacao.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CadastroController.cs" />
+    <Compile Include="Controllers\DetalheProdutoController.cs" />
+    <Compile Include="Controllers\FaleController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\PagamentoController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\carrinhomodel.cs" />
+    <Compile Include="Models\detalhesmodel.cs" />
+    <Compile Include="Models\LoginModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LoginModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LoginModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LoginModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LoginModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LoginModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\pesq_cupom_Result.cs">
+      <DependentUpon>LoginModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\produtosrecentes_Result.cs">
+      <DependentUpon>LoginModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_cupomadquirido_Result.cs">
+      <DependentUpon>LoginModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_exibircomentarioproduto_Result.cs">
+      <DependentUpon>LoginModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbCargo.cs">
+      <DependentUpon>LoginModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbCategoria.cs">
+      <DependentUpon>LoginModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbCliente.cs">
+      <DependentUpon>LoginModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbComentario.cs">
+      <DependentUpon>LoginModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbContato.cs">
+      <DependentUpon>LoginModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbCupom.cs">
+      <DependentUpon>LoginModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbCupom_Cliente.cs">
+      <DependentUpon>LoginModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbDestinatario.cs">
+      <DependentUpon>LoginModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbEstoque.cs">
+      <DependentUpon>LoginModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbFormaPgto.cs">
+      <DependentUpon>LoginModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbFornecedore.cs">
+      <DependentUpon>LoginModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbFuncionario.cs">
+      <DependentUpon>LoginModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbItem_Orcamento.cs">
+      <DependentUpon>LoginModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbItem_Pedido.cs">
+      <DependentUpon>LoginModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbItem_Venda.cs">
+      <DependentUpon>LoginModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbLancamento.cs">
+      <DependentUpon>LoginModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbLog_Entrada_Produto.cs">
+      <DependentUpon>LoginModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbLog_Saida_Produto.cs">
+      <DependentUpon>LoginModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbNivelAcesso.cs">
+      <DependentUpon>LoginModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbOrcamento.cs">
+      <DependentUpon>LoginModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbPedido.cs">
+      <DependentUpon>LoginModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbPeriodo.cs">
+      <DependentUpon>LoginModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbPgto_Orcamento.cs">
+      <DependentUpon>LoginModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbPgto_Pedido.cs">
+      <DependentUpon>LoginModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbPgto_Venda.cs">
+      <DependentUpon>LoginModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbProduto.cs">
+      <DependentUpon>LoginModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbTipoTitulo.cs">
+      <DependentUpon>LoginModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbUnidadeVenda.cs">
+      <DependentUpon>LoginModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbUsuario.cs">
+      <DependentUpon>LoginModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbVenda.cs">
+      <DependentUpon>LoginModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <EntityDeploy Include="Models\LoginModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LoginModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\LoginModel.edmx.diagram">
+      <DependentUpon>LoginModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="img\Produtos\Elétrica\Cabo-Flexivel-com-ate-750V-25mm-preto-100-metros-Cobrecom.webp" />
+    <Content Include="img\Produtos\Elétrica\cabo_flexivel__10mm_100metros_preto_750v_megatron600x600.webp" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="packages.config" />
+    <Content Include="scripts\bootstrap.bundle.js.map" />
+    <Content Include="scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="scripts\bootstrap.js.map" />
+    <Content Include="scripts\bootstrap.min.js.map" />
+    <Content Include="scripts\jquery.min.map" />
+    <Content Include="scripts\jquery.slim.min.map" />
+    <Content Include="scripts\jquery-1.10.2.min.map" />
+    <None Include="Views\Home\BuscarLogin.cshtml" />
+    <Content Include="Views\Home\Fornecedor.cshtml" />
+    <Content Include="Views\Home\Cozinha.cshtml" />
+    <Content Include="Views\Fale\FaleConosco.cshtml" />
+    <Content Include="Views\Cadastro\Cadastro.cshtml" />
+    <Content Include="Views\Login\ClienteLogado.cshtml" />
+    <Content Include="Views\Home\Cupons.cshtml" />
+    <Content Include="Views\Home\DetalhesProduto.cshtml" />
+    <None Include="Views\Home\Index.cshtml" />
+    <None Include="Views\Home\Ferramentas.cshtml" />
+    <Content Include="Views\Login\Loginn.cshtml" />
+    <Content Include="Views\Home\MensagemFaleConosco.cshtml" />
+    <Content Include="Views\Home\ListaDesejo.cshtml" />
+    <Content Include="Views\Home\MensagemCupom.cshtml" />
+    <None Include="Views\Home\Portas.cshtml" />
+    <None Include="Views\Home\Pisos.cshtml" />
+    <None Include="Views\Home\AreaExterna.cshtml" />
+    <None Include="Views\Home\Banheiro.cshtml" />
+    <None Include="Views\Home\Eletrica.cshtml" />
+    <None Include="Views\Home\Iluminacao.cshtml" />
+    <Content Include="Views\Home\QuemSomos.cshtml" />
+    <None Include="Views\Home\Tintas.cshtml" />
+    <None Include="Views\Home\Materiais.cshtml" />
+    <Content Include="Views\Home\Produtos.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\LayoutLogado.cshtml" />
+    <Content Include="Views\Home\View2.cshtml" />
+    <Content Include="Views\Pagamento\Pagamento.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Default\" />
+    <Folder Include="Views\Detalhe\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50772</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:50772/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este projeto faz referência a pacotes do NuGet que não estão presentes neste computador. Use a Restauração de Pacotes do NuGet para baixá-los.  Para obter mais informações, consulte http://go.microsoft.com/fwlink/?LinkID=322105. O arquivo ausente é {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

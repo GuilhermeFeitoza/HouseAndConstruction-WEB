@@ -1,0 +1,42 @@
+﻿@charset "utf-8";
+
+*{
+    margin: 0;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #1e90ff;
+}
+
+article.pg{
+    margin: 20px 200px 20px 200px;
+    border: 1px solid #fff;
+    padding: 10px;
+    
+}
+
+.img{
+    padding: 10px 10px;
+    position: center;
+    
+
+}
+
+.pg {
+    position: relative;
+    padding: 10px 10px;
+    top: 100px;
+    text-align: justify;
+}
+
+ul, h1, p{
+    color: #fff;
+}
+
+#paragrafo{
+    font-weight: bold;
+    font-size: 25pt;
+    color: #fff;
+    
+}

@@ -1,0 +1,216 @@
+﻿@model LojaMateriaisParaConstrucao.Models.tbCliente
+
+@{
+    Layout = null;
+    ViewBag.Title = "Login";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <script>
+
+        function RetiraMascara() {
+            $("#txtCPF").unmask();
+        }
+
+
+    </script>
+    <meta name="viewport" content="width=device-width" />
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/scripts/jquery.js"></script>
+    <script src="~/scripts/Cadastro.js"></script>
+    <script src="~/scripts/Validacao.js"></script>
+
+
+    <style>
+        body {
+            background-color: #0094ff;
+        }
+
+        #divImgLogo {
+            width: 875px;
+            margin: auto;
+            margin-top: 20px;
+        }
+
+        #imgLogo {
+            margin-bottom: -20px;
+            width: 400px;
+            height: 170px;
+        }
+
+        #page {
+            background-color: #fff;
+            height: 100%;
+            width: 875px;
+            margin: auto;
+            margin-top: -10px;
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+
+        #idTitulo {
+            color: #0094ff;
+            text-align: center;
+        }
+
+        #paraEndereco {
+            color: #0094ff;
+            font-size: 20pt;
+        }
+
+        #idMasc, #idFem {
+            margin-top: 4%;
+        }
+
+        #idFem {
+            margin-left: 7%;
+        }
+
+        #asterisco {
+            color: #f00;
+        }
+
+        #btnProximo {
+            width: 100%;
+            margin: 0px auto;
+        }
+    </style>
+
+
+    <title>Cadastro</title>
+</head>
+<body>
+
+
+
+
+    @using (Html.BeginForm("CadastrarCliente", "Cadastro", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()//previne um ataque CSRF
+
+        <div id="divImgLogo">
+            <img src="~/img/logo.png" id="imgLogo" />
+        </div>
+        <div id="page">
+            <div class="col-sm-12">
+                <h1 id="idTitulo">Cadastro</h1>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    Nome Completo: <span id="asterisco">*</span>
+                    @Html.TextBoxFor(m => Model.Nome, new { @class = "form-control", name = "txtNomeCompleto", id = "txtNomeCompleto", maxlength = "50" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    CPF: <span id="asterisco">*</span>
+
+                    @Html.TextBoxFor(m => Model.Cpf, new { @class = "form-control", name = "txtCPF", id = "txtCPF", maxlength = "11", onblur= "VerificaCPF();" })
+                </div>
+                <div class="col-sm-3">
+                    RG:
+                    @Html.TextBoxFor(m => Model.Rg, new { @class = "form-control", name = "txtRG", id = "txtRG", placeholder = "", maxlength = "9" })
+                </div>
+                <div class="col-sm-3">
+                    Data Nascimento: <span id="asterisco">*</span>
+
+                    @Html.TextBoxFor(m => Model.DataNascimento, new { @class = "form-control", name = "txtDataNasc", id = "txtDataNasc", maxlength = "10", onblur="validateDate(id);", onkeypress= "mascaraData(this, event);" })
+                </div>
+                <div class="col-sm-3">
+                    Sexo: <span id="asterisco">*</span> <br />
+                    @Html.RadioButtonFor(model => model.Sexo, "M", new { @class = "form-Control" }) Masculino
+                    @Html.RadioButtonFor(model => model.Sexo, "F", new { @class = "form-Control" }) Feminino
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-9">
+                    E-mail: <span id="asterisco">*</span>
+
+                    @Html.TextBoxFor(m => Model.Email, new { @class = "form-control", name = "txtEmail", onblur = "checarEmail();", id = "txtEmail", placeholder = "exemplo@email.com", maxlength = "50" })
+                </div>
+                <div class="col-sm-3">
+                    Telefone:
+                    @Html.TextBoxFor(m => Model.Telefone, new { @class = "form-control", name = "txtTel", id = "txtTel", maxlength = "15" })
+                </div>
+            </div> <br />
+            <div class="row">
+                <div class="col-sm-6">
+                    Senha: <span id="asterisco">*</span>
+                    @Html.TextBoxFor(m => Model.Senha, new { @class = "form-control", name = "txtSenha", id = "txtSenha", placeholder = "", maxlength = "12", type = "password" })
+                </div>
+                <div class="col-sm-6">
+                    Confirmar Senha: <span id="asterisco">*</span>
+                    <input type="password" class="form-control" />
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-sm-12">
+                    <p id="paraEndereco">Endereço</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    CEP: <span id="asterisco">*</span>
+
+                    @Html.TextBoxFor(m => Model.CEP, new { @class = "form-control", name = "txtCEP", id = "txtCEP", maxlength = "8" })
+                </div>
+                <div class="col-sm-4">
+                    Cidade: <span id="asterisco">*</span>
+
+                    @Html.TextBoxFor(m => Model.Cidade, new { @class = "form-control", name = "txtCidade", id = "txtCidade", placeholder = "", maxlength = "50" })
+                </div>
+                <div class="col-sm-4">
+                    Bairro: <span id="asterisco">*</span>
+
+                    @Html.TextBoxFor(m => Model.Bairro, new { @class = "form-control", name = "txtBairro", id = "txtBairro", placeholder = "", maxlength = "50" })
+                </div>
+                <div class="col-sm-2">
+                    UF: <span id="asterisco">*</span>
+                    @Html.TextBoxFor(m => Model.UF, new { @class = "form-control", name = "txtUF", id = "txtUF", placeholder = "", maxlength = "2" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-10">
+                    Rua: <span id="asterisco">*</span>
+
+                    @Html.TextBoxFor(m => Model.Endereco, new { @class = "form-control", name = "txtRua", id = "txtRua", maxlength = "60" })
+                </div>
+                <div class="col-sm-2">
+                    Numero: <span id="asterisco">*</span>
+
+                    @Html.TextBoxFor(m => Model.Numero, new { @class = "form-control", name = "txtNumero", id = "txtNumero", placeholder = "", maxlength = "10" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    Complemento:
+                    @Html.TextBoxFor(m => Model.Complemento, new { @class = "form-control", name = "txtComplemento", id = "txtComplemento", placeholder = "", maxlength = "100" })
+                </div>
+            </div>
+            <p id="asterisco"> (*) campos obrigatórios</p>
+            <div style="margin-top:20px;">
+                <input type="submit" value="Cadastrar" class="btn btn-primary @*btn-lg*@ btn-block" id="btnProximo" onclick="RetiraMascara();">
+                <p class="txt-center">
+                    Já possui uma conta na HAC?
+                    <a href="@Url.Action("Loginn", "Login")">Entre</a>
+                </p>
+
+                <p class="txt-center ls-login-signup">
+                    <a href="@Url.Action("Index", "Home")">Voltar para a Home</a>
+                </p>
+            </div>
+        </div>
+
+        <script src="~/scripts/jquery.mask.js"></script>
+        <script src="~/scripts/jquery.mask.min.js"></script>      
+        <script src="~/scripts/Cadastro.js"></script>
+    }
+</body>
+</html>

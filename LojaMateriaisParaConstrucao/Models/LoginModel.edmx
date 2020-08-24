@@ -1,0 +1,2135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="LojaDeMateriaisParaConstrucaoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbCargo">
+          <Key>
+            <PropertyRef Name="CodigoCargo" />
+          </Key>
+          <Property Name="CodigoCargo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomeCargo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Abreviacao" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="DescricaoCargo" Type="varchar" MaxLength="200" />
+          <Property Name="StatusCargo" Type="int" />
+        </EntityType>
+        <EntityType Name="tbCategoria">
+          <Key>
+            <PropertyRef Name="CodigoCategoria" />
+          </Key>
+          <Property Name="CodigoCategoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomeCategoria" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="DescricaoCategoria" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="tbCliente">
+          <Key>
+            <PropertyRef Name="CodigoCliente" />
+          </Key>
+          <Property Name="CodigoCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="DataNascimento" Type="datetime" Nullable="false" />
+          <Property Name="Endereco" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Bairro" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cidade" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Complemento" Type="varchar" MaxLength="50" />
+          <Property Name="Numero" Type="int" />
+          <Property Name="UF" Type="char" MaxLength="2" />
+          <Property Name="CEP" Type="char" MaxLength="8" />
+          <Property Name="Rg" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Cpf" Type="char" MaxLength="11" Nullable="false" />
+          <Property Name="Sexo" Type="char" MaxLength="1" />
+          <Property Name="Telefone" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CodigoLoginCliente" Type="int" />
+          <Property Name="StatusCliente" Type="int" />
+          <Property Name="Senha" Type="varchar" MaxLength="12" />
+        </EntityType>
+        <EntityType Name="tbComentario">
+          <Key>
+            <PropertyRef Name="CodigoComentario" />
+          </Key>
+          <Property Name="CodigoComentario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodigoCliente" Type="int" />
+          <Property Name="CodigoProduto" Type="int" />
+          <Property Name="Avaliacao" Type="int" />
+          <Property Name="TituloComentario" Type="varchar" MaxLength="100" />
+          <Property Name="Comentario" Type="varchar(max)" />
+          <Property Name="DataComentario" Type="date" />
+          <Property Name="StatusComentario" Type="int" />
+        </EntityType>
+        <EntityType Name="tbContato">
+          <Key>
+            <PropertyRef Name="CodigoContato" />
+          </Key>
+          <Property Name="CodigoContato" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomeContato" Type="varchar" MaxLength="100" />
+          <Property Name="EmailContato" Type="varchar" MaxLength="100" />
+          <Property Name="AssuntoContato" Type="varchar" MaxLength="100" />
+          <Property Name="TelContato" Type="varchar" MaxLength="20" />
+          <Property Name="DataContato" Type="datetime" />
+          <Property Name="Mensagem" Type="varchar" MaxLength="1000" />
+          <Property Name="StatusContato" Type="int" />
+          <Property Name="Resposta" Type="varchar" MaxLength="1000" />
+          <Property Name="CodigoUsuario" Type="int" />
+        </EntityType>
+        <EntityType Name="tbCupom">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descricao" Type="varchar" MaxLength="100" />
+          <Property Name="CodigoCupom" Type="varchar" MaxLength="10" />
+          <Property Name="ValorCupom" Type="decimal" Precision="7" Scale="2" />
+          <Property Name="DataInicio" Type="date" />
+          <Property Name="DataFim" Type="date" />
+          <Property Name="StatusCupom" Type="int" />
+        </EntityType>
+        <EntityType Name="tbCupom_Cliente">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="CodigoCliente" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="CodigoCliente" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbDestinatario">
+          <Key>
+            <PropertyRef Name="CodigoDestinatario" />
+          </Key>
+          <Property Name="CodigoDestinatario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomeDestinatario" Type="varchar" MaxLength="100" />
+          <Property Name="EnderecoDestinatario" Type="varchar" MaxLength="200" />
+          <Property Name="BairroDestinatario" Type="varchar" MaxLength="60" />
+          <Property Name="CidadeDestinatario" Type="varchar" MaxLength="70" />
+          <Property Name="UFDestinatario" Type="char" MaxLength="2" />
+          <Property Name="CEPDestinatario" Type="varchar" MaxLength="8" />
+          <Property Name="NumeroDestinatario" Type="int" />
+          <Property Name="ComplementoDestinatario" Type="varchar" MaxLength="50" />
+          <Property Name="TelDestinatario" Type="varchar" MaxLength="15" />
+          <Property Name="StatusDestinatario" Type="bit" />
+        </EntityType>
+        <EntityType Name="tbEstoque">
+          <Key>
+            <PropertyRef Name="CodigoEstoque" />
+          </Key>
+          <Property Name="CodigoEstoque" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodigoProduto" Type="int" />
+          <Property Name="QuantidadeAtual" Type="int" />
+        </EntityType>
+        <EntityType Name="tbFormaPgto">
+          <Key>
+            <PropertyRef Name="CodigoFormaPgto" />
+          </Key>
+          <Property Name="CodigoFormaPgto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomeFormaPgto" Type="varchar" MaxLength="50" />
+          <Property Name="Descricao" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbFornecedores">
+          <Key>
+            <PropertyRef Name="CodigoFornecedor" />
+          </Key>
+          <Property Name="CodigoFornecedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomeFantasia" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="RazaoSocial" Type="varchar" MaxLength="60" />
+          <Property Name="CNPJ" Type="char" MaxLength="14" />
+          <Property Name="CEP" Type="char" MaxLength="8" />
+          <Property Name="Complemento" Type="varchar" MaxLength="50" />
+          <Property Name="Numero" Type="int" />
+          <Property Name="Tel" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="StatusFornecedor" Type="int" />
+        </EntityType>
+        <EntityType Name="tbFuncionario">
+          <Key>
+            <PropertyRef Name="CodigoFuncionario" />
+          </Key>
+          <Property Name="CodigoFuncionario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Sexo" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="DataNascimento" Type="datetime" Nullable="false" />
+          <Property Name="CPF" Type="char" MaxLength="11" Nullable="false" />
+          <Property Name="RG" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CEP" Type="char" MaxLength="8" Nullable="false" />
+          <Property Name="Numero" Type="int" Nullable="false" />
+          <Property Name="Complemento" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Telefone" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Foto" Type="varchar" MaxLength="1000" />
+          <Property Name="Salario" Type="decimal" Precision="15" Scale="2" />
+          <Property Name="CodigoCargo" Type="int" />
+          <Property Name="DataAdmissao" Type="datetime" />
+          <Property Name="StatusFuncionario" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'LojaDeMateriaisParaConstrucao.dbo.tbItem_Orcamento' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tbItem_Orcamento">
+          <Key>
+            <PropertyRef Name="CodigoItem_Orcamento" />
+          </Key>
+          <Property Name="CodigoItem_Orcamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodigoOrcamento" Type="int" />
+          <Property Name="CodigoProduto" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'LojaDeMateriaisParaConstrucao.dbo.tbItem_Pedido' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tbItem_Pedido">
+          <Key>
+            <PropertyRef Name="CodigoItem_Pedido" />
+          </Key>
+          <Property Name="CodigoItem_Pedido" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodigoPedido" Type="int" />
+          <Property Name="CodigoProduto" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'LojaDeMateriaisParaConstrucao.dbo.tbItem_Venda' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tbItem_Venda">
+          <Key>
+            <PropertyRef Name="CodigoItem_Venda" />
+          </Key>
+          <Property Name="CodigoItem_Venda" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodigoVenda" Type="int" />
+          <Property Name="CodigoProduto" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'LojaDeMateriaisParaConstrucao.dbo.tbLancamento' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tbLancamento">
+          <Key>
+            <PropertyRef Name="CodigoLancamento" />
+            <PropertyRef Name="CodigoTitulo" />
+            <PropertyRef Name="DataVencimento" />
+          </Key>
+          <Property Name="CodigoLancamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodigoTitulo" Type="int" Nullable="false" />
+          <Property Name="DataVencimento" Type="datetime" Nullable="false" />
+          <Property Name="ValorTitulo" Type="decimal" Precision="7" Scale="2" />
+          <Property Name="StatusPagTitulo" Type="bit" />
+          <Property Name="DataPagamento" Type="datetime" />
+          <Property Name="ValorPagamento" Type="decimal" Precision="7" Scale="2" />
+          <Property Name="CodigoUsuario" Type="int" />
+        </EntityType>
+        <EntityType Name="tbLog_Entrada_Produto">
+          <Key>
+            <PropertyRef Name="CodigoEntrada" />
+          </Key>
+          <Property Name="CodigoEntrada" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodigoProduto" Type="int" />
+          <Property Name="Quantidade" Type="int" />
+          <Property Name="DataEntrada" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbLog_Saida_Produto">
+          <Key>
+            <PropertyRef Name="CodigoSaida" />
+          </Key>
+          <Property Name="CodigoSaida" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodigoProduto" Type="int" />
+          <Property Name="Quantidade" Type="int" />
+          <Property Name="DataSaida" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbNivelAcesso">
+          <Key>
+            <PropertyRef Name="CodigoNivelAcesso" />
+          </Key>
+          <Property Name="CodigoNivelAcesso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomeNivelAcesso" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Abreviacao" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="Descricao" Type="varchar" MaxLength="200" />
+          <Property Name="Permissao_Usuarios" Type="bit" />
+          <Property Name="Permissao_Clientes" Type="bit" />
+          <Property Name="Permissao_Funcionarios" Type="bit" />
+          <Property Name="Permissao_Fornecedores" Type="bit" />
+          <Property Name="Permissao_Produtos" Type="bit" />
+          <Property Name="Permissao_Contas" Type="bit" />
+          <Property Name="Permissao_Vender" Type="bit" />
+          <Property Name="Permissao_Orcamento" Type="bit" />
+          <Property Name="StatusNivel" Type="bit" />
+        </EntityType>
+        <EntityType Name="tbOrcamento">
+          <Key>
+            <PropertyRef Name="CodigoOrcamento" />
+          </Key>
+          <Property Name="CodigoOrcamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodigoCliente" Type="int" />
+          <Property Name="CodigoFuncionario" Type="int" />
+          <Property Name="DataOrcamento" Type="datetime" />
+          <Property Name="ValorTotal" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="tbPedido">
+          <Key>
+            <PropertyRef Name="CodigoPedido" />
+          </Key>
+          <Property Name="CodigoPedido" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodigoCliente" Type="int" />
+          <Property Name="CodigoFuncionario" Type="int" />
+          <Property Name="DataPedido" Type="datetime" />
+          <Property Name="DataEntrega" Type="datetime" />
+          <Property Name="ValorTotalPedido" Type="money" />
+          <Property Name="CodigoDestinatario" Type="int" />
+          <Property Name="CodigoPgto_Pedido" Type="int" />
+          <Property Name="StatusPedido" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'LojaDeMateriaisParaConstrucao.dbo.tbPeriodo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tbPeriodo">
+          <Key>
+            <PropertyRef Name="CodigoPeriodo" />
+          </Key>
+          <Property Name="CodigoPeriodo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DescricaoPeriodo" Type="varchar" MaxLength="90" />
+          <Property Name="ValorPeriodo" Type="int" />
+          <Property Name="SinalPeriodo" Type="varchar" MaxLength="1" />
+          <Property Name="StatusPeriodo" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'LojaDeMateriaisParaConstrucao.dbo.tbPgto_Orcamento' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tbPgto_Orcamento">
+          <Key>
+            <PropertyRef Name="CodigoPgto_Orcamento" />
+          </Key>
+          <Property Name="CodigoPgto_Orcamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodigoFormaPgto" Type="int" />
+          <Property Name="CodigoOrcamento" Type="int" />
+          <Property Name="ValorForma" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'LojaDeMateriaisParaConstrucao.dbo.tbPgto_Pedido' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tbPgto_Pedido">
+          <Key>
+            <PropertyRef Name="CodigoPgto_Pedido" />
+          </Key>
+          <Property Name="CodigoPgto_Pedido" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodigoFormaPgto" Type="int" />
+          <Property Name="CodigoPedido" Type="int" />
+          <Property Name="ValorForma" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'LojaDeMateriaisParaConstrucao.dbo.tbPgto_Venda' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tbPgto_Venda">
+          <Key>
+            <PropertyRef Name="CodigoPgto_Venda" />
+          </Key>
+          <Property Name="CodigoPgto_Venda" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodigoFormaPgto" Type="int" />
+          <Property Name="CodigoVenda" Type="int" />
+          <Property Name="ValorForma" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="tbProduto">
+          <Key>
+            <PropertyRef Name="CodigoProduto" />
+          </Key>
+          <Property Name="CodigoProduto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar(max)" />
+          <Property Name="Descricao" Type="varchar(max)" Nullable="false" />
+          <Property Name="CodigoUnidadeVenda" Type="int" />
+          <Property Name="CodigoBarra" Type="varchar" MaxLength="300" />
+          <Property Name="Quantidade" Type="int" />
+          <Property Name="EstoqueMinimo" Type="int" />
+          <Property Name="EstoqueMaximo" Type="int" />
+          <Property Name="CodigoFornecedor" Type="int" />
+          <Property Name="CodigoCategoria" Type="int" />
+          <Property Name="DataEntrada" Type="datetime" />
+          <Property Name="Marca" Type="varchar" MaxLength="100" />
+          <Property Name="Imagem" Type="varchar" MaxLength="1000" />
+          <Property Name="StatusProduto" Type="bit" />
+          <Property Name="ValorUnit" Type="decimal" Precision="15" Scale="2" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'LojaDeMateriaisParaConstrucao.dbo.tbTipoTitulo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tbTipoTitulo">
+          <Key>
+            <PropertyRef Name="CodigoTitulo" />
+          </Key>
+          <Property Name="CodigoTitulo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DescricaoTitulo" Type="varchar" MaxLength="100" />
+          <Property Name="StatusTitulo" Type="bit" />
+        </EntityType>
+        <EntityType Name="tbUnidadeVenda">
+          <Key>
+            <PropertyRef Name="CodigoUnidadeVenda" />
+          </Key>
+          <Property Name="CodigoUnidadeVenda" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomeUnidadeVenda" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Abreviacao" Type="varchar" MaxLength="8" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbUsuario">
+          <Key>
+            <PropertyRef Name="CodigoUsuario" />
+          </Key>
+          <Property Name="CodigoUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomeUsuario" Type="varchar" MaxLength="50" />
+          <Property Name="SenhaUsuario" Type="varchar" MaxLength="20" />
+          <Property Name="StatusUsuario" Type="int" />
+          <Property Name="DataAcessoUsuario" Type="datetime" />
+          <Property Name="DataCadastroUsuario" Type="datetime" />
+          <Property Name="CodigoNivelAcesso" Type="int" />
+        </EntityType>
+        <EntityType Name="tbVenda">
+          <Key>
+            <PropertyRef Name="CodigoVenda" />
+          </Key>
+          <Property Name="CodigoVenda" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodigoCliente" Type="int" />
+          <Property Name="CodigoFuncionario" Type="int" />
+          <Property Name="DataVenda" Type="datetime" />
+          <Property Name="ValorTotal" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="CodigoPgto_Venda" Type="int" />
+        </EntityType>
+        <Association Name="fk_cat_Prod">
+          <End Role="tbCategoria" Type="Self.tbCategoria" Multiplicity="0..1" />
+          <End Role="tbProduto" Type="Self.tbProduto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbCategoria">
+              <PropertyRef Name="CodigoCategoria" />
+            </Principal>
+            <Dependent Role="tbProduto">
+              <PropertyRef Name="CodigoCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_cli_coment">
+          <End Role="tbCliente" Type="Self.tbCliente" Multiplicity="0..1" />
+          <End Role="tbComentario" Type="Self.tbComentario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbCliente">
+              <PropertyRef Name="CodigoCliente" />
+            </Principal>
+            <Dependent Role="tbComentario">
+              <PropertyRef Name="CodigoCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_cli_orcamento">
+          <End Role="tbCliente" Type="Self.tbCliente" Multiplicity="0..1" />
+          <End Role="tbOrcamento" Type="Self.tbOrcamento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbCliente">
+              <PropertyRef Name="CodigoCliente" />
+            </Principal>
+            <Dependent Role="tbOrcamento">
+              <PropertyRef Name="CodigoCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_cli_venda">
+          <End Role="tbCliente" Type="Self.tbCliente" Multiplicity="0..1" />
+          <End Role="tbVenda" Type="Self.tbVenda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbCliente">
+              <PropertyRef Name="CodigoCliente" />
+            </Principal>
+            <Dependent Role="tbVenda">
+              <PropertyRef Name="CodigoCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_forn_prod">
+          <End Role="tbFornecedores" Type="Self.tbFornecedores" Multiplicity="0..1" />
+          <End Role="tbProduto" Type="Self.tbProduto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbFornecedores">
+              <PropertyRef Name="CodigoFornecedor" />
+            </Principal>
+            <Dependent Role="tbProduto">
+              <PropertyRef Name="CodigoFornecedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_func_orcamento">
+          <End Role="tbFuncionario" Type="Self.tbFuncionario" Multiplicity="0..1" />
+          <End Role="tbOrcamento" Type="Self.tbOrcamento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbFuncionario">
+              <PropertyRef Name="CodigoFuncionario" />
+            </Principal>
+            <Dependent Role="tbOrcamento">
+              <PropertyRef Name="CodigoFuncionario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_func_venda">
+          <End Role="tbFuncionario" Type="Self.tbFuncionario" Multiplicity="0..1" />
+          <End Role="tbVenda" Type="Self.tbVenda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbFuncionario">
+              <PropertyRef Name="CodigoFuncionario" />
+            </Principal>
+            <Dependent Role="tbVenda">
+              <PropertyRef Name="CodigoFuncionario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_idCargoFunc">
+          <End Role="tbCargo" Type="Self.tbCargo" Multiplicity="0..1" />
+          <End Role="tbFuncionario" Type="Self.tbFuncionario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbCargo">
+              <PropertyRef Name="CodigoCargo" />
+            </Principal>
+            <Dependent Role="tbFuncionario">
+              <PropertyRef Name="CodigoCargo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_msg_usu">
+          <End Role="tbUsuario" Type="Self.tbUsuario" Multiplicity="0..1" />
+          <End Role="tbContato" Type="Self.tbContato" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbUsuario">
+              <PropertyRef Name="CodigoUsuario" />
+            </Principal>
+            <Dependent Role="tbContato">
+              <PropertyRef Name="CodigoUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_orc_itemOrc">
+          <End Role="tbOrcamento" Type="Self.tbOrcamento" Multiplicity="0..1" />
+          <End Role="tbItem_Orcamento" Type="Self.tbItem_Orcamento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbOrcamento">
+              <PropertyRef Name="CodigoOrcamento" />
+            </Principal>
+            <Dependent Role="tbItem_Orcamento">
+              <PropertyRef Name="CodigoOrcamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_orc_pgtoOrcamento">
+          <End Role="tbFormaPgto" Type="Self.tbFormaPgto" Multiplicity="0..1" />
+          <End Role="tbPgto_Orcamento" Type="Self.tbPgto_Orcamento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbFormaPgto">
+              <PropertyRef Name="CodigoFormaPgto" />
+            </Principal>
+            <Dependent Role="tbPgto_Orcamento">
+              <PropertyRef Name="CodigoFormaPgto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_orc_pgtoPedido">
+          <End Role="tbFormaPgto" Type="Self.tbFormaPgto" Multiplicity="0..1" />
+          <End Role="tbPgto_Pedido" Type="Self.tbPgto_Pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbFormaPgto">
+              <PropertyRef Name="CodigoFormaPgto" />
+            </Principal>
+            <Dependent Role="tbPgto_Pedido">
+              <PropertyRef Name="CodigoFormaPgto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ped_itemPed">
+          <End Role="tbPedido" Type="Self.tbPedido" Multiplicity="0..1" />
+          <End Role="tbItem_Pedido" Type="Self.tbItem_Pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbPedido">
+              <PropertyRef Name="CodigoPedido" />
+            </Principal>
+            <Dependent Role="tbItem_Pedido">
+              <PropertyRef Name="CodigoPedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_prod_coment">
+          <End Role="tbProduto" Type="Self.tbProduto" Multiplicity="0..1" />
+          <End Role="tbComentario" Type="Self.tbComentario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbProduto">
+              <PropertyRef Name="CodigoProduto" />
+            </Principal>
+            <Dependent Role="tbComentario">
+              <PropertyRef Name="CodigoProduto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_prod_entr">
+          <End Role="tbProduto" Type="Self.tbProduto" Multiplicity="0..1" />
+          <End Role="tbLog_Entrada_Produto" Type="Self.tbLog_Entrada_Produto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbProduto">
+              <PropertyRef Name="CodigoProduto" />
+            </Principal>
+            <Dependent Role="tbLog_Entrada_Produto">
+              <PropertyRef Name="CodigoProduto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_prod_est">
+          <End Role="tbProduto" Type="Self.tbProduto" Multiplicity="0..1" />
+          <End Role="tbEstoque" Type="Self.tbEstoque" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbProduto">
+              <PropertyRef Name="CodigoProduto" />
+            </Principal>
+            <Dependent Role="tbEstoque">
+              <PropertyRef Name="CodigoProduto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_prod_itemOrc">
+          <End Role="tbProduto" Type="Self.tbProduto" Multiplicity="0..1" />
+          <End Role="tbItem_Orcamento" Type="Self.tbItem_Orcamento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbProduto">
+              <PropertyRef Name="CodigoProduto" />
+            </Principal>
+            <Dependent Role="tbItem_Orcamento">
+              <PropertyRef Name="CodigoProduto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_prod_itemPed">
+          <End Role="tbProduto" Type="Self.tbProduto" Multiplicity="0..1" />
+          <End Role="tbItem_Pedido" Type="Self.tbItem_Pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbProduto">
+              <PropertyRef Name="CodigoProduto" />
+            </Principal>
+            <Dependent Role="tbItem_Pedido">
+              <PropertyRef Name="CodigoProduto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_prod_sai">
+          <End Role="tbProduto" Type="Self.tbProduto" Multiplicity="0..1" />
+          <End Role="tbLog_Saida_Produto" Type="Self.tbLog_Saida_Produto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbProduto">
+              <PropertyRef Name="CodigoProduto" />
+            </Principal>
+            <Dependent Role="tbLog_Saida_Produto">
+              <PropertyRef Name="CodigoProduto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_produto_itemVenda">
+          <End Role="tbProduto" Type="Self.tbProduto" Multiplicity="0..1" />
+          <End Role="tbItem_Venda" Type="Self.tbItem_Venda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbProduto">
+              <PropertyRef Name="CodigoProduto" />
+            </Principal>
+            <Dependent Role="tbItem_Venda">
+              <PropertyRef Name="CodigoProduto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_UnidVenda">
+          <End Role="tbUnidadeVenda" Type="Self.tbUnidadeVenda" Multiplicity="0..1" />
+          <End Role="tbProduto" Type="Self.tbProduto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbUnidadeVenda">
+              <PropertyRef Name="CodigoUnidadeVenda" />
+            </Principal>
+            <Dependent Role="tbProduto">
+              <PropertyRef Name="CodigoUnidadeVenda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_venda_itemVenda">
+          <End Role="tbVenda" Type="Self.tbVenda" Multiplicity="0..1" />
+          <End Role="tbItem_Venda" Type="Self.tbItem_Venda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbVenda">
+              <PropertyRef Name="CodigoVenda" />
+            </Principal>
+            <Dependent Role="tbItem_Venda">
+              <PropertyRef Name="CodigoVenda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="CalcularMediaAvaliacao" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="decimal">
+          <Parameter Name="CodigoProduto" Type="int" Mode="In" />
+        </Function>
+        <Function Name="pesq_cupom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodigoCliente" Type="int" Mode="In" />
+        </Function>
+        <Function Name="produtosrecentes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_cupomadquirido" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_exibircomentarioproduto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodigoProduto" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="LojaDeMateriaisParaConstrucaoModelStoreContainer">
+          <EntitySet Name="tbCargo" EntityType="Self.tbCargo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbCategoria" EntityType="Self.tbCategoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbCliente" EntityType="Self.tbCliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbComentario" EntityType="Self.tbComentario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbContato" EntityType="Self.tbContato" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbCupom" EntityType="Self.tbCupom" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbCupom_Cliente" EntityType="Self.tbCupom_Cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbDestinatario" EntityType="Self.tbDestinatario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbEstoque" EntityType="Self.tbEstoque" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbFormaPgto" EntityType="Self.tbFormaPgto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbFornecedores" EntityType="Self.tbFornecedores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbFuncionario" EntityType="Self.tbFuncionario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbLog_Entrada_Produto" EntityType="Self.tbLog_Entrada_Produto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbLog_Saida_Produto" EntityType="Self.tbLog_Saida_Produto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbNivelAcesso" EntityType="Self.tbNivelAcesso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbOrcamento" EntityType="Self.tbOrcamento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbPedido" EntityType="Self.tbPedido" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbProduto" EntityType="Self.tbProduto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbUnidadeVenda" EntityType="Self.tbUnidadeVenda" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbUsuario" EntityType="Self.tbUsuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbVenda" EntityType="Self.tbVenda" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbItem_Orcamento" EntityType="Self.tbItem_Orcamento" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tbItem_Orcamento].[CodigoItem_Orcamento] AS [CodigoItem_Orcamento], 
+    [tbItem_Orcamento].[CodigoOrcamento] AS [CodigoOrcamento], 
+    [tbItem_Orcamento].[CodigoProduto] AS [CodigoProduto]
+    FROM [dbo].[tbItem_Orcamento] AS [tbItem_Orcamento]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tbItem_Pedido" EntityType="Self.tbItem_Pedido" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tbItem_Pedido].[CodigoItem_Pedido] AS [CodigoItem_Pedido], 
+    [tbItem_Pedido].[CodigoPedido] AS [CodigoPedido], 
+    [tbItem_Pedido].[CodigoProduto] AS [CodigoProduto]
+    FROM [dbo].[tbItem_Pedido] AS [tbItem_Pedido]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tbItem_Venda" EntityType="Self.tbItem_Venda" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tbItem_Venda].[CodigoItem_Venda] AS [CodigoItem_Venda], 
+    [tbItem_Venda].[CodigoVenda] AS [CodigoVenda], 
+    [tbItem_Venda].[CodigoProduto] AS [CodigoProduto]
+    FROM [dbo].[tbItem_Venda] AS [tbItem_Venda]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tbLancamento" EntityType="Self.tbLancamento" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tbLancamento].[CodigoLancamento] AS [CodigoLancamento], 
+    [tbLancamento].[CodigoTitulo] AS [CodigoTitulo], 
+    [tbLancamento].[DataVencimento] AS [DataVencimento], 
+    [tbLancamento].[ValorTitulo] AS [ValorTitulo], 
+    [tbLancamento].[StatusPagTitulo] AS [StatusPagTitulo], 
+    [tbLancamento].[DataPagamento] AS [DataPagamento], 
+    [tbLancamento].[ValorPagamento] AS [ValorPagamento], 
+    [tbLancamento].[CodigoUsuario] AS [CodigoUsuario]
+    FROM [dbo].[tbLancamento] AS [tbLancamento]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tbPeriodo" EntityType="Self.tbPeriodo" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tbPeriodo].[CodigoPeriodo] AS [CodigoPeriodo], 
+    [tbPeriodo].[DescricaoPeriodo] AS [DescricaoPeriodo], 
+    [tbPeriodo].[ValorPeriodo] AS [ValorPeriodo], 
+    [tbPeriodo].[SinalPeriodo] AS [SinalPeriodo], 
+    [tbPeriodo].[StatusPeriodo] AS [StatusPeriodo]
+    FROM [dbo].[tbPeriodo] AS [tbPeriodo]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tbPgto_Orcamento" EntityType="Self.tbPgto_Orcamento" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tbPgto_Orcamento].[CodigoPgto_Orcamento] AS [CodigoPgto_Orcamento], 
+    [tbPgto_Orcamento].[CodigoFormaPgto] AS [CodigoFormaPgto], 
+    [tbPgto_Orcamento].[CodigoOrcamento] AS [CodigoOrcamento], 
+    [tbPgto_Orcamento].[ValorForma] AS [ValorForma]
+    FROM [dbo].[tbPgto_Orcamento] AS [tbPgto_Orcamento]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tbPgto_Pedido" EntityType="Self.tbPgto_Pedido" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tbPgto_Pedido].[CodigoPgto_Pedido] AS [CodigoPgto_Pedido], 
+    [tbPgto_Pedido].[CodigoFormaPgto] AS [CodigoFormaPgto], 
+    [tbPgto_Pedido].[CodigoPedido] AS [CodigoPedido], 
+    [tbPgto_Pedido].[ValorForma] AS [ValorForma]
+    FROM [dbo].[tbPgto_Pedido] AS [tbPgto_Pedido]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tbPgto_Venda" EntityType="Self.tbPgto_Venda" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tbPgto_Venda].[CodigoPgto_Venda] AS [CodigoPgto_Venda], 
+    [tbPgto_Venda].[CodigoFormaPgto] AS [CodigoFormaPgto], 
+    [tbPgto_Venda].[CodigoVenda] AS [CodigoVenda], 
+    [tbPgto_Venda].[ValorForma] AS [ValorForma]
+    FROM [dbo].[tbPgto_Venda] AS [tbPgto_Venda]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tbTipoTitulo" EntityType="Self.tbTipoTitulo" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tbTipoTitulo].[CodigoTitulo] AS [CodigoTitulo], 
+    [tbTipoTitulo].[DescricaoTitulo] AS [DescricaoTitulo], 
+    [tbTipoTitulo].[StatusTitulo] AS [StatusTitulo]
+    FROM [dbo].[tbTipoTitulo] AS [tbTipoTitulo]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="fk_cat_Prod" Association="Self.fk_cat_Prod">
+            <End Role="tbCategoria" EntitySet="tbCategoria" />
+            <End Role="tbProduto" EntitySet="tbProduto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_cli_coment" Association="Self.fk_cli_coment">
+            <End Role="tbCliente" EntitySet="tbCliente" />
+            <End Role="tbComentario" EntitySet="tbComentario" />
+          </AssociationSet>
+          <AssociationSet Name="fk_cli_orcamento" Association="Self.fk_cli_orcamento">
+            <End Role="tbCliente" EntitySet="tbCliente" />
+            <End Role="tbOrcamento" EntitySet="tbOrcamento" />
+          </AssociationSet>
+          <AssociationSet Name="fk_cli_venda" Association="Self.fk_cli_venda">
+            <End Role="tbCliente" EntitySet="tbCliente" />
+            <End Role="tbVenda" EntitySet="tbVenda" />
+          </AssociationSet>
+          <AssociationSet Name="fk_forn_prod" Association="Self.fk_forn_prod">
+            <End Role="tbFornecedores" EntitySet="tbFornecedores" />
+            <End Role="tbProduto" EntitySet="tbProduto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_func_orcamento" Association="Self.fk_func_orcamento">
+            <End Role="tbFuncionario" EntitySet="tbFuncionario" />
+            <End Role="tbOrcamento" EntitySet="tbOrcamento" />
+          </AssociationSet>
+          <AssociationSet Name="fk_func_venda" Association="Self.fk_func_venda">
+            <End Role="tbFuncionario" EntitySet="tbFuncionario" />
+            <End Role="tbVenda" EntitySet="tbVenda" />
+          </AssociationSet>
+          <AssociationSet Name="FK_idCargoFunc" Association="Self.FK_idCargoFunc">
+            <End Role="tbCargo" EntitySet="tbCargo" />
+            <End Role="tbFuncionario" EntitySet="tbFuncionario" />
+          </AssociationSet>
+          <AssociationSet Name="fk_msg_usu" Association="Self.fk_msg_usu">
+            <End Role="tbUsuario" EntitySet="tbUsuario" />
+            <End Role="tbContato" EntitySet="tbContato" />
+          </AssociationSet>
+          <AssociationSet Name="fk_orc_itemOrc" Association="Self.fk_orc_itemOrc">
+            <End Role="tbOrcamento" EntitySet="tbOrcamento" />
+            <End Role="tbItem_Orcamento" EntitySet="tbItem_Orcamento" />
+          </AssociationSet>
+          <AssociationSet Name="fk_orc_pgtoOrcamento" Association="Self.fk_orc_pgtoOrcamento">
+            <End Role="tbFormaPgto" EntitySet="tbFormaPgto" />
+            <End Role="tbPgto_Orcamento" EntitySet="tbPgto_Orcamento" />
+          </AssociationSet>
+          <AssociationSet Name="fk_orc_pgtoPedido" Association="Self.fk_orc_pgtoPedido">
+            <End Role="tbFormaPgto" EntitySet="tbFormaPgto" />
+            <End Role="tbPgto_Pedido" EntitySet="tbPgto_Pedido" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ped_itemPed" Association="Self.fk_ped_itemPed">
+            <End Role="tbPedido" EntitySet="tbPedido" />
+            <End Role="tbItem_Pedido" EntitySet="tbItem_Pedido" />
+          </AssociationSet>
+          <AssociationSet Name="fk_prod_coment" Association="Self.fk_prod_coment">
+            <End Role="tbProduto" EntitySet="tbProduto" />
+            <End Role="tbComentario" EntitySet="tbComentario" />
+          </AssociationSet>
+          <AssociationSet Name="fk_prod_entr" Association="Self.fk_prod_entr">
+            <End Role="tbProduto" EntitySet="tbProduto" />
+            <End Role="tbLog_Entrada_Produto" EntitySet="tbLog_Entrada_Produto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_prod_est" Association="Self.fk_prod_est">
+            <End Role="tbProduto" EntitySet="tbProduto" />
+            <End Role="tbEstoque" EntitySet="tbEstoque" />
+          </AssociationSet>
+          <AssociationSet Name="fk_prod_itemOrc" Association="Self.fk_prod_itemOrc">
+            <End Role="tbProduto" EntitySet="tbProduto" />
+            <End Role="tbItem_Orcamento" EntitySet="tbItem_Orcamento" />
+          </AssociationSet>
+          <AssociationSet Name="fk_prod_itemPed" Association="Self.fk_prod_itemPed">
+            <End Role="tbProduto" EntitySet="tbProduto" />
+            <End Role="tbItem_Pedido" EntitySet="tbItem_Pedido" />
+          </AssociationSet>
+          <AssociationSet Name="fk_prod_sai" Association="Self.fk_prod_sai">
+            <End Role="tbProduto" EntitySet="tbProduto" />
+            <End Role="tbLog_Saida_Produto" EntitySet="tbLog_Saida_Produto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_produto_itemVenda" Association="Self.fk_produto_itemVenda">
+            <End Role="tbProduto" EntitySet="tbProduto" />
+            <End Role="tbItem_Venda" EntitySet="tbItem_Venda" />
+          </AssociationSet>
+          <AssociationSet Name="fk_UnidVenda" Association="Self.fk_UnidVenda">
+            <End Role="tbUnidadeVenda" EntitySet="tbUnidadeVenda" />
+            <End Role="tbProduto" EntitySet="tbProduto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_venda_itemVenda" Association="Self.fk_venda_itemVenda">
+            <End Role="tbVenda" EntitySet="tbVenda" />
+            <End Role="tbItem_Venda" EntitySet="tbItem_Venda" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LojaDeMateriaisParaConstrucaoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="LMPCEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbFuncionarios" EntityType="LojaDeMateriaisParaConstrucaoModel.tbFuncionario" />
+          <EntitySet Name="tbNivelAcessoes" EntityType="LojaDeMateriaisParaConstrucaoModel.tbNivelAcesso" />
+          <EntitySet Name="tbUsuarios" EntityType="LojaDeMateriaisParaConstrucaoModel.tbUsuario" />
+          <EntitySet Name="tbFornecedores" EntityType="LojaDeMateriaisParaConstrucaoModel.tbFornecedore" />
+          <EntitySet Name="tbProdutoes" EntityType="LojaDeMateriaisParaConstrucaoModel.tbProduto" />
+          <AssociationSet Name="fk_forn_prod" Association="LojaDeMateriaisParaConstrucaoModel.fk_forn_prod">
+            <End Role="tbFornecedore" EntitySet="tbFornecedores" />
+            <End Role="tbProduto" EntitySet="tbProdutoes" />
+          </AssociationSet>
+          <EntitySet Name="tbClientes" EntityType="LojaDeMateriaisParaConstrucaoModel.tbCliente" />
+          <EntitySet Name="tbCargoes" EntityType="LojaDeMateriaisParaConstrucaoModel.tbCargo" />
+          <EntitySet Name="tbCategorias" EntityType="LojaDeMateriaisParaConstrucaoModel.tbCategoria" />
+          <EntitySet Name="tbDestinatarios" EntityType="LojaDeMateriaisParaConstrucaoModel.tbDestinatario" />
+          <EntitySet Name="tbEstoques" EntityType="LojaDeMateriaisParaConstrucaoModel.tbEstoque" />
+          <EntitySet Name="tbFormaPgtoes" EntityType="LojaDeMateriaisParaConstrucaoModel.tbFormaPgto" />
+          <EntitySet Name="tbOrcamentoes" EntityType="LojaDeMateriaisParaConstrucaoModel.tbOrcamento" />
+          <EntitySet Name="tbPedidoes" EntityType="LojaDeMateriaisParaConstrucaoModel.tbPedido" />
+          <EntitySet Name="tbUnidadeVendas" EntityType="LojaDeMateriaisParaConstrucaoModel.tbUnidadeVenda" />
+          <EntitySet Name="tbVendas" EntityType="LojaDeMateriaisParaConstrucaoModel.tbVenda" />
+          <EntitySet Name="tbItem_Orcamento" EntityType="LojaDeMateriaisParaConstrucaoModel.tbItem_Orcamento" />
+          <EntitySet Name="tbItem_Pedido" EntityType="LojaDeMateriaisParaConstrucaoModel.tbItem_Pedido" />
+          <EntitySet Name="tbItem_Venda" EntityType="LojaDeMateriaisParaConstrucaoModel.tbItem_Venda" />
+          <EntitySet Name="tbLancamentoes" EntityType="LojaDeMateriaisParaConstrucaoModel.tbLancamento" />
+          <EntitySet Name="tbPeriodoes" EntityType="LojaDeMateriaisParaConstrucaoModel.tbPeriodo" />
+          <EntitySet Name="tbPgto_Orcamento" EntityType="LojaDeMateriaisParaConstrucaoModel.tbPgto_Orcamento" />
+          <EntitySet Name="tbPgto_Pedido" EntityType="LojaDeMateriaisParaConstrucaoModel.tbPgto_Pedido" />
+          <EntitySet Name="tbPgto_Venda" EntityType="LojaDeMateriaisParaConstrucaoModel.tbPgto_Venda" />
+          <EntitySet Name="tbTipoTituloes" EntityType="LojaDeMateriaisParaConstrucaoModel.tbTipoTitulo" />
+          <AssociationSet Name="FK_idCargoFunc" Association="LojaDeMateriaisParaConstrucaoModel.FK_idCargoFunc">
+            <End Role="tbCargo" EntitySet="tbCargoes" />
+            <End Role="tbFuncionario" EntitySet="tbFuncionarios" />
+          </AssociationSet>
+          <AssociationSet Name="fk_cat_Prod" Association="LojaDeMateriaisParaConstrucaoModel.fk_cat_Prod">
+            <End Role="tbCategoria" EntitySet="tbCategorias" />
+            <End Role="tbProduto" EntitySet="tbProdutoes" />
+          </AssociationSet>
+          <AssociationSet Name="fk_cli_orcamento" Association="LojaDeMateriaisParaConstrucaoModel.fk_cli_orcamento">
+            <End Role="tbCliente" EntitySet="tbClientes" />
+            <End Role="tbOrcamento" EntitySet="tbOrcamentoes" />
+          </AssociationSet>
+          <AssociationSet Name="fk_cli_venda" Association="LojaDeMateriaisParaConstrucaoModel.fk_cli_venda">
+            <End Role="tbCliente" EntitySet="tbClientes" />
+            <End Role="tbVenda" EntitySet="tbVendas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_prod_est" Association="LojaDeMateriaisParaConstrucaoModel.fk_prod_est">
+            <End Role="tbProduto" EntitySet="tbProdutoes" />
+            <End Role="tbEstoque" EntitySet="tbEstoques" />
+          </AssociationSet>
+          <AssociationSet Name="fk_orc_pgtoOrcamento" Association="LojaDeMateriaisParaConstrucaoModel.fk_orc_pgtoOrcamento">
+            <End Role="tbFormaPgto" EntitySet="tbFormaPgtoes" />
+            <End Role="tbPgto_Orcamento" EntitySet="tbPgto_Orcamento" />
+          </AssociationSet>
+          <AssociationSet Name="fk_orc_pgtoPedido" Association="LojaDeMateriaisParaConstrucaoModel.fk_orc_pgtoPedido">
+            <End Role="tbFormaPgto" EntitySet="tbFormaPgtoes" />
+            <End Role="tbPgto_Pedido" EntitySet="tbPgto_Pedido" />
+          </AssociationSet>
+          <AssociationSet Name="fk_func_orcamento" Association="LojaDeMateriaisParaConstrucaoModel.fk_func_orcamento">
+            <End Role="tbFuncionario" EntitySet="tbFuncionarios" />
+            <End Role="tbOrcamento" EntitySet="tbOrcamentoes" />
+          </AssociationSet>
+          <AssociationSet Name="fk_func_venda" Association="LojaDeMateriaisParaConstrucaoModel.fk_func_venda">
+            <End Role="tbFuncionario" EntitySet="tbFuncionarios" />
+            <End Role="tbVenda" EntitySet="tbVendas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_orc_itemOrc" Association="LojaDeMateriaisParaConstrucaoModel.fk_orc_itemOrc">
+            <End Role="tbOrcamento" EntitySet="tbOrcamentoes" />
+            <End Role="tbItem_Orcamento" EntitySet="tbItem_Orcamento" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ped_itemPed" Association="LojaDeMateriaisParaConstrucaoModel.fk_ped_itemPed">
+            <End Role="tbPedido" EntitySet="tbPedidoes" />
+            <End Role="tbItem_Pedido" EntitySet="tbItem_Pedido" />
+          </AssociationSet>
+          <AssociationSet Name="fk_prod_itemOrc" Association="LojaDeMateriaisParaConstrucaoModel.fk_prod_itemOrc">
+            <End Role="tbProduto" EntitySet="tbProdutoes" />
+            <End Role="tbItem_Orcamento" EntitySet="tbItem_Orcamento" />
+          </AssociationSet>
+          <AssociationSet Name="fk_prod_itemPed" Association="LojaDeMateriaisParaConstrucaoModel.fk_prod_itemPed">
+            <End Role="tbProduto" EntitySet="tbProdutoes" />
+            <End Role="tbItem_Pedido" EntitySet="tbItem_Pedido" />
+          </AssociationSet>
+          <AssociationSet Name="fk_produto_itemVenda" Association="LojaDeMateriaisParaConstrucaoModel.fk_produto_itemVenda">
+            <End Role="tbProduto" EntitySet="tbProdutoes" />
+            <End Role="tbItem_Venda" EntitySet="tbItem_Venda" />
+          </AssociationSet>
+          <AssociationSet Name="fk_UnidVenda" Association="LojaDeMateriaisParaConstrucaoModel.fk_UnidVenda">
+            <End Role="tbUnidadeVenda" EntitySet="tbUnidadeVendas" />
+            <End Role="tbProduto" EntitySet="tbProdutoes" />
+          </AssociationSet>
+          <AssociationSet Name="fk_venda_itemVenda" Association="LojaDeMateriaisParaConstrucaoModel.fk_venda_itemVenda">
+            <End Role="tbVenda" EntitySet="tbVendas" />
+            <End Role="tbItem_Venda" EntitySet="tbItem_Venda" />
+          </AssociationSet>
+          <EntitySet Name="tbContatoes" EntityType="LojaDeMateriaisParaConstrucaoModel.tbContato" />
+          <AssociationSet Name="fk_msg_usu" Association="LojaDeMateriaisParaConstrucaoModel.fk_msg_usu">
+            <End Role="tbUsuario" EntitySet="tbUsuarios" />
+            <End Role="tbContato" EntitySet="tbContatoes" />
+          </AssociationSet>
+          <FunctionImport Name="pesq_cupom" ReturnType="Collection(LojaDeMateriaisParaConstrucaoModel.pesq_cupom_Result)">
+          <Parameter Name="CodigoCliente" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="tbCupoms" EntityType="LojaDeMateriaisParaConstrucaoModel.tbCupom" />
+          <EntitySet Name="tbCupom_Cliente" EntityType="LojaDeMateriaisParaConstrucaoModel.tbCupom_Cliente" />
+          <EntitySet Name="tbLog_Entrada_Produto" EntityType="LojaDeMateriaisParaConstrucaoModel.tbLog_Entrada_Produto" />
+          <EntitySet Name="tbLog_Saida_Produto" EntityType="LojaDeMateriaisParaConstrucaoModel.tbLog_Saida_Produto" />
+          <AssociationSet Name="fk_prod_entr" Association="LojaDeMateriaisParaConstrucaoModel.fk_prod_entr">
+            <End Role="tbProduto" EntitySet="tbProdutoes" />
+            <End Role="tbLog_Entrada_Produto" EntitySet="tbLog_Entrada_Produto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_prod_sai" Association="LojaDeMateriaisParaConstrucaoModel.fk_prod_sai">
+            <End Role="tbProduto" EntitySet="tbProdutoes" />
+            <End Role="tbLog_Saida_Produto" EntitySet="tbLog_Saida_Produto" />
+          </AssociationSet>
+          <FunctionImport Name="produtosrecentes" ReturnType="Collection(LojaDeMateriaisParaConstrucaoModel.produtosrecentes_Result)" />
+          <FunctionImport Name="sp_cupomadquirido" ReturnType="Collection(LojaDeMateriaisParaConstrucaoModel.sp_cupomadquirido_Result)" />
+          <EntitySet Name="tbComentarios" EntityType="LojaDeMateriaisParaConstrucaoModel.tbComentario" />
+          <AssociationSet Name="fk_cli_coment" Association="LojaDeMateriaisParaConstrucaoModel.fk_cli_coment">
+            <End Role="tbCliente" EntitySet="tbClientes" />
+            <End Role="tbComentario" EntitySet="tbComentarios" />
+          </AssociationSet>
+          <AssociationSet Name="fk_prod_coment" Association="LojaDeMateriaisParaConstrucaoModel.fk_prod_coment">
+            <End Role="tbProduto" EntitySet="tbProdutoes" />
+            <End Role="tbComentario" EntitySet="tbComentarios" />
+          </AssociationSet>
+          <FunctionImport Name="sp_exibircomentarioproduto" ReturnType="Collection(LojaDeMateriaisParaConstrucaoModel.sp_exibircomentarioproduto_Result)">
+          <Parameter Name="CodigoProduto" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="tbFuncionario">
+          <Key>
+            <PropertyRef Name="CodigoFuncionario" />
+          </Key>
+          <Property Name="CodigoFuncionario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Sexo" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="DataNascimento" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CPF" Type="String" Nullable="false" MaxLength="11" FixedLength="true" Unicode="false" />
+          <Property Name="RG" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CEP" Type="String" Nullable="false" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="Numero" Type="Int32" Nullable="false" />
+          <Property Name="Complemento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Telefone" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Foto" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Salario" Type="Decimal" Precision="15" Scale="2" />
+          <Property Name="CodigoCargo" Type="Int32" />
+          <Property Name="DataAdmissao" Type="DateTime" Precision="3" />
+          <Property Name="StatusFuncionario" Type="Boolean" />
+          <NavigationProperty Name="tbCargo" Relationship="LojaDeMateriaisParaConstrucaoModel.FK_idCargoFunc" FromRole="tbFuncionario" ToRole="tbCargo" />
+          <NavigationProperty Name="tbOrcamentoes" Relationship="LojaDeMateriaisParaConstrucaoModel.fk_func_orcamento" FromRole="tbFuncionario" ToRole="tbOrcamento" />
+          <NavigationProperty Name="tbVendas" Relationship="LojaDeMateriaisParaConstrucaoModel.fk_func_venda" FromRole="tbFuncionario" ToRole="tbVenda" />
+        </EntityType>
+        <EntityType Name="tbNivelAcesso">
+          <Key>
+            <PropertyRef Name="CodigoNivelAcesso" />
+          </Key>
+          <Property Name="CodigoNivelAcesso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomeNivelAcesso" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Abreviacao" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="Descricao" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Permissao_Usuarios" Type="Boolean" />
+          <Property Name="Permissao_Clientes" Type="Boolean" />
+          <Property Name="Permissao_Funcionarios" Type="Boolean" />
+          <Property Name="Permissao_Fornecedores" Type="Boolean" />
+          <Property Name="Permissao_Produtos" Type="Boolean" />
+          <Property Name="Permissao_Contas" Type="Boolean" />
+          <Property Name="Permissao_Vender" Type="Boolean" />
+          <Property Name="Permissao_Orcamento" Type="Boolean" />
+          <Property Name="StatusNivel" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tbUsuario">
+          <Key>
+            <PropertyRef Name="CodigoUsuario" />
+          </Key>
+          <Property Name="CodigoUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomeUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SenhaUsuario" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="StatusUsuario" Type="Int32" />
+          <Property Name="DataAcessoUsuario" Type="DateTime" Precision="3" />
+          <Property Name="DataCadastroUsuario" Type="DateTime" Precision="3" />
+          <Property Name="CodigoNivelAcesso" Type="Int32" />
+          <NavigationProperty Name="tbContatoes" Relationship="LojaDeMateriaisParaConstrucaoModel.fk_msg_usu" FromRole="tbUsuario" ToRole="tbContato" />
+        </EntityType>
+        <EntityType Name="tbFornecedore">
+          <Key>
+            <PropertyRef Name="CodigoFornecedor" />
+          </Key>
+          <Property Name="CodigoFornecedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomeFantasia" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="RazaoSocial" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="CNPJ" Type="String" MaxLength="14" FixedLength="true" Unicode="false" />
+          <Property Name="CEP" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="Complemento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Numero" Type="Int32" />
+          <Property Name="Tel" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="StatusFornecedor" Type="Int32" />
+          <NavigationProperty Name="tbProdutoes" Relationship="LojaDeMateriaisParaConstrucaoModel.fk_forn_prod" FromRole="tbFornecedore" ToRole="tbProduto" />
+        </EntityType>
+        <EntityType Name="tbProduto">
+          <Key>
+            <PropertyRef Name="CodigoProduto" />
+          </Key>
+          <Property Name="CodigoProduto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Descricao" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CodigoUnidadeVenda" Type="Int32" />
+          <Property Name="CodigoBarra" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Quantidade" Type="Int32" />
+          <Property Name="EstoqueMinimo" Type="Int32" />
+          <Property Name="EstoqueMaximo" Type="Int32" />
+          <Property Name="CodigoFornecedor" Type="Int32" />
+          <Property Name="CodigoCategoria" Type="Int32" />
+          <Property Name="DataEntrada" Type="DateTime" Precision="3" />
+          <Property Name="Marca" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Imagem" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="StatusProduto" Type="Boolean" />
+          <Property Name="ValorUnit" Type="Decimal" Precision="15" Scale="2" />
+          <NavigationProperty Name="tbFornecedore" Relationship="LojaDeMateriaisParaConstrucaoModel.fk_forn_prod" FromRole="tbProduto" ToRole="tbFornecedore" />
+          <NavigationProperty Name="tbCategoria" Relationship="LojaDeMateriaisParaConstrucaoModel.fk_cat_Prod" FromRole="tbProduto" ToRole="tbCategoria" />
+          <NavigationProperty Name="tbEstoques" Relationship="LojaDeMateriaisParaConstrucaoModel.fk_prod_est" FromRole="tbProduto" ToRole="tbEstoque" />
+          <NavigationProperty Name="tbItem_Orcamento" Relationship="LojaDeMateriaisParaConstrucaoModel.fk_prod_itemOrc" FromRole="tbProduto" ToRole="tbItem_Orcamento" />
+          <NavigationProperty Name="tbItem_Pedido" Relationship="LojaDeMateriaisParaConstrucaoModel.fk_prod_itemPed" FromRole="tbProduto" ToRole="tbItem_Pedido" />
+          <NavigationProperty Name="tbItem_Venda" Relationship="LojaDeMateriaisParaConstrucaoModel.fk_produto_itemVenda" FromRole="tbProduto" ToRole="tbItem_Venda" />
+          <NavigationProperty Name="tbUnidadeVenda" Relationship="LojaDeMateriaisParaConstrucaoModel.fk_UnidVenda" FromRole="tbProduto" ToRole="tbUnidadeVenda" />
+          <NavigationProperty Name="tbLog_Entrada_Produto" Relationship="LojaDeMateriaisParaConstrucaoModel.fk_prod_entr" FromRole="tbProduto" ToRole="tbLog_Entrada_Produto" />
+          <NavigationProperty Name="tbLog_Saida_Produto" Relationship="LojaDeMateriaisParaConstrucaoModel.fk_prod_sai" FromRole="tbProduto" ToRole="tbLog_Saida_Produto" />
+          <NavigationProperty Name="tbComentarios" Relationship="LojaDeMateriaisParaConstrucaoModel.fk_prod_coment" FromRole="tbProduto" ToRole="tbComentario" />
+        </EntityType>
+        <Association Name="fk_forn_prod">
+          <End Type="LojaDeMateriaisParaConstrucaoModel.tbFornecedore" Role="tbFornecedore" Multiplicity="0..1" />
+          <End Type="LojaDeMateriaisParaConstrucaoModel.tbProduto" Role="tbProduto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbFornecedore">
+              <PropertyRef Name="CodigoFornecedor" />
+            </Principal>
+            <Dependent Role="tbProduto">
+              <PropertyRef Name="CodigoFornecedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tbCliente">
+          <Key>
+            <PropertyRef Name="CodigoCliente" />
+          </Key>
+          <Property Name="CodigoCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="DataNascimento" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Endereco" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Bairro" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Cidade" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Complemento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Numero" Type="Int32" />
+          <Property Name="UF" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="CEP" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="Rg" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Cpf" Type="String" Nullable="false" MaxLength="11" FixedLength="true" Unicode="false" />
+          <Property Name="Sexo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Telefone" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CodigoLoginCliente" Type="Int32" />
+          <Property Name="StatusCliente" Type="Int32" />
+          <NavigationProperty Name="tbOrcamentoes" Relationship="LojaDeMateriaisParaConstrucaoModel.fk_cli_orcamento" FromRole="tbCliente" ToRole="tbOrcamento" />
+          <NavigationProperty Name="tbVendas" Relationship="LojaDeMateriaisParaConstrucaoModel.fk_cli_venda" FromRole="tbCliente" ToRole="tbVenda" />
+          <Property Name="Senha" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbComentarios" Relationship="LojaDeMateriaisParaConstrucaoModel.fk_cli_coment" FromRole="tbCliente" ToRole="tbComentario" />
+        </EntityType>
+        <EntityType Name="tbCargo">
+          <Key>
+            <PropertyRef Name="CodigoCargo" />
+          </Key>
+          <Property Name="CodigoCargo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomeCargo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Abreviacao" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="DescricaoCargo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="StatusCargo" Type="Int32" />
+          <NavigationProperty Name="tbFuncionarios" Relationship="LojaDeMateriaisParaConstrucaoModel.FK_idCargoFunc" FromRole="tbCargo" ToRole="tbFuncionario" />
+        </EntityType>
+        <EntityType Name="tbCategoria">
+          <Key>
+            <PropertyRef Name="CodigoCategoria" />
+          </Key>
+          <Property Name="CodigoCategoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomeCategoria" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="DescricaoCategoria" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbProdutoes" Relationship="LojaDeMateriaisParaConstrucaoModel.fk_cat_Prod" FromRole="tbCategoria" ToRole="tbProduto" />
+        </EntityType>
+        <EntityType Name="tbDestinatario">
+          <Key>
+            <PropertyRef Name="CodigoDestinatario" />
+          </Key>
+          <Property Name="CodigoDestinatario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomeDestinatario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EnderecoDestinatario" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="BairroDestinatario" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="CidadeDestinatario" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="UFDestinatario" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="CEPDestinatario" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="NumeroDestinatario" Type="Int32" />
+          <Property Name="ComplementoDestinatario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TelDestinatario" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="StatusDestinatario" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tbEstoque">
+          <Key>
+            <PropertyRef Name="CodigoEstoque" />
+          </Key>
+          <Property Name="CodigoEstoque" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodigoProduto" Type="Int32" />
+          <Property Name="QuantidadeAtual" Type="Int32" />
+          <NavigationProperty Name="tbProduto" Relationship="LojaDeMateriaisParaConstrucaoModel.fk_prod_est" FromRole="tbEstoque" ToRole="tbProduto" />
+        </EntityType>
+        <EntityType Name="tbFormaPgto">
+          <Key>
+            <PropertyRef Name="CodigoFormaPgto" />
+          </Key>
+          <Property Name="CodigoFormaPgto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomeFormaPgto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbPgto_Orcamento" Relationship="LojaDeMateriaisParaConstrucaoModel.fk_orc_pgtoOrcamento" FromRole="tbFormaPgto" ToRole="tbPgto_Orcamento" />
+          <NavigationProperty Name="tbPgto_Pedido" Relationship="LojaDeMateriaisParaConstrucaoModel.fk_orc_pgtoPedido" FromRole="tbFormaPgto" ToRole="tbPgto_Pedido" />
+        </EntityType>
+        <EntityType Name="tbOrcamento">
+          <Key>
+            <PropertyRef Name="CodigoOrcamento" />
+          </Key>
+          <Property Name="CodigoOrcamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodigoCliente" Type="Int32" />
+          <Property Name="CodigoFuncionario" Type="Int32" />
+          <Property Name="DataOrcamento" Type="DateTime" Precision="3" />
+          <Property Name="ValorTotal" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="tbCliente" Relationship="LojaDeMateriaisParaConstrucaoModel.fk_cli_orcamento" FromRole="tbOrcamento" ToRole="tbCliente" />
+          <NavigationProperty Name="tbFuncionario" Relationship="LojaDeMateriaisParaConstrucaoModel.fk_func_orcamento" FromRole="tbOrcamento" ToRole="tbFuncionario" />
+          <NavigationProperty Name="tbItem_Orcamento" Relationship="LojaDeMateriaisParaConstrucaoModel.fk_orc_itemOrc" FromRole="tbOrcamento" ToRole="tbItem_Orcamento" />
+        </EntityType>
+        <EntityType Name="tbPedido">
+          <Key>
+            <PropertyRef Name="CodigoPedido" />
+          </Key>
+          <Property Name="CodigoPedido" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodigoCliente" Type="Int32" />
+          <Property Name="CodigoFuncionario" Type="Int32" />
+          <Property Name="DataPedido" Type="DateTime" Precision="3" />
+          <Property Name="DataEntrega" Type="DateTime" Precision="3" />
+          <Property Name="ValorTotalPedido" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CodigoDestinatario" Type="Int32" />
+          <Property Name="CodigoPgto_Pedido" Type="Int32" />
+          <Property Name="StatusPedido" Type="Boolean" />
+          <NavigationProperty Name="tbItem_Pedido" Relationship="LojaDeMateriaisParaConstrucaoModel.fk_ped_itemPed" FromRole="tbPedido" ToRole="tbItem_Pedido" />
+        </EntityType>
+        <EntityType Name="tbUnidadeVenda">
+          <Key>
+            <PropertyRef Name="CodigoUnidadeVenda" />
+          </Key>
+          <Property Name="CodigoUnidadeVenda" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomeUnidadeVenda" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Abreviacao" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbProdutoes" Relationship="LojaDeMateriaisParaConstrucaoModel.fk_UnidVenda" FromRole="tbUnidadeVenda" ToRole="tbProduto" />
+        </EntityType>
+        <EntityType Name="tbVenda">
+          <Key>
+            <PropertyRef Name="CodigoVenda" />
+          </Key>
+          <Property Name="CodigoVenda" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodigoCliente" Type="Int32" />
+          <Property Name="CodigoFuncionario" Type="Int32" />
+          <Property Name="DataVenda" Type="DateTime" Precision="3" />
+          <Property Name="ValorTotal" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="CodigoPgto_Venda" Type="Int32" />
+          <NavigationProperty Name="tbCliente" Relationship="LojaDeMateriaisParaConstrucaoModel.fk_cli_venda" FromRole="tbVenda" ToRole="tbCliente" />
+          <NavigationProperty Name="tbFuncionario" Relationship="LojaDeMateriaisParaConstrucaoModel.fk_func_venda" FromRole="tbVenda" ToRole="tbFuncionario" />
+          <NavigationProperty Name="tbItem_Venda" Relationship="LojaDeMateriaisParaConstrucaoModel.fk_venda_itemVenda" FromRole="tbVenda" ToRole="tbItem_Venda" />
+        </EntityType>
+        <EntityType Name="tbItem_Orcamento">
+          <Key>
+            <PropertyRef Name="CodigoItem_Orcamento" />
+          </Key>
+          <Property Name="CodigoItem_Orcamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodigoOrcamento" Type="Int32" />
+          <Property Name="CodigoProduto" Type="Int32" />
+          <NavigationProperty Name="tbOrcamento" Relationship="LojaDeMateriaisParaConstrucaoModel.fk_orc_itemOrc" FromRole="tbItem_Orcamento" ToRole="tbOrcamento" />
+          <NavigationProperty Name="tbProduto" Relationship="LojaDeMateriaisParaConstrucaoModel.fk_prod_itemOrc" FromRole="tbItem_Orcamento" ToRole="tbProduto" />
+        </EntityType>
+        <EntityType Name="tbItem_Pedido">
+          <Key>
+            <PropertyRef Name="CodigoItem_Pedido" />
+          </Key>
+          <Property Name="CodigoItem_Pedido" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodigoPedido" Type="Int32" />
+          <Property Name="CodigoProduto" Type="Int32" />
+          <NavigationProperty Name="tbPedido" Relationship="LojaDeMateriaisParaConstrucaoModel.fk_ped_itemPed" FromRole="tbItem_Pedido" ToRole="tbPedido" />
+          <NavigationProperty Name="tbProduto" Relationship="LojaDeMateriaisParaConstrucaoModel.fk_prod_itemPed" FromRole="tbItem_Pedido" ToRole="tbProduto" />
+        </EntityType>
+        <EntityType Name="tbItem_Venda">
+          <Key>
+            <PropertyRef Name="CodigoItem_Venda" />
+          </Key>
+          <Property Name="CodigoItem_Venda" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodigoVenda" Type="Int32" />
+          <Property Name="CodigoProduto" Type="Int32" />
+          <NavigationProperty Name="tbProduto" Relationship="LojaDeMateriaisParaConstrucaoModel.fk_produto_itemVenda" FromRole="tbItem_Venda" ToRole="tbProduto" />
+          <NavigationProperty Name="tbVenda" Relationship="LojaDeMateriaisParaConstrucaoModel.fk_venda_itemVenda" FromRole="tbItem_Venda" ToRole="tbVenda" />
+        </EntityType>
+        <EntityType Name="tbLancamento">
+          <Key>
+            <PropertyRef Name="CodigoLancamento" />
+            <PropertyRef Name="CodigoTitulo" />
+            <PropertyRef Name="DataVencimento" />
+          </Key>
+          <Property Name="CodigoLancamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodigoTitulo" Type="Int32" Nullable="false" />
+          <Property Name="DataVencimento" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ValorTitulo" Type="Decimal" Precision="7" Scale="2" />
+          <Property Name="StatusPagTitulo" Type="Boolean" />
+          <Property Name="DataPagamento" Type="DateTime" Precision="3" />
+          <Property Name="ValorPagamento" Type="Decimal" Precision="7" Scale="2" />
+          <Property Name="CodigoUsuario" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbPeriodo">
+          <Key>
+            <PropertyRef Name="CodigoPeriodo" />
+          </Key>
+          <Property Name="CodigoPeriodo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DescricaoPeriodo" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
+          <Property Name="ValorPeriodo" Type="Int32" />
+          <Property Name="SinalPeriodo" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="StatusPeriodo" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tbPgto_Orcamento">
+          <Key>
+            <PropertyRef Name="CodigoPgto_Orcamento" />
+          </Key>
+          <Property Name="CodigoPgto_Orcamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodigoFormaPgto" Type="Int32" />
+          <Property Name="CodigoOrcamento" Type="Int32" />
+          <Property Name="ValorForma" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="tbFormaPgto" Relationship="LojaDeMateriaisParaConstrucaoModel.fk_orc_pgtoOrcamento" FromRole="tbPgto_Orcamento" ToRole="tbFormaPgto" />
+        </EntityType>
+        <EntityType Name="tbPgto_Pedido">
+          <Key>
+            <PropertyRef Name="CodigoPgto_Pedido" />
+          </Key>
+          <Property Name="CodigoPgto_Pedido" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodigoFormaPgto" Type="Int32" />
+          <Property Name="CodigoPedido" Type="Int32" />
+          <Property Name="ValorForma" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="tbFormaPgto" Relationship="LojaDeMateriaisParaConstrucaoModel.fk_orc_pgtoPedido" FromRole="tbPgto_Pedido" ToRole="tbFormaPgto" />
+        </EntityType>
+        <EntityType Name="tbPgto_Venda">
+          <Key>
+            <PropertyRef Name="CodigoPgto_Venda" />
+          </Key>
+          <Property Name="CodigoPgto_Venda" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodigoFormaPgto" Type="Int32" />
+          <Property Name="CodigoVenda" Type="Int32" />
+          <Property Name="ValorForma" Type="Decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="tbTipoTitulo">
+          <Key>
+            <PropertyRef Name="CodigoTitulo" />
+          </Key>
+          <Property Name="CodigoTitulo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DescricaoTitulo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="StatusTitulo" Type="Boolean" />
+        </EntityType>
+        <Association Name="FK_idCargoFunc">
+          <End Type="LojaDeMateriaisParaConstrucaoModel.tbCargo" Role="tbCargo" Multiplicity="0..1" />
+          <End Type="LojaDeMateriaisParaConstrucaoModel.tbFuncionario" Role="tbFuncionario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbCargo">
+              <PropertyRef Name="CodigoCargo" />
+            </Principal>
+            <Dependent Role="tbFuncionario">
+              <PropertyRef Name="CodigoCargo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_cat_Prod">
+          <End Type="LojaDeMateriaisParaConstrucaoModel.tbCategoria" Role="tbCategoria" Multiplicity="0..1" />
+          <End Type="LojaDeMateriaisParaConstrucaoModel.tbProduto" Role="tbProduto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbCategoria">
+              <PropertyRef Name="CodigoCategoria" />
+            </Principal>
+            <Dependent Role="tbProduto">
+              <PropertyRef Name="CodigoCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_cli_orcamento">
+          <End Type="LojaDeMateriaisParaConstrucaoModel.tbCliente" Role="tbCliente" Multiplicity="0..1" />
+          <End Type="LojaDeMateriaisParaConstrucaoModel.tbOrcamento" Role="tbOrcamento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbCliente">
+              <PropertyRef Name="CodigoCliente" />
+            </Principal>
+            <Dependent Role="tbOrcamento">
+              <PropertyRef Name="CodigoCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_cli_venda">
+          <End Type="LojaDeMateriaisParaConstrucaoModel.tbCliente" Role="tbCliente" Multiplicity="0..1" />
+          <End Type="LojaDeMateriaisParaConstrucaoModel.tbVenda" Role="tbVenda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbCliente">
+              <PropertyRef Name="CodigoCliente" />
+            </Principal>
+            <Dependent Role="tbVenda">
+              <PropertyRef Name="CodigoCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_prod_est">
+          <End Type="LojaDeMateriaisParaConstrucaoModel.tbProduto" Role="tbProduto" Multiplicity="0..1" />
+          <End Type="LojaDeMateriaisParaConstrucaoModel.tbEstoque" Role="tbEstoque" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbProduto">
+              <PropertyRef Name="CodigoProduto" />
+            </Principal>
+            <Dependent Role="tbEstoque">
+              <PropertyRef Name="CodigoProduto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_orc_pgtoOrcamento">
+          <End Type="LojaDeMateriaisParaConstrucaoModel.tbFormaPgto" Role="tbFormaPgto" Multiplicity="0..1" />
+          <End Type="LojaDeMateriaisParaConstrucaoModel.tbPgto_Orcamento" Role="tbPgto_Orcamento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbFormaPgto">
+              <PropertyRef Name="CodigoFormaPgto" />
+            </Principal>
+            <Dependent Role="tbPgto_Orcamento">
+              <PropertyRef Name="CodigoFormaPgto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_orc_pgtoPedido">
+          <End Type="LojaDeMateriaisParaConstrucaoModel.tbFormaPgto" Role="tbFormaPgto" Multiplicity="0..1" />
+          <End Type="LojaDeMateriaisParaConstrucaoModel.tbPgto_Pedido" Role="tbPgto_Pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbFormaPgto">
+              <PropertyRef Name="CodigoFormaPgto" />
+            </Principal>
+            <Dependent Role="tbPgto_Pedido">
+              <PropertyRef Name="CodigoFormaPgto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_func_orcamento">
+          <End Type="LojaDeMateriaisParaConstrucaoModel.tbFuncionario" Role="tbFuncionario" Multiplicity="0..1" />
+          <End Type="LojaDeMateriaisParaConstrucaoModel.tbOrcamento" Role="tbOrcamento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbFuncionario">
+              <PropertyRef Name="CodigoFuncionario" />
+            </Principal>
+            <Dependent Role="tbOrcamento">
+              <PropertyRef Name="CodigoFuncionario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_func_venda">
+          <End Type="LojaDeMateriaisParaConstrucaoModel.tbFuncionario" Role="tbFuncionario" Multiplicity="0..1" />
+          <End Type="LojaDeMateriaisParaConstrucaoModel.tbVenda" Role="tbVenda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbFuncionario">
+              <PropertyRef Name="CodigoFuncionario" />
+            </Principal>
+            <Dependent Role="tbVenda">
+              <PropertyRef Name="CodigoFuncionario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_orc_itemOrc">
+          <End Type="LojaDeMateriaisParaConstrucaoModel.tbOrcamento" Role="tbOrcamento" Multiplicity="0..1" />
+          <End Type="LojaDeMateriaisParaConstrucaoModel.tbItem_Orcamento" Role="tbItem_Orcamento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbOrcamento">
+              <PropertyRef Name="CodigoOrcamento" />
+            </Principal>
+            <Dependent Role="tbItem_Orcamento">
+              <PropertyRef Name="CodigoOrcamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ped_itemPed">
+          <End Type="LojaDeMateriaisParaConstrucaoModel.tbPedido" Role="tbPedido" Multiplicity="0..1" />
+          <End Type="LojaDeMateriaisParaConstrucaoModel.tbItem_Pedido" Role="tbItem_Pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbPedido">
+              <PropertyRef Name="CodigoPedido" />
+            </Principal>
+            <Dependent Role="tbItem_Pedido">
+              <PropertyRef Name="CodigoPedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_prod_itemOrc">
+          <End Type="LojaDeMateriaisParaConstrucaoModel.tbProduto" Role="tbProduto" Multiplicity="0..1" />
+          <End Type="LojaDeMateriaisParaConstrucaoModel.tbItem_Orcamento" Role="tbItem_Orcamento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbProduto">
+              <PropertyRef Name="CodigoProduto" />
+            </Principal>
+            <Dependent Role="tbItem_Orcamento">
+              <PropertyRef Name="CodigoProduto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_prod_itemPed">
+          <End Type="LojaDeMateriaisParaConstrucaoModel.tbProduto" Role="tbProduto" Multiplicity="0..1" />
+          <End Type="LojaDeMateriaisParaConstrucaoModel.tbItem_Pedido" Role="tbItem_Pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbProduto">
+              <PropertyRef Name="CodigoProduto" />
+            </Principal>
+            <Dependent Role="tbItem_Pedido">
+              <PropertyRef Name="CodigoProduto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_produto_itemVenda">
+          <End Type="LojaDeMateriaisParaConstrucaoModel.tbProduto" Role="tbProduto" Multiplicity="0..1" />
+          <End Type="LojaDeMateriaisParaConstrucaoModel.tbItem_Venda" Role="tbItem_Venda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbProduto">
+              <PropertyRef Name="CodigoProduto" />
+            </Principal>
+            <Dependent Role="tbItem_Venda">
+              <PropertyRef Name="CodigoProduto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_UnidVenda">
+          <End Type="LojaDeMateriaisParaConstrucaoModel.tbUnidadeVenda" Role="tbUnidadeVenda" Multiplicity="0..1" />
+          <End Type="LojaDeMateriaisParaConstrucaoModel.tbProduto" Role="tbProduto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbUnidadeVenda">
+              <PropertyRef Name="CodigoUnidadeVenda" />
+            </Principal>
+            <Dependent Role="tbProduto">
+              <PropertyRef Name="CodigoUnidadeVenda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_venda_itemVenda">
+          <End Type="LojaDeMateriaisParaConstrucaoModel.tbVenda" Role="tbVenda" Multiplicity="0..1" />
+          <End Type="LojaDeMateriaisParaConstrucaoModel.tbItem_Venda" Role="tbItem_Venda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbVenda">
+              <PropertyRef Name="CodigoVenda" />
+            </Principal>
+            <Dependent Role="tbItem_Venda">
+              <PropertyRef Name="CodigoVenda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tbContato">
+          <Key>
+            <PropertyRef Name="CodigoContato" />
+          </Key>
+          <Property Name="CodigoContato" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomeContato" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EmailContato" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AssuntoContato" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TelContato" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DataContato" Type="DateTime" Precision="3" />
+          <Property Name="Mensagem" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="StatusContato" Type="Int32" />
+          <Property Name="Resposta" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="CodigoUsuario" Type="Int32" />
+          <NavigationProperty Name="tbUsuario" Relationship="LojaDeMateriaisParaConstrucaoModel.fk_msg_usu" FromRole="tbContato" ToRole="tbUsuario" />
+        </EntityType>
+        <Association Name="fk_msg_usu">
+          <End Type="LojaDeMateriaisParaConstrucaoModel.tbUsuario" Role="tbUsuario" Multiplicity="0..1" />
+          <End Type="LojaDeMateriaisParaConstrucaoModel.tbContato" Role="tbContato" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbUsuario">
+              <PropertyRef Name="CodigoUsuario" />
+            </Principal>
+            <Dependent Role="tbContato">
+              <PropertyRef Name="CodigoUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="pesq_cupom_Result">
+          <Property Type="String" Name="Descricao" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="CodigoCupom" Nullable="true" MaxLength="10" />
+          <Property Type="Decimal" Name="ValorCupom" Nullable="true" Precision="7" Scale="2" />
+          <Property Type="DateTime" Name="DataInicio" Nullable="true" />
+          <Property Type="DateTime" Name="DataFim" Nullable="true" />
+          <Property Type="Int32" Name="StatusCupom" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="tbCupom">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descricao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CodigoCupom" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ValorCupom" Type="Decimal" Precision="7" Scale="2" />
+          <Property Name="DataInicio" Type="DateTime" Precision="0" />
+          <Property Name="DataFim" Type="DateTime" Precision="0" />
+          <Property Name="StatusCupom" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbCupom_Cliente">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="CodigoCliente" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="CodigoCliente" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbLog_Entrada_Produto">
+          <Key>
+            <PropertyRef Name="CodigoEntrada" />
+          </Key>
+          <Property Name="CodigoEntrada" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodigoProduto" Type="Int32" />
+          <Property Name="Quantidade" Type="Int32" />
+          <Property Name="DataEntrada" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbProduto" Relationship="LojaDeMateriaisParaConstrucaoModel.fk_prod_entr" FromRole="tbLog_Entrada_Produto" ToRole="tbProduto" />
+        </EntityType>
+        <EntityType Name="tbLog_Saida_Produto">
+          <Key>
+            <PropertyRef Name="CodigoSaida" />
+          </Key>
+          <Property Name="CodigoSaida" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodigoProduto" Type="Int32" />
+          <Property Name="Quantidade" Type="Int32" />
+          <Property Name="DataSaida" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbProduto" Relationship="LojaDeMateriaisParaConstrucaoModel.fk_prod_sai" FromRole="tbLog_Saida_Produto" ToRole="tbProduto" />
+        </EntityType>
+        <Association Name="fk_prod_entr">
+          <End Type="LojaDeMateriaisParaConstrucaoModel.tbProduto" Role="tbProduto" Multiplicity="0..1" />
+          <End Type="LojaDeMateriaisParaConstrucaoModel.tbLog_Entrada_Produto" Role="tbLog_Entrada_Produto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbProduto">
+              <PropertyRef Name="CodigoProduto" />
+            </Principal>
+            <Dependent Role="tbLog_Entrada_Produto">
+              <PropertyRef Name="CodigoProduto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_prod_sai">
+          <End Type="LojaDeMateriaisParaConstrucaoModel.tbProduto" Role="tbProduto" Multiplicity="0..1" />
+          <End Type="LojaDeMateriaisParaConstrucaoModel.tbLog_Saida_Produto" Role="tbLog_Saida_Produto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbProduto">
+              <PropertyRef Name="CodigoProduto" />
+            </Principal>
+            <Dependent Role="tbLog_Saida_Produto">
+              <PropertyRef Name="CodigoProduto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="produtosrecentes_Result">
+          <Property Type="Int32" Name="CodigoProduto" Nullable="false" />
+          <Property Type="String" Name="Nome" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Descricao" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="CodigoUnidadeVenda" Nullable="true" />
+          <Property Type="String" Name="CodigoBarra" Nullable="true" MaxLength="300" />
+          <Property Type="Int32" Name="Quantidade" Nullable="true" />
+          <Property Type="Int32" Name="EstoqueMinimo" Nullable="true" />
+          <Property Type="Int32" Name="EstoqueMaximo" Nullable="true" />
+          <Property Type="Int32" Name="CodigoFornecedor" Nullable="true" />
+          <Property Type="Int32" Name="CodigoCategoria" Nullable="true" />
+          <Property Type="DateTime" Name="DataEntrada" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Marca" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Imagem" Nullable="true" MaxLength="1000" />
+          <Property Type="Boolean" Name="StatusProduto" Nullable="true" />
+          <Property Type="Decimal" Name="ValorUnit" Nullable="true" Precision="15" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="sp_cupomadquirido_Result">
+          <Property Type="String" Name="CodigoCupom" Nullable="true" MaxLength="10" />
+          <Property Type="DateTime" Name="DataInicio" Nullable="true" />
+          <Property Type="DateTime" Name="DataFim" Nullable="true" />
+          <Property Type="Decimal" Name="ValorCupom" Nullable="true" Precision="7" Scale="2" />
+        </ComplexType>
+        <EntityType Name="tbComentario">
+          <Key>
+            <PropertyRef Name="CodigoComentario" />
+          </Key>
+          <Property Name="CodigoComentario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodigoCliente" Type="Int32" />
+          <Property Name="CodigoProduto" Type="Int32" />
+          <Property Name="Avaliacao" Type="Int32" />
+          <Property Name="TituloComentario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Comentario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DataComentario" Type="DateTime" Precision="0" />
+          <Property Name="StatusComentario" Type="Int32" />
+          <NavigationProperty Name="tbCliente" Relationship="LojaDeMateriaisParaConstrucaoModel.fk_cli_coment" FromRole="tbComentario" ToRole="tbCliente" />
+          <NavigationProperty Name="tbProduto" Relationship="LojaDeMateriaisParaConstrucaoModel.fk_prod_coment" FromRole="tbComentario" ToRole="tbProduto" />
+        </EntityType>
+        <Association Name="fk_cli_coment">
+          <End Type="LojaDeMateriaisParaConstrucaoModel.tbCliente" Role="tbCliente" Multiplicity="0..1" />
+          <End Type="LojaDeMateriaisParaConstrucaoModel.tbComentario" Role="tbComentario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbCliente">
+              <PropertyRef Name="CodigoCliente" />
+            </Principal>
+            <Dependent Role="tbComentario">
+              <PropertyRef Name="CodigoCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_prod_coment">
+          <End Type="LojaDeMateriaisParaConstrucaoModel.tbProduto" Role="tbProduto" Multiplicity="0..1" />
+          <End Type="LojaDeMateriaisParaConstrucaoModel.tbComentario" Role="tbComentario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbProduto">
+              <PropertyRef Name="CodigoProduto" />
+            </Principal>
+            <Dependent Role="tbComentario">
+              <PropertyRef Name="CodigoProduto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="sp_exibircomentarioproduto_Result">
+          <Property Type="Int32" Name="CodigoComentario" Nullable="false" />
+          <Property Type="Int32" Name="CodigoCliente" Nullable="true" />
+          <Property Type="Int32" Name="CodigoProduto" Nullable="true" />
+          <Property Type="Int32" Name="Avaliacao" Nullable="true" />
+          <Property Type="String" Name="TituloComentario" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Comentario" Nullable="true" />
+          <Property Type="DateTime" Name="DataComentario" Nullable="true" />
+          <Property Type="Int32" Name="StatusComentario" Nullable="true" />
+        </ComplexType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LojaDeMateriaisParaConstrucaoModelStoreContainer" CdmEntityContainer="LMPCEntities1">
+          <EntitySetMapping Name="tbFuncionarios">
+            <EntityTypeMapping TypeName="LojaDeMateriaisParaConstrucaoModel.tbFuncionario">
+              <MappingFragment StoreEntitySet="tbFuncionario">
+                <ScalarProperty Name="StatusFuncionario" ColumnName="StatusFuncionario" />
+                <ScalarProperty Name="DataAdmissao" ColumnName="DataAdmissao" />
+                <ScalarProperty Name="CodigoCargo" ColumnName="CodigoCargo" />
+                <ScalarProperty Name="Salario" ColumnName="Salario" />
+                <ScalarProperty Name="Foto" ColumnName="Foto" />
+                <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Complemento" ColumnName="Complemento" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="CEP" ColumnName="CEP" />
+                <ScalarProperty Name="RG" ColumnName="RG" />
+                <ScalarProperty Name="CPF" ColumnName="CPF" />
+                <ScalarProperty Name="DataNascimento" ColumnName="DataNascimento" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="CodigoFuncionario" ColumnName="CodigoFuncionario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbNivelAcessoes">
+            <EntityTypeMapping TypeName="LojaDeMateriaisParaConstrucaoModel.tbNivelAcesso">
+              <MappingFragment StoreEntitySet="tbNivelAcesso">
+                <ScalarProperty Name="StatusNivel" ColumnName="StatusNivel" />
+                <ScalarProperty Name="Permissao_Orcamento" ColumnName="Permissao_Orcamento" />
+                <ScalarProperty Name="Permissao_Vender" ColumnName="Permissao_Vender" />
+                <ScalarProperty Name="Permissao_Contas" ColumnName="Permissao_Contas" />
+                <ScalarProperty Name="Permissao_Produtos" ColumnName="Permissao_Produtos" />
+                <ScalarProperty Name="Permissao_Fornecedores" ColumnName="Permissao_Fornecedores" />
+                <ScalarProperty Name="Permissao_Funcionarios" ColumnName="Permissao_Funcionarios" />
+                <ScalarProperty Name="Permissao_Clientes" ColumnName="Permissao_Clientes" />
+                <ScalarProperty Name="Permissao_Usuarios" ColumnName="Permissao_Usuarios" />
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+                <ScalarProperty Name="Abreviacao" ColumnName="Abreviacao" />
+                <ScalarProperty Name="NomeNivelAcesso" ColumnName="NomeNivelAcesso" />
+                <ScalarProperty Name="CodigoNivelAcesso" ColumnName="CodigoNivelAcesso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbUsuarios">
+            <EntityTypeMapping TypeName="LojaDeMateriaisParaConstrucaoModel.tbUsuario">
+              <MappingFragment StoreEntitySet="tbUsuario">
+                <ScalarProperty Name="CodigoNivelAcesso" ColumnName="CodigoNivelAcesso" />
+                <ScalarProperty Name="DataCadastroUsuario" ColumnName="DataCadastroUsuario" />
+                <ScalarProperty Name="DataAcessoUsuario" ColumnName="DataAcessoUsuario" />
+                <ScalarProperty Name="StatusUsuario" ColumnName="StatusUsuario" />
+                <ScalarProperty Name="SenhaUsuario" ColumnName="SenhaUsuario" />
+                <ScalarProperty Name="NomeUsuario" ColumnName="NomeUsuario" />
+                <ScalarProperty Name="CodigoUsuario" ColumnName="CodigoUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbFornecedores">
+            <EntityTypeMapping TypeName="LojaDeMateriaisParaConstrucaoModel.tbFornecedore">
+              <MappingFragment StoreEntitySet="tbFornecedores">
+                <ScalarProperty Name="StatusFornecedor" ColumnName="StatusFornecedor" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="Complemento" ColumnName="Complemento" />
+                <ScalarProperty Name="CEP" ColumnName="CEP" />
+                <ScalarProperty Name="CNPJ" ColumnName="CNPJ" />
+                <ScalarProperty Name="RazaoSocial" ColumnName="RazaoSocial" />
+                <ScalarProperty Name="NomeFantasia" ColumnName="NomeFantasia" />
+                <ScalarProperty Name="CodigoFornecedor" ColumnName="CodigoFornecedor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbProdutoes">
+            <EntityTypeMapping TypeName="LojaDeMateriaisParaConstrucaoModel.tbProduto">
+              <MappingFragment StoreEntitySet="tbProduto">
+                <ScalarProperty Name="ValorUnit" ColumnName="ValorUnit" />
+                <ScalarProperty Name="StatusProduto" ColumnName="StatusProduto" />
+                <ScalarProperty Name="Imagem" ColumnName="Imagem" />
+                <ScalarProperty Name="Marca" ColumnName="Marca" />
+                <ScalarProperty Name="DataEntrada" ColumnName="DataEntrada" />
+                <ScalarProperty Name="CodigoCategoria" ColumnName="CodigoCategoria" />
+                <ScalarProperty Name="CodigoFornecedor" ColumnName="CodigoFornecedor" />
+                <ScalarProperty Name="EstoqueMaximo" ColumnName="EstoqueMaximo" />
+                <ScalarProperty Name="EstoqueMinimo" ColumnName="EstoqueMinimo" />
+                <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
+                <ScalarProperty Name="CodigoBarra" ColumnName="CodigoBarra" />
+                <ScalarProperty Name="CodigoUnidadeVenda" ColumnName="CodigoUnidadeVenda" />
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="CodigoProduto" ColumnName="CodigoProduto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbClientes">
+            <EntityTypeMapping TypeName="LojaDeMateriaisParaConstrucaoModel.tbCliente">
+              <MappingFragment StoreEntitySet="tbCliente">
+                <ScalarProperty Name="Senha" ColumnName="Senha" />
+                <ScalarProperty Name="StatusCliente" ColumnName="StatusCliente" />
+                <ScalarProperty Name="CodigoLoginCliente" ColumnName="CodigoLoginCliente" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="Cpf" ColumnName="Cpf" />
+                <ScalarProperty Name="Rg" ColumnName="Rg" />
+                <ScalarProperty Name="CEP" ColumnName="CEP" />
+                <ScalarProperty Name="UF" ColumnName="UF" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="Complemento" ColumnName="Complemento" />
+                <ScalarProperty Name="Cidade" ColumnName="Cidade" />
+                <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+                <ScalarProperty Name="Endereco" ColumnName="Endereco" />
+                <ScalarProperty Name="DataNascimento" ColumnName="DataNascimento" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="CodigoCliente" ColumnName="CodigoCliente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbCargoes">
+            <EntityTypeMapping TypeName="LojaDeMateriaisParaConstrucaoModel.tbCargo">
+              <MappingFragment StoreEntitySet="tbCargo">
+                <ScalarProperty Name="StatusCargo" ColumnName="StatusCargo" />
+                <ScalarProperty Name="DescricaoCargo" ColumnName="DescricaoCargo" />
+                <ScalarProperty Name="Abreviacao" ColumnName="Abreviacao" />
+                <ScalarProperty Name="NomeCargo" ColumnName="NomeCargo" />
+                <ScalarProperty Name="CodigoCargo" ColumnName="CodigoCargo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbCategorias">
+            <EntityTypeMapping TypeName="LojaDeMateriaisParaConstrucaoModel.tbCategoria">
+              <MappingFragment StoreEntitySet="tbCategoria">
+                <ScalarProperty Name="DescricaoCategoria" ColumnName="DescricaoCategoria" />
+                <ScalarProperty Name="NomeCategoria" ColumnName="NomeCategoria" />
+                <ScalarProperty Name="CodigoCategoria" ColumnName="CodigoCategoria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbDestinatarios">
+            <EntityTypeMapping TypeName="LojaDeMateriaisParaConstrucaoModel.tbDestinatario">
+              <MappingFragment StoreEntitySet="tbDestinatario">
+                <ScalarProperty Name="StatusDestinatario" ColumnName="StatusDestinatario" />
+                <ScalarProperty Name="TelDestinatario" ColumnName="TelDestinatario" />
+                <ScalarProperty Name="ComplementoDestinatario" ColumnName="ComplementoDestinatario" />
+                <ScalarProperty Name="NumeroDestinatario" ColumnName="NumeroDestinatario" />
+                <ScalarProperty Name="CEPDestinatario" ColumnName="CEPDestinatario" />
+                <ScalarProperty Name="UFDestinatario" ColumnName="UFDestinatario" />
+                <ScalarProperty Name="CidadeDestinatario" ColumnName="CidadeDestinatario" />
+                <ScalarProperty Name="BairroDestinatario" ColumnName="BairroDestinatario" />
+                <ScalarProperty Name="EnderecoDestinatario" ColumnName="EnderecoDestinatario" />
+                <ScalarProperty Name="NomeDestinatario" ColumnName="NomeDestinatario" />
+                <ScalarProperty Name="CodigoDestinatario" ColumnName="CodigoDestinatario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbEstoques">
+            <EntityTypeMapping TypeName="LojaDeMateriaisParaConstrucaoModel.tbEstoque">
+              <MappingFragment StoreEntitySet="tbEstoque">
+                <ScalarProperty Name="QuantidadeAtual" ColumnName="QuantidadeAtual" />
+                <ScalarProperty Name="CodigoProduto" ColumnName="CodigoProduto" />
+                <ScalarProperty Name="CodigoEstoque" ColumnName="CodigoEstoque" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbFormaPgtoes">
+            <EntityTypeMapping TypeName="LojaDeMateriaisParaConstrucaoModel.tbFormaPgto">
+              <MappingFragment StoreEntitySet="tbFormaPgto">
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+                <ScalarProperty Name="NomeFormaPgto" ColumnName="NomeFormaPgto" />
+                <ScalarProperty Name="CodigoFormaPgto" ColumnName="CodigoFormaPgto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbOrcamentoes">
+            <EntityTypeMapping TypeName="LojaDeMateriaisParaConstrucaoModel.tbOrcamento">
+              <MappingFragment StoreEntitySet="tbOrcamento">
+                <ScalarProperty Name="ValorTotal" ColumnName="ValorTotal" />
+                <ScalarProperty Name="DataOrcamento" ColumnName="DataOrcamento" />
+                <ScalarProperty Name="CodigoFuncionario" ColumnName="CodigoFuncionario" />
+                <ScalarProperty Name="CodigoCliente" ColumnName="CodigoCliente" />
+                <ScalarProperty Name="CodigoOrcamento" ColumnName="CodigoOrcamento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbPedidoes">
+            <EntityTypeMapping TypeName="LojaDeMateriaisParaConstrucaoModel.tbPedido">
+              <MappingFragment StoreEntitySet="tbPedido">
+                <ScalarProperty Name="StatusPedido" ColumnName="StatusPedido" />
+                <ScalarProperty Name="CodigoPgto_Pedido" ColumnName="CodigoPgto_Pedido" />
+                <ScalarProperty Name="CodigoDestinatario" ColumnName="CodigoDestinatario" />
+                <ScalarProperty Name="ValorTotalPedido" ColumnName="ValorTotalPedido" />
+                <ScalarProperty Name="DataEntrega" ColumnName="DataEntrega" />
+                <ScalarProperty Name="DataPedido" ColumnName="DataPedido" />
+                <ScalarProperty Name="CodigoFuncionario" ColumnName="CodigoFuncionario" />
+                <ScalarProperty Name="CodigoCliente" ColumnName="CodigoCliente" />
+                <ScalarProperty Name="CodigoPedido" ColumnName="CodigoPedido" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbUnidadeVendas">
+            <EntityTypeMapping TypeName="LojaDeMateriaisParaConstrucaoModel.tbUnidadeVenda">
+              <MappingFragment StoreEntitySet="tbUnidadeVenda">
+                <ScalarProperty Name="Abreviacao" ColumnName="Abreviacao" />
+                <ScalarProperty Name="NomeUnidadeVenda" ColumnName="NomeUnidadeVenda" />
+                <ScalarProperty Name="CodigoUnidadeVenda" ColumnName="CodigoUnidadeVenda" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbVendas">
+            <EntityTypeMapping TypeName="LojaDeMateriaisParaConstrucaoModel.tbVenda">
+              <MappingFragment StoreEntitySet="tbVenda">
+                <ScalarProperty Name="CodigoPgto_Venda" ColumnName="CodigoPgto_Venda" />
+                <ScalarProperty Name="ValorTotal" ColumnName="ValorTotal" />
+                <ScalarProperty Name="DataVenda" ColumnName="DataVenda" />
+                <ScalarProperty Name="CodigoFuncionario" ColumnName="CodigoFuncionario" />
+                <ScalarProperty Name="CodigoCliente" ColumnName="CodigoCliente" />
+                <ScalarProperty Name="CodigoVenda" ColumnName="CodigoVenda" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbItem_Orcamento">
+            <EntityTypeMapping TypeName="LojaDeMateriaisParaConstrucaoModel.tbItem_Orcamento">
+              <MappingFragment StoreEntitySet="tbItem_Orcamento">
+                <ScalarProperty Name="CodigoProduto" ColumnName="CodigoProduto" />
+                <ScalarProperty Name="CodigoOrcamento" ColumnName="CodigoOrcamento" />
+                <ScalarProperty Name="CodigoItem_Orcamento" ColumnName="CodigoItem_Orcamento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbItem_Pedido">
+            <EntityTypeMapping TypeName="LojaDeMateriaisParaConstrucaoModel.tbItem_Pedido">
+              <MappingFragment StoreEntitySet="tbItem_Pedido">
+                <ScalarProperty Name="CodigoProduto" ColumnName="CodigoProduto" />
+                <ScalarProperty Name="CodigoPedido" ColumnName="CodigoPedido" />
+                <ScalarProperty Name="CodigoItem_Pedido" ColumnName="CodigoItem_Pedido" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbItem_Venda">
+            <EntityTypeMapping TypeName="LojaDeMateriaisParaConstrucaoModel.tbItem_Venda">
+              <MappingFragment StoreEntitySet="tbItem_Venda">
+                <ScalarProperty Name="CodigoProduto" ColumnName="CodigoProduto" />
+                <ScalarProperty Name="CodigoVenda" ColumnName="CodigoVenda" />
+                <ScalarProperty Name="CodigoItem_Venda" ColumnName="CodigoItem_Venda" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbLancamentoes">
+            <EntityTypeMapping TypeName="LojaDeMateriaisParaConstrucaoModel.tbLancamento">
+              <MappingFragment StoreEntitySet="tbLancamento">
+                <ScalarProperty Name="CodigoUsuario" ColumnName="CodigoUsuario" />
+                <ScalarProperty Name="ValorPagamento" ColumnName="ValorPagamento" />
+                <ScalarProperty Name="DataPagamento" ColumnName="DataPagamento" />
+                <ScalarProperty Name="StatusPagTitulo" ColumnName="StatusPagTitulo" />
+                <ScalarProperty Name="ValorTitulo" ColumnName="ValorTitulo" />
+                <ScalarProperty Name="DataVencimento" ColumnName="DataVencimento" />
+                <ScalarProperty Name="CodigoTitulo" ColumnName="CodigoTitulo" />
+                <ScalarProperty Name="CodigoLancamento" ColumnName="CodigoLancamento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbPeriodoes">
+            <EntityTypeMapping TypeName="LojaDeMateriaisParaConstrucaoModel.tbPeriodo">
+              <MappingFragment StoreEntitySet="tbPeriodo">
+                <ScalarProperty Name="StatusPeriodo" ColumnName="StatusPeriodo" />
+                <ScalarProperty Name="SinalPeriodo" ColumnName="SinalPeriodo" />
+                <ScalarProperty Name="ValorPeriodo" ColumnName="ValorPeriodo" />
+                <ScalarProperty Name="DescricaoPeriodo" ColumnName="DescricaoPeriodo" />
+                <ScalarProperty Name="CodigoPeriodo" ColumnName="CodigoPeriodo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbPgto_Orcamento">
+            <EntityTypeMapping TypeName="LojaDeMateriaisParaConstrucaoModel.tbPgto_Orcamento">
+              <MappingFragment StoreEntitySet="tbPgto_Orcamento">
+                <ScalarProperty Name="ValorForma" ColumnName="ValorForma" />
+                <ScalarProperty Name="CodigoOrcamento" ColumnName="CodigoOrcamento" />
+                <ScalarProperty Name="CodigoFormaPgto" ColumnName="CodigoFormaPgto" />
+                <ScalarProperty Name="CodigoPgto_Orcamento" ColumnName="CodigoPgto_Orcamento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbPgto_Pedido">
+            <EntityTypeMapping TypeName="LojaDeMateriaisParaConstrucaoModel.tbPgto_Pedido">
+              <MappingFragment StoreEntitySet="tbPgto_Pedido">
+                <ScalarProperty Name="ValorForma" ColumnName="ValorForma" />
+                <ScalarProperty Name="CodigoPedido" ColumnName="CodigoPedido" />
+                <ScalarProperty Name="CodigoFormaPgto" ColumnName="CodigoFormaPgto" />
+                <ScalarProperty Name="CodigoPgto_Pedido" ColumnName="CodigoPgto_Pedido" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbPgto_Venda">
+            <EntityTypeMapping TypeName="LojaDeMateriaisParaConstrucaoModel.tbPgto_Venda">
+              <MappingFragment StoreEntitySet="tbPgto_Venda">
+                <ScalarProperty Name="ValorForma" ColumnName="ValorForma" />
+                <ScalarProperty Name="CodigoVenda" ColumnName="CodigoVenda" />
+                <ScalarProperty Name="CodigoFormaPgto" ColumnName="CodigoFormaPgto" />
+                <ScalarProperty Name="CodigoPgto_Venda" ColumnName="CodigoPgto_Venda" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbTipoTituloes">
+            <EntityTypeMapping TypeName="LojaDeMateriaisParaConstrucaoModel.tbTipoTitulo">
+              <MappingFragment StoreEntitySet="tbTipoTitulo">
+                <ScalarProperty Name="StatusTitulo" ColumnName="StatusTitulo" />
+                <ScalarProperty Name="DescricaoTitulo" ColumnName="DescricaoTitulo" />
+                <ScalarProperty Name="CodigoTitulo" ColumnName="CodigoTitulo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbContatoes">
+            <EntityTypeMapping TypeName="LojaDeMateriaisParaConstrucaoModel.tbContato">
+              <MappingFragment StoreEntitySet="tbContato">
+                <ScalarProperty Name="CodigoUsuario" ColumnName="CodigoUsuario" />
+                <ScalarProperty Name="Resposta" ColumnName="Resposta" />
+                <ScalarProperty Name="StatusContato" ColumnName="StatusContato" />
+                <ScalarProperty Name="Mensagem" ColumnName="Mensagem" />
+                <ScalarProperty Name="DataContato" ColumnName="DataContato" />
+                <ScalarProperty Name="TelContato" ColumnName="TelContato" />
+                <ScalarProperty Name="AssuntoContato" ColumnName="AssuntoContato" />
+                <ScalarProperty Name="EmailContato" ColumnName="EmailContato" />
+                <ScalarProperty Name="NomeContato" ColumnName="NomeContato" />
+                <ScalarProperty Name="CodigoContato" ColumnName="CodigoContato" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="pesq_cupom" FunctionName="LojaDeMateriaisParaConstrucaoModel.Store.pesq_cupom">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LojaDeMateriaisParaConstrucaoModel.pesq_cupom_Result">
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+                <ScalarProperty Name="CodigoCupom" ColumnName="CodigoCupom" />
+                <ScalarProperty Name="ValorCupom" ColumnName="ValorCupom" />
+                <ScalarProperty Name="DataInicio" ColumnName="DataInicio" />
+                <ScalarProperty Name="DataFim" ColumnName="DataFim" />
+                <ScalarProperty Name="StatusCupom" ColumnName="StatusCupom" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="tbCupoms">
+            <EntityTypeMapping TypeName="LojaDeMateriaisParaConstrucaoModel.tbCupom">
+              <MappingFragment StoreEntitySet="tbCupom">
+                <ScalarProperty Name="StatusCupom" ColumnName="StatusCupom" />
+                <ScalarProperty Name="DataFim" ColumnName="DataFim" />
+                <ScalarProperty Name="DataInicio" ColumnName="DataInicio" />
+                <ScalarProperty Name="ValorCupom" ColumnName="ValorCupom" />
+                <ScalarProperty Name="CodigoCupom" ColumnName="CodigoCupom" />
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbCupom_Cliente">
+            <EntityTypeMapping TypeName="LojaDeMateriaisParaConstrucaoModel.tbCupom_Cliente">
+              <MappingFragment StoreEntitySet="tbCupom_Cliente">
+                <ScalarProperty Name="CodigoCliente" ColumnName="CodigoCliente" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbLog_Entrada_Produto">
+            <EntityTypeMapping TypeName="LojaDeMateriaisParaConstrucaoModel.tbLog_Entrada_Produto">
+              <MappingFragment StoreEntitySet="tbLog_Entrada_Produto">
+                <ScalarProperty Name="DataEntrada" ColumnName="DataEntrada" />
+                <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
+                <ScalarProperty Name="CodigoProduto" ColumnName="CodigoProduto" />
+                <ScalarProperty Name="CodigoEntrada" ColumnName="CodigoEntrada" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbLog_Saida_Produto">
+            <EntityTypeMapping TypeName="LojaDeMateriaisParaConstrucaoModel.tbLog_Saida_Produto">
+              <MappingFragment StoreEntitySet="tbLog_Saida_Produto">
+                <ScalarProperty Name="DataSaida" ColumnName="DataSaida" />
+                <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
+                <ScalarProperty Name="CodigoProduto" ColumnName="CodigoProduto" />
+                <ScalarProperty Name="CodigoSaida" ColumnName="CodigoSaida" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="produtosrecentes" FunctionName="LojaDeMateriaisParaConstrucaoModel.Store.produtosrecentes">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LojaDeMateriaisParaConstrucaoModel.produtosrecentes_Result">
+                <ScalarProperty Name="CodigoProduto" ColumnName="CodigoProduto" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+                <ScalarProperty Name="CodigoUnidadeVenda" ColumnName="CodigoUnidadeVenda" />
+                <ScalarProperty Name="CodigoBarra" ColumnName="CodigoBarra" />
+                <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
+                <ScalarProperty Name="EstoqueMinimo" ColumnName="EstoqueMinimo" />
+                <ScalarProperty Name="EstoqueMaximo" ColumnName="EstoqueMaximo" />
+                <ScalarProperty Name="CodigoFornecedor" ColumnName="CodigoFornecedor" />
+                <ScalarProperty Name="CodigoCategoria" ColumnName="CodigoCategoria" />
+                <ScalarProperty Name="DataEntrada" ColumnName="DataEntrada" />
+                <ScalarProperty Name="Marca" ColumnName="Marca" />
+                <ScalarProperty Name="Imagem" ColumnName="Imagem" />
+                <ScalarProperty Name="StatusProduto" ColumnName="StatusProduto" />
+                <ScalarProperty Name="ValorUnit" ColumnName="ValorUnit" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_cupomadquirido" FunctionName="LojaDeMateriaisParaConstrucaoModel.Store.sp_cupomadquirido">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LojaDeMateriaisParaConstrucaoModel.sp_cupomadquirido_Result">
+                <ScalarProperty Name="CodigoCupom" ColumnName="CodigoCupom" />
+                <ScalarProperty Name="DataInicio" ColumnName="DataInicio" />
+                <ScalarProperty Name="DataFim" ColumnName="DataFim" />
+                <ScalarProperty Name="ValorCupom" ColumnName="ValorCupom" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="tbComentarios">
+            <EntityTypeMapping TypeName="LojaDeMateriaisParaConstrucaoModel.tbComentario">
+              <MappingFragment StoreEntitySet="tbComentario">
+                <ScalarProperty Name="StatusComentario" ColumnName="StatusComentario" />
+                <ScalarProperty Name="DataComentario" ColumnName="DataComentario" />
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+                <ScalarProperty Name="TituloComentario" ColumnName="TituloComentario" />
+                <ScalarProperty Name="Avaliacao" ColumnName="Avaliacao" />
+                <ScalarProperty Name="CodigoProduto" ColumnName="CodigoProduto" />
+                <ScalarProperty Name="CodigoCliente" ColumnName="CodigoCliente" />
+                <ScalarProperty Name="CodigoComentario" ColumnName="CodigoComentario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_exibircomentarioproduto" FunctionName="LojaDeMateriaisParaConstrucaoModel.Store.sp_exibircomentarioproduto">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LojaDeMateriaisParaConstrucaoModel.sp_exibircomentarioproduto_Result">
+                <ScalarProperty Name="CodigoComentario" ColumnName="CodigoComentario" />
+                <ScalarProperty Name="CodigoCliente" ColumnName="CodigoCliente" />
+                <ScalarProperty Name="CodigoProduto" ColumnName="CodigoProduto" />
+                <ScalarProperty Name="Avaliacao" ColumnName="Avaliacao" />
+                <ScalarProperty Name="TituloComentario" ColumnName="TituloComentario" />
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+                <ScalarProperty Name="DataComentario" ColumnName="DataComentario" />
+                <ScalarProperty Name="StatusComentario" ColumnName="StatusComentario" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

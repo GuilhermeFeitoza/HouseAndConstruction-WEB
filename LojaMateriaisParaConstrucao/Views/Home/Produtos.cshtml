@@ -1,0 +1,54 @@
+﻿@model IEnumerable<LojaMateriaisParaConstrucao.Models.tbProduto>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+ }
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
+    <title>Index</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="http://localhost:2216/scripts/jquery.js"></script>
+    <script src="http://localhost:2216/scripts/bootstrap.min.js"></script>
+  </head>
+<body>
+    <h2>Produtos</h2>
+    <p>
+        @Html.ActionLink("Incluir Novo produto", "Adicionar", "Login", new { @class = "btn btn-success" })
+    </p>
+    @*Criando nota tabela , que será preenchido com o laço abaixo*@
+    <table class="table">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.CodigoProduto)</th>
+            <th> @Html.DisplayNameFor(model=>model.Imagem)</th>
+            <th>@Html.DisplayNameFor(model => model.Nome) </th>
+            <th>@Html.DisplayNameFor(model => model.Descricao)</th>
+            <th>@Html.DisplayNameFor(model => model.Quantidade) </th>
+            <th>@Html.DisplayNameFor(model => model.ValorUnit) </th>
+            <th></th>
+        </tr>
+        @*Esse Laço irá percorrer a lista enviada pelo controler*@
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.CodigoProduto)</td>
+            <td><img src="@Html.DisplayFor(Model =>item.Imagem)"</td>
+            <td>@Html.DisplayFor(modelItem => item.Nome)</td>
+            <td>@Html.DisplayFor(modelItem => item.Descricao)</td>
+            <td>@Html.DisplayFor(modelItem => item.Quantidade)</td>
+            <td>@Html.DisplayFor(modelItem => item.ValorUnit)</td>
+            @*Adicionando os link para editar, detalhes e exliur*@
+            <td>
+                @Html.ActionLink("Editar", "Editar", new { id = item.CodigoProduto }) |
+                @Html.ActionLink("Detalhes", "Detalhes", new { id = item.CodigoProduto }) |
+                @Html.ActionLink("Deletar", "Deletar", new { id = item.CodigoProduto })
+            </td>
+        </tr>
+        }
+    </table>
+</body>
+</html>
+

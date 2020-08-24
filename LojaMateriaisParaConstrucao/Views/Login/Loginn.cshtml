@@ -1,0 +1,126 @@
+﻿@model LojaMateriaisParaConstrucao.Models.tbCliente
+
+@{
+    ViewBag.Title = "Login";
+}
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <script>
+
+        function RetiraMascara() {
+            $("#txtCpf").unmask();
+        }
+
+    </script>
+
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/scripts/login.js"></script>
+    <script src="~/scripts/mascara.js"></script>
+    <script src="~/scripts/mascara.min.js"></script>
+    <script src="~/scripts/jquery.js"></script>
+
+
+
+    <title>Loginn</title>
+
+    <style>
+
+        body {
+            background-color: #0094ff;
+        }
+
+        #PaginaLogin {
+            margin: 0px auto;
+            background-color: #fff;
+            padding: 30px;
+            width: 500px;
+        }
+        /*fieldset {
+            display: block;
+            margin-left: 2px;
+            margin-right: 2px;
+            padding-top: 0.35em;
+            padding-bottom: 0.625em;
+            padding-left: 0.75em;
+            padding-right: 0.75em;
+            border: 2px groove;
+            border-radius: 10px;
+        }*/
+        #divLogo {
+            margin: 50px auto 0px auto;
+            width: 500px;
+        }
+
+        img {
+            background-color: #0094ff;
+            height: 90px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            color: #0094ff;
+            text-align: center;
+        }
+
+        #ImgLogo {
+            width: 400px;
+            height: 200px;
+        }
+    </style>
+
+</head>
+<body>
+    @using (Html.BeginForm("VerificarLogin", "Login", FormMethod.Post))
+    {
+        <script src="~/scripts/bootstrap.js"></script>
+        <script src="~/scripts/jquery.min.js"></script>
+
+        @Html.AntiForgeryToken()//previne um ataque CSRF
+
+        <div id="divLogo">
+            <a href="@Url.Action("Index", "Home")"><img src="~/img/logo.png"  id="ImgLogo" /></a>
+        </div>
+        <div class="box-parent-login" id="PaginaLogin">
+            <div class="well bg-white box-login">
+
+                <h1 class="ls-login-logo">Login</h1>
+
+
+                <div class="form-group ls-login-user">
+                    <label for="userLogin">CPF</label>
+                    @Html.TextBoxFor(m => Model.Cpf, new { @class = "form-control ls-login-bg-user input-lg", name = "Cpf", id = "txtCpf", placeholder = "Digite seu CPF", maxlength = "14"})
+                </div>
+
+                <div class="form-group ls-login-password">
+                    <label for="userPassword">Senha</label>
+
+                    @Html.TextBoxFor(m => Model.Senha, new { @class = "form-control ls-login-bg-user input-lg", id = "userPassword", placeholder = "Senha",type="password"})
+                </div>
+
+                <a href="#" class="ls-login-forgot">Esqueci minha senha</a>
+
+                <input type="submit" value="Entrar" class="btn btn-primary btn-lg btn-block" onclick="RetiraMascara();">
+                <p class="txt-center ls-login-signup">
+                    Não possui um usuário na HAC?
+                    <a href="@Url.Action("Cadastro", "Cadastro")">Cadastre-se agora</a>
+                </p>
+
+                <p class="txt-center ls-login-signup">
+                    <a href="@Url.Action("Index", "Home")">Voltar para a Home</a>
+                </p>
+            </div>
+        </div>
+
+
+
+
+
+    }
+</body>
+</html>

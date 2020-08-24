@@ -1,0 +1,370 @@
+﻿@model  LojaMateriaisParaConstrucao.Models.detalhesmodel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/scripts/bootstrap.min.js"></script>
+
+
+    <title>@Model.detalheprod.Nome</title>
+
+
+    <style>
+
+        .btn-grey {
+            background-color: #D8D8D8;
+            color: #FFF;
+        }
+
+        .rating-block {
+            background-color: #FAFAFA;
+            border: 1px solid #EFEFEF;
+            padding: 15px 15px 20px 15px;
+            border-radius: 3px;
+        }
+
+        .bold {
+            font-weight: 700;
+        }
+
+        .padding-bottom-7 {
+            padding-bottom: 7px;
+        }
+
+        .review-block {
+            background-color: #FAFAFA;
+            border: 1px solid #EFEFEF;
+            padding: 15px;
+            border-radius: 3px;
+            margin-bottom: 15px;
+        }
+
+        .review-block-name {
+            font-size: 12px;
+            margin: 10px 0;
+        }
+
+        .review-block-date {
+            font-size: 12px;
+        }
+
+        .review-block-rate {
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+
+        .review-block-title {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .review-block-description {
+            font-size: 13px;
+        }
+
+        #imgProduto {
+            max-width: 100%;
+            display: block;
+            height: auto;
+        }
+
+        #pagina {
+            width: 1200px;
+            height: 100%;
+            margin: auto;
+        }
+
+        #preco {
+            font-family: 'Century Gothic';
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        #divBotao {
+            width: 150px;
+            margin: auto 0px 0px auto;
+        }
+
+        #btnComprar {
+            width: 150px;
+            height: 40px;
+            border-radius: 10px;
+            font-size: 15pt;
+            font-weight: bold;
+            color: #fff;
+            background-color: #333;
+        }
+
+        #divImgProduto {
+            margin: 0px auto;
+            width: 100px;
+        }
+
+        #imgProduto {
+            width: 600px;
+        }
+
+        #fichaTecnica {
+            width: 65%;
+        }
+
+        th, td {
+            text-align: left;
+            font-weight: bold;
+        }
+
+        padding: 10px;
+        }
+
+        #Comentario {
+            font-size: 16pt;
+        }
+
+        #TipoComentario {
+            font-weight: bold;
+            font-size: 24pt;
+        }
+
+        #Cmt {
+            padding-left: 2%;
+            padding-top: 2%;
+            padding-bottom: 2%;
+        }
+
+        #data {
+            font-size: 12pt;
+        }
+
+        #NomeCli {
+            font-size: 12pt;
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.modal').modal('show');
+        });
+    </script>
+</head>
+<body>
+    <div id="pagina" class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                @*<div id="divImgProduto">*@
+                <img src="@Url.Content(Model.detalheprod.Imagem)" id="imgProduto" />
+                @*</div>*@
+
+            </div>
+            <div class="col-sm-6">
+                <h1 id="NomeProduto">@Model.detalheprod.Nome</h1><br>
+                <span id="preco">R$@Model.detalheprod.ValorUnit</span>
+                @*<div id="divBotao">
+                        <button type="submit" id="btnComprar"> <a href="@Url.Action("Comprar", "DetalheProduto", new { id = 130 })">Comprar</a><i class="glyphicon glyphicon-ice-lolly"></i></button>
+                    </div>*@
+                *@* <a href="@Url.Action("Buy", "Cart", new { id = product.Id })">Buy Now</a>*@
+            </div>
+        </div>
+        <hr />
+    </div>
+
+
+    <h1>Descricao </h1>
+    <p id="DescricaoProduto" style="text-align justify;">
+        @Model.detalheprod.Descricao
+    </p>
+
+
+
+    <div id="fichaTecnica">
+        <h1>Ficha Técnica</h1>
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Atributos</th>
+                    <th>Ficha Técnica</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Marca</td>
+                    <td id="marca">@Model.detalheprod.Marca</td>
+                </tr>
+                <tr>
+                    <td>Peso</td>
+                    <td id="peso"> 2</td>
+                </tr>
+                <tr>
+                    <td>Codigo de Barras</td>
+                    <td id="peso"> 3</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <h1 style="text-align: left">Comentários</h1>
+
+
+
+
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Adicionar comentário
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Comentário</h5>
+                    
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    @*Faz aqui GPA*@
+                    <input type="text" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="rating-block">
+                    <h4>Média das avaliações dos clientes</h4>
+                    <h2 class="bold padding-bottom-7">@Model.Media <small>/ 5</small></h2>
+                    <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                    </button>
+                    <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                    </button>
+                    <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                    </button>
+                    <button type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                    </button>
+                    <button type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                    </button>
+                </div>
+            </div>
+
+            <br />
+            <br />
+            <br />
+        </div>
+
+        @if (Model.listacomentario != null)
+        {
+
+
+            foreach (var item in Model.listacomentario)
+            {
+
+
+                <div class="row">
+
+                    <div class="col-sm-7">
+                        <hr />
+                        <div class="review-block">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <img src="~/Content/img/icons8-user-male-50.png" class="img-rounded">
+                                    <div class="review-block-name"><a href="#">@item.CodigoCliente</a></div>
+                                    <div class="review-block-date">data<br />@item.DataComentario</div>
+                                </div>
+                                <div class="col-sm-9">
+                                    <div class="review-block-rate">
+                                        <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                        </button>
+                                        <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                        </button>
+                                        <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                        </button>
+                                        <button type="button" class="btn btn-warning btn-grey btn-xs" aria-label="Left Align">
+                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                        </button>
+                                        <button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
+                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                        </button>
+                                    </div>
+                                    <div class="review-block-title">@item.TituloComentario</div>
+                                    <div class="review-block-description">@item.Comentario</div>
+                                </div>
+                            </div>
+                            <hr />
+
+                        </div>
+
+                    </div>
+                </div>
+            }
+        }
+
+
+
+
+        <!-- /container -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <br /><br />
+</body>
+<script src="~/scripts/jquery.js"></script>
+<script src="~/scripts/jquery.min.js"></script>
+
+
+</html>
+<script type="text/javascript">
+    $(window).load(function () {
+        $('#examplemodal').modal('show');
+    });
+</script>

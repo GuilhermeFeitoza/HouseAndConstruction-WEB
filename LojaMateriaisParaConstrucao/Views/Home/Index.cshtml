@@ -1,0 +1,177 @@
+﻿@model IEnumerable<LojaMateriaisParaConstrucao.Models.produtosrecentes_Result>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/css/w3css.css" rel="stylesheet" />
+    <link href="~/Content/animacao.css" rel="stylesheet" />
+    <link href="~/Content/css/animacao1.css" rel="stylesheet" />
+    <link href="~/Content/css/animacao2.css" rel="stylesheet" />
+    <link href="~/Content/fotos.css" rel="stylesheet" />
+    <style>
+        h1 {
+            text-align: center;
+            font-weight: bold;
+            text-shadow: 0.5px 0.5px 0.5px #000;
+        }
+
+        .mySlides {
+            display: none
+        }
+
+        .w3-left, .w3-right, .w3-badge {
+            cursor: pointer
+        }
+
+        .w3-badge {
+            height: 13px;
+            width: 13px;
+            padding: 0
+        }
+
+        #paragrafo {
+            text-align: center;
+            font-size: 15pt;
+            margin: 20px auto;
+        }
+
+        #secao {
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        h3 {
+            text-align: center;
+        }
+
+        #Img {
+            max-width: 1500px;
+            height: 630px;
+            margin: 20px auto;
+            width: 100%;
+        }
+
+        .bloco {
+            margin: 0 10% 0 10%;
+        }
+    </style>
+    <title>Home - House and Construction</title>
+</head>
+<body>
+
+    <br /><br /><br /><br />
+
+                      <div class="w3-content w3-display-container" style="max-width:1500px">
+                          <img class="mySlides" src="~/img/Slider/i1.jpg" style="height:630px; width: 100%">
+                          <img class="mySlides" src="~/img/Slider/i2.jpg" style="height:630px; width: 100%">
+                          <img class="mySlides" src="~/img/Slider/i3.jpg" style="height:630px; width: 100%" >
+                          <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">
+                              <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
+                              <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
+                              <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
+                              <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
+                              <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
+                          </div>
+                      </div>
+    <script src="~/scripts/Index.js"></script>
+    <br /><br />
+
+
+
+    <h1 id="h1">Novos Produtos</h1>
+   @foreach (var item in Model)
+   {
+    <div class="card">
+        <img src="@Url.Content(item.Imagem)" alt="Denim Jeans" style="width:100%">
+        <h1>@Html.DisplayFor(modelItem => item.Nome)</h1>
+        <p class="preco">R$@Html.DisplayFor(modelItem => item.ValorUnit)</p>
+        <p>@Html.DisplayFor(modelItem => item.Descricao)</p>
+        <p><button>@Html.ActionLink("Detalhes", "DetalhesProduto", new { id = item.CodigoProduto })</button></p>
+    </div>
+   }
+    
+
+  
+
+
+   
+
+    <h1 id="quemsomos">Quem Somos</h1>
+    <div id="img-fade" class="bloco">
+        <img src="~/img/QuemSomos/q4.png" id="Img" class="slide animateOpacity" />
+        <img src="~/img/QuemSomos/q5.jpg" id="Img" class="slide animateOpacity" />
+    </div>
+    <div id="secao">
+        <p id="paragrafo"> Há mais de 10 anos no mercado, a HAC é especializada em materiais de construção e referência quando o assunto é reforma e preço baixo.<br /> Comercializamos aproximadamente 30 mil itens, fabricados pelas melhores marcas do mercado de construção e reforma. Temos funcionários capacitados a<br /> atender os clientes da melhor maneira possível.</p>
+        <p id="paragrafo">Fornecemos apoio aos clientes na escolha de produtos, temos serviços de transporte, orçamentos, e lista de desejos feito diretamente pelo site.</p>
+        <h1 id="h1"><b><strong>Missão</strong></b></h1>
+        <div class="bloco">
+            <img src="~/img/QuemSomos/qs1.jpg" id="Img" class="slide1 animateOpacity1" />
+            <img src="~/img/QuemSomos/q6.jpg" id="Img" class="slide1 animateOpacity1" />
+        </div>
+        <p id="paragrafo">O compromisso da HAC é oferecer serviços e produtos de qualidade, com foco na rapidez da entrega e na satisfação do cliente.</p>
+        <h1 id="h1"><b><strong>Visão</strong></b></h1>
+        <div class="bloco">
+            <img src="~/img/QuemSomos/q3.jpg" id="Img" class="slide2 animateOpacity2" />
+            <img src="~/img/QuemSomos/qs2.png" id="Img" class="slide2 animateOpacity2" />
+            <img src="~/img/QuemSomos/q7.jpg" id="Img" class="slide2 animateOpacity2" />
+        </div>
+        <p id="paragrafo">Fazemos parte dos líderes de mercado na categoria de Home Centers. Nossa visão é ser classificada como tal, pois além de concorrer com<br /> esse mercado, temos toda a infraestrutura para enquadrar-se cada vez mais nessa categoria.</p>
+    </div>
+    <script>
+        //0
+        var slides = document.getElementsByClassName("slide");
+        var slide = 0;
+
+        setInterval(mudaSlide, 4000);
+        function mudaSlide() {
+            for (var i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slide++;
+            if (slide > slides.length - 1) {
+                slide = 0;
+            }
+            slides[slide].style.display = "block";
+        }
+
+        var slides1 = document.getElementsByClassName("slide1");
+        var slide1 = 0;
+
+        setInterval(mudaSlide1, 4000);
+        function mudaSlide1() {
+            for (var i = 0; i < slides1.length; i++) {
+                slides1[i].style.display = "none";
+            }
+            slide1++;
+            if (slide1 > slides.length - 1) {
+                slide1 = 0;
+            }
+            slides1[slide1].style.display = "block";
+        }
+
+        var slides2 = document.getElementsByClassName("slide2");
+        var slide2 = 0;
+
+        setInterval(mudaSlide2, 4000);
+        function mudaSlide2() {
+            for (var i = 0; i < slides2.length; i++) {
+                slides2[i].style.display = "none";
+            }
+            slide2++;
+            if (slide2 > slides2.length - 1) {
+                slide2 = 0;
+            }
+            slides2[slide2].style.display = "block";
+        }
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,146 @@
+﻿
+@model IEnumerable<LojaMateriaisParaConstrucao.Models.tbPedido>
+
+@{
+    ViewBag.Title = "ClienteLogado";
+    Layout = "~/Views/Shared/LayoutLogado.cshtml";
+}
+<!DOCTYPE HTML>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Bem Vindo - House and Construction</title>
+    <style>
+        #divSpan {
+            text-align: center;
+        }
+        #divTabela {
+            padding-right: 50px;
+            padding-left:50px;
+        }
+        .bvd {
+            font-size: 20pt;
+            text-shadow: .5px .5px .5px #333;
+            font-weight: bold;
+        }
+
+        #lblCliente {
+            text-shadow: .6px .6px .6px #0094ff;
+            color: #0094ff;
+        }
+
+        #divOpcoes{
+            margin: 50px auto;
+        }
+
+        #divOpcoes li{
+            padding: 70px;
+            border: 1px solid #ccc;
+            margin: 10px 25px 10px 25px;
+            width: 20%;
+            float: left;
+            list-style-type: none;
+        }
+
+        #listaOpcoes{
+            display: inline-block;
+            float: left;
+            width: 70%;
+            height: 20%;
+            margin: 0 100px 0 325px;
+        }
+
+        #h2 {
+            text-align: center;
+            color: #0094ff;
+            text-shadow: .6px .6px .6px #0094ff;
+            font-weight: bold;
+        }
+
+        #idPara {
+            font-size: 12pt;
+            color: #0094ff;
+            font-weight: bold;
+            text-shadow: 0 .5px 1px #0094ff;
+            text-align: center;
+        }
+
+        #idPara2 {
+            font-size: 9pt;
+            color: #0094ff;
+            font-weight: bold;
+            text-shadow: 0 .5px 1px #0094ff;
+            text-align: center;
+        }
+
+
+        #par {
+            margin: auto auto;
+            text-align: center;
+        }
+
+        #image {
+            width: 64px;
+            height: 64px;
+            margin: 10px 45px;
+        }
+
+        #campos{color: #000;}
+    </style>
+</head>
+<body>
+    <div id="divSpan">
+        <span class="bvd">
+            Bem vindo
+            <label id="lblCliente"><i>@Session["NomeCliente"]</i></label>
+            à House and Construction !
+        </span>
+    </div>
+
+    <br /><br /><br /><br /><br /><br />
+    <div id="h2">
+        <h2>Últimos Pedidos</h2>
+        <div id="divTabela">
+            <table class="table">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.CodigoPedido)</th>
+                    <th>@Html.DisplayNameFor(model => model.DataPedido)</th>
+                    <th>@Html.DisplayNameFor(model => model.DataEntrega)</th>
+                    <th>@Html.DisplayNameFor(model => model.ValorTotalPedido)</th>
+
+                </tr>
+                @foreach (var item in Model)
+            {
+                    <tr>
+                        <td id="campos">@Html.DisplayFor(modelItem => item.CodigoPedido)</td>
+                        <td id="campos">@Html.DisplayFor(modelItem => item.DataPedido)</td>
+                        <td id="campos">@Html.DisplayFor(modelItem => item.DataEntrega)</td>
+                        <td id="campos">@Html.DisplayFor(modelItem => item.ValorTotalPedido)</td>
+                        @*Adicionando os link para editar, detalhes e exliur*@
+                        @*<td>
+                            @Html.ActionLink("Editar", "Editar", new { id = item.CodigoPedido }) |
+                            @Html.ActionLink("Detalhes", "Detalhes", new { id = item.CodigoPedido }) |
+                            @Html.ActionLink("Deletar", "Deletar", new { id = item.CodigoPedido })
+                        </td>*@
+                    </tr>
+                }
+
+            </table>
+        </div>
+        <br />
+        <br/>
+        <br/>
+    </div>
+
+    <div id="divOpcoes">
+        <ul id="listaOpcoes">
+            <a href="@Url.Action("Cupons","Home")" target="_blank"><li><img src="~/img/Icones/Ic_log/icons8-vale-64.png" id="image" /><p id="par"><span id="idPara">Cupons</span></p></li></a>
+            <a href="@Url.Action("ListaDesejo","Home")" target="_blank"><li><img src="~/img/Icones/Ic_log/icons8-romance-64.png" id="image" /><p id="par"><span id="idPara2">Lista de Desejos</span></p></li></a>
+            <a href="@Url.Action("Index","Home")" target="_blank"><li><img src="~/img/Icones/Ic_log/icons8-caminhão-64.png" id="image" /><p id="par"><span id="idPara">Pedidos</span></p></li></a>
+            <a href="@Url.Action("Index","Home")" target="_blank"><li><img src="~/img/Icones/Ic_log/icons8-alterar-usuário-masculino-64.png" id="image" /><p id="par"><span id="idPara">Editar Perfil</span></p></li></a>
+        </ul>
+    </div>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+</body>
+</html>

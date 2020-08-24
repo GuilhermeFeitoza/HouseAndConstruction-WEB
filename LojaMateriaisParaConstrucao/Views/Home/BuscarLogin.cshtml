@@ -1,0 +1,56 @@
+﻿@model IEnumerable<LojaMateriaisParaConstrucao.Models.tbUsuario>
+    @{
+        Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+     }
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
+    <title>Index</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="http://localhost:2216/scripts/jquery.js"></script>
+    <script src="http://localhost:2216/scripts/bootstrap.min.js"></script>
+    <link href="~/Content/css/BuscarLogin.css" rel="stylesheet" />
+</head>
+<body>
+ 
+
+    <div id="div-titulo">
+        <h2 id="titulo">Usuários cadastrados</h2>
+        <p>
+            @Html.ActionLink("Incluir Novo Login", "Adicionar", "Login", new { @class = "btn btn-success" })
+        </p>
+    </div>
+    @*Criando nota tabela , que será preenchido com o laço abaixo*@
+    <table class="table">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.CodigoUsuario)</th>
+            <th>@Html.DisplayNameFor(model => model.NomeUsuario) </th>
+            <th>@Html.DisplayNameFor(model => model.SenhaUsuario)</th>
+            <th>@Html.DisplayNameFor(model => model.DataAcessoUsuario) </th>
+            <th></th>
+        </tr>
+        @*Esse Laço irá percorrer a lista enviada pelo controler*@
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.CodigoUsuario)</td>
+                <td>@Html.DisplayFor(modelItem => item.NomeUsuario)</td>
+                <td>@Html.DisplayFor(modelItem => item.SenhaUsuario)</td>
+                <td>@Html.DisplayFor(modelItem => item.DataAcessoUsuario)</td>
+                @*Adicionando os link para editar, detalhes e exliur*@
+                <td>
+                    @Html.ActionLink("Editar", "Editar", new { id = item.CodigoUsuario }) |
+                    @Html.ActionLink("Detalhes", "Detalhes", new { id = item.CodigoUsuario }) |
+                    @Html.ActionLink("Deletar", "Deletar", new { id = item.CodigoUsuario })
+                </td>
+            </tr>
+        }
+    </table>
+</body>
+</html>
+

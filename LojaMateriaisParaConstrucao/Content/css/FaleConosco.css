@@ -1,0 +1,46 @@
+﻿div#page {
+    margin: 80px 120px 80px 120px;
+    padding: 10px;
+}
+
+
+#entre a {
+    position: relative;
+    text-decoration: none;
+    margin: 3px;
+    background-color: #1e90ff;
+    color: #fff;
+    padding: 15px 20px;
+    left: 1815px;
+    bottom: 90px;
+    transition: background-color 0.5s;
+}
+
+.cabecalho {
+    background-color: #1E90FF;
+    margin: -50px 0px -70px 0px;
+}
+
+h1 {
+    color: #1E90FF;
+    text-shadow: 1px 1px 1px #1E90FF;
+}
+
+h2 {
+    color: #1E90FF;
+    text-shadow: 1px 1px 1px #1E90FF;
+}
+
+#btnEnviar {
+    background-color: #1E90FF;
+    color: #fff;
+    transition: background-color 0.5s;
+}
+
+    #btnEnviar:hover {
+        background-color: #00BFFF;
+        color: #fff;
+        -moz-box-shadow: 0 3px 10px 0 #fff;
+        -webkit-box-shadow: 0 3px 10px 0 #fff;
+        text-shadow: 0px 0px 5px #fff;
+    }

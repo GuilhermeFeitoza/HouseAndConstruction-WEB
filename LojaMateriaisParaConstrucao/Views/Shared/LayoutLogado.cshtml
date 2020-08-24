@@ -1,0 +1,366 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/scripts/jquery.min.js"></script>
+    <script src="~/scripts/layout.js"></script>
+
+    <style>
+
+        /*MENU SUPERIOR*/
+        #MenuSuperior {
+            background-color: #1e90ff;
+            height: 95px;
+            width: 1918px;
+            z-index: 1;
+        }
+
+        #ImgLogo {
+            margin-top: -20px;
+            margin-left: 80px;
+        }
+
+        #divBusca {
+            display: block;
+        }
+
+        #txtBusca {
+            height: 40%;
+            width: 50%;
+            position: absolute;
+            top: 25px;
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+            -moz-border-radius: 5px;
+            -webkit-box-shadow: 1px 1px 1px #fff;
+            -moz-box-shadow: 1px 1px 1px #fff;
+            box-shadow: 1px 1px 1px #fff;
+            border: none;
+        }
+
+        #btnBusca {
+            position: absolute;
+            top: 25px;
+            left: 350px;
+            width: 10%;
+            height: 41%;
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+            -moz-border-radius: 10px;
+            background-color: #333;
+            color: #fff;
+            font-weight: bolder;
+            border: none;
+        }
+
+        #entrar {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            left: 40px;
+            top: 30px;
+            position: relative;
+            transition: background-color .5s;
+            border-radius: 4px 4px 4px;
+            -webkit-border-radius: 4px 4px 4px;
+            -moz-border-radius: 4px 4px 4px;
+        }
+
+            #entrar:hover {
+                background-color: #333;
+                border-radius: 4px 2px 2px;
+                -webkit-border-radius: 4px 4px 4px;
+                -moz-border-radius: 4px 4px 4px;
+            }
+
+        #Login {
+            margin-top: 12.5px;
+            margin-left: 210px;
+        }
+
+        #sair{
+            font-size: 14pt;
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        #sair:hover{text-shadow: 0px 0px 2px #fff;}
+
+        #fulano{
+            font-weight: bold;
+            color: #fff;
+            font-size: 14pt;
+        }
+
+        /*MENU */
+
+        #todo {
+            color: #fff;
+            margin-right: 5px;
+        }
+
+        .menu {
+            list-style-type: none;
+            border: 1px;
+            float: left;
+            background-color: #333;
+            min-width: 1903px;
+            max-width: 2903px;
+            z-index: 1;
+        }
+
+            .menu li {
+                position: relative;
+                float: left;
+                border-right: 1px;
+                margin-right: 5px;
+                left: 0px;
+            }
+
+                .menu li a {
+                    color: #fff;
+                    text-decoration: none;
+                    margin-right: 25px;
+                    padding: 5px 10px;
+                    display: block;
+                    transition: background-color .5s;
+                    font-size: 15pt;
+                }
+
+                    .menu li a:hover {
+                        background: #2991e0;
+                        color: #fff;
+                        -webkit-box-shadow: 0 3px 10px 0 #ccc;
+                        -moz-box-shadow: 0 3px 10px 0 #ccc;
+                        text-shadow: 0px 0px 5px #fff;
+                    }
+
+                .menu li ul {
+                    position: absolute;
+                    top: 41px;
+                    left: 0px;
+                    width: 275px;
+                    background-color: #333;
+                    display: none;
+                }
+
+                .menu li:hover ul, .menu li.over ul {
+                    display: block;
+                    z-index: 1;
+                }
+
+                .menu li ul li {
+                    border: 1px;
+                    display: block;
+                    width: 300px;
+                    margin: 0 -5px 5px -40px;
+                    left: 0;
+                }
+
+        #tinta {
+            margin-bottom: -5px;
+        }
+
+        /*FOOTER*/
+
+        .footer {
+            position: relative;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            height: 100%;
+        }
+
+            .footer a {
+                color: #fff;
+            }
+
+                .footer a:hover {
+                    text-decoration: underline;
+                }
+
+        .rodape {
+            margin: 0px 450px;
+            text-align: left;
+        }
+
+        .coluna-esquerda {
+            height: 200px;
+            width: 300px;
+            float: left;
+        }
+
+        .coluna-direita {
+            height: 200px;
+            width: 250px;
+            float: left;
+            border-right: solid 1px #fff;
+        }
+
+        .coluna-maisdireita {
+            margin-left: 20px;
+            height: 200px;
+            width: 400px;
+            float: left;
+        }
+
+        .copyright {
+            text-align: center;
+            position: relative;
+            margin: 180px 500px 0px 0px;
+        }
+
+
+        .barra {
+            font-size: 12pt;
+        }
+
+        .number {
+            font-size: 10pt;
+        }
+
+        #whats {
+            max-width: 20px;
+            margin-left: 30px;
+        }
+
+        #face {
+            max-width: 20px;
+        }
+
+        #insta {
+            max-width: 20px;
+        }
+
+        .navtop a {
+            font-size: 10pt;
+            text-decoration: none;
+            color: #000;
+            padding: 0px 0px 0px 5px;
+        }
+
+        span {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 10pt;
+        }
+
+
+        .h1 {
+            margin: 0px 0px 0px 50px;
+            color: #1E90FF;
+            text-shadow: 1px 1px 1px #1E90FF;
+        }
+
+        .menupreto {
+            z-index: 1;
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+
+        <nav class="menupreto">
+
+            <div class="row" id="MenuSuperior">
+                <div class="col-sm-4" id="ImgLogo">
+
+                    <a href="@Url.Action("Index","Home")"><img src="~/img/logo.png" style="height:130px; width: 300px" /></a>
+                </div>
+                <div class="col-sm-5">
+                    <div id="divBusca">
+                        <input type="text" placeholder="Digite o que você procura..." id="txtBusca" maxlength="40" />
+                        <button type="submit" id="btnBusca">Buscar</button>
+                    </div>
+                </div>
+                <div class="col-sm-1" id="Login">
+                    <span id="fulano"> Olá <label>@Session["NomeCliente"]</label></span><br />
+                     <a href="@Url.Action("Index","Home")" id="sair">Sair&nbsp;&nbsp;<img src="~/img/Icones/IconesMENU/icons8-exit-32.png" style="height: 20px;" /></a>
+                </div>
+            </div>
+
+
+
+            <ul class="menu">
+                <li>
+                    <a id="todo">Todos Departamentos</a>
+                    <ul>
+                        <li><a href="@Url.Action("AreaExterna","Home")">Área Externa</a></li>
+                        <li><a href="@Url.Action("Banheiro","Home")">Banheiro</a></li>
+                        <li><a href="@Url.Action("Cozinha","Home")">Cozinha</a></li>
+                        <li><a href="@Url.Action("Eletrica","Home")">Elétrica</a></li>
+                        <li><a href="@Url.Action("Ferramentas","Home")">Ferramentas</a></li>
+                        <li><a href="@Url.Action("Iluminacao","Home")">Iluminação</a> </li>
+                        <li><a href="@Url.Action("Materiais","Home")">Materiais para Construção</a> </li>
+                        <li><a href="@Url.Action("Pisos","Home")">Pisos e Revestimentos</a> </li>
+                        <li><a href="@Url.Action("Portas","Home")">Portas e Janelas</a> </li>
+                        <li><a id="tinta" href="@Url.Action("Tintas","Home")">Tintas</a> </li>
+
+                    </ul>
+                </li>
+                <li><a href="@Url.Action("Materiais","Home")">Materiais para Construção</a> </li>
+                <li><a href="@Url.Action("Ferramentas","Home")">Ferramentas</a> </li>
+                <li><a href="@Url.Action("Pisos","Home")">Pisos e Revestimentos</a> </li>
+                <li><a href="@Url.Action("Iluminacao","Home")">Iluminação</a> </li>
+                <li><a href="@Url.Action("Portas","Home")">Portas e Janelas</a> </li>
+                <li><a href="@Url.Action("Banheiro","Home")">Banheiro</a> </li>
+
+            </ul>
+        </nav>
+
+    </header>
+
+    @RenderBody()
+
+
+    <footer class="footer">
+        <div class="row" style="margin: 0px 10px;">
+            <div class="col-sm-3">
+                <img src="~/img/logo.png" height="140" style="margin: 30px 0px 0px 30px;" />
+            </div>
+            <div class="col-sm-9">
+                <p style="margin-right:450px; margin-top: 10px;">
+                    <a href="@Url.Action("Index","Home")#quemsomos">Quem Somos</a>&nbsp;&nbsp;
+                    <a href="@Url.Action("FaleConosco","Fale")">Fale Conosco</a>
+                </p> <br />
+                <p style="margin-right: 520px; padding-top: 10px;">
+                    <span style="margin-left:50px;">
+                        <img src="~/img/IconesRedesSociais/whatsapp.png" width="15" id="whats" />
+                        <span class="number"> (11) 91245-6780</span> <span class="barra">|</span>
+                    </span>
+                    <span>
+                        <img src="~/img/IconesRedesSociais/facebook.png" width="15" id="face" />
+                        <span class="number">houseandconstruction</span> <span class="barra">|</span>
+                    </span>
+                    <span>
+                        <img src="~/img/IconesRedesSociais/instagram.png" width="17" id="insta" />
+                        <span class="number">handc</span> <span class="barra">|</span>
+                    </span>
+                    <span>Email: houseandconstruction@gmail.com</span>
+                </p>
+
+            </div>
+            <div class="col-sm-4">
+
+            </div>
+        </div><br />
+        <p style="margin-bottom: 0px; padding-bottom: 5px;">&copy;House and Construction - Todos os direitos reservados.</p>
+
+
+
+
+
+    </footer>
+
+</body>
+
+
+</html>

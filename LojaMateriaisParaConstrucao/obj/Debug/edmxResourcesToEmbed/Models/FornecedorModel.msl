@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LojaDeMateriaisParaConstrucaoModel1StoreContainer" CdmEntityContainer="LojaDeMateriaisParaConstrucaoEntities1">
+    <EntitySetMapping Name="tbFornecedores">
+      <EntityTypeMapping TypeName="LojaDeMateriaisParaConstrucaoModel1.tbFornecedores">
+        <MappingFragment StoreEntitySet="tbFornecedores">
+          <ScalarProperty Name="CodigoFornecedor" ColumnName="CodigoFornecedor" />
+          <ScalarProperty Name="NomeFantasia" ColumnName="NomeFantasia" />
+          <ScalarProperty Name="RazaoSocial" ColumnName="RazaoSocial" />
+          <ScalarProperty Name="CNPJ" ColumnName="CNPJ" />
+          <ScalarProperty Name="CEP" ColumnName="CEP" />
+          <ScalarProperty Name="Complemento" ColumnName="Complemento" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="StatusFornecedor" ColumnName="StatusFornecedor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,166 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/index.css" rel="stylesheet" />
+    @*<link href="~/Content/fotos.css" rel="stylesheet" />*@
+    <link href="~/Content/card.css" rel="stylesheet" />
+    <title>Banheiro - House and Construction</title>
+
+    <style>
+        #pagina {
+            width: 1345px;
+            margin: auto;
+            /*border: 1px solid #000;*/
+        }
+
+        #divFiltro{
+            margin: auto 100px auto auto;
+            width: 400px;
+            text-align: right;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="pagina">
+        <div id="divFiltro">
+            <div class="row">
+                <div class="col-sm-6" style="padding: 0;">
+                   <p style="padding-top: 8px;padding-right: 0px;margin-right:0px; text-align: right;">Ordenar por:</p>
+                </div>
+                <div class="col-sm-6" style="padding: 0;">
+                    <select class="form-control" style="padding-left: 0px; margin-left: 0px;">
+                        <option selected="selected" disabled="disabled">Selecione</option>
+                        <option>Mais Baratos</option>
+                        <option>Ordem crescente</option>
+                        <option>Ordem decrescente</option>
+                    </select>
+                    @*@Html.DropDownListFor()*@
+                </div>
+            </div> 
+        </div>
+        <div class="card">
+            <img src="~/img/Produtos/Banheiro/armario.jpg" alt="Denim Jeans" style="width:100%; height: 260px;">
+            <h1 id="h1">Armario</h1>
+            <p class="preco">R$ 400,00</p>
+            <p><button>Ver mais</button></p>
+        </div>
+
+        <div class="card">
+            <img src="~/img/Produtos/Banheiro/banheira-fundobranco.png" alt="Denim Jeans" style="width:100%; height: 260px;">
+            <h1 id="h1">Banheira Branca</h1>
+            <p class="preco">R$ 1500,00</p>
+            <p><button>Ver mais</button></p>
+        </div>
+
+        <div class="card">
+            <img src="~/img/Produtos/Banheiro/banheira.png" alt="Denim Jeans" style="width:100%; height: 260px;">
+            <h1 id="h1">Banheira Branca</h1>
+            <p class="preco">R$ 500,00</p>
+            <p><button>Ver mais</button></p>
+        </div>
+
+        <div class="card">
+            <img src="~/img/Produtos/Banheiro/cesto_roupas.jpg" alt="Denim Jeans" style="width:100%; height: 260px;">
+            <h1 id="h1">Cesto de Roupas</h1>
+            <p class="preco">R$ 50,00</p>
+            <p><button>Ver mais</button></p>
+        </div>
+
+        <div class="card">
+            <img src="~/img/Produtos/Banheiro/chuveiro.jpg" alt="Denim Jeans" style="width:100%; height: 260px;">
+            <h1 id="h1">Chuveiro</h1>
+            <p class="preco">R$ 45,00</p>
+            <p><button>Ver mais</button></p>
+        </div>
+
+        <div class="card">
+            <img src="~/img/Produtos/Banheiro/gabinete.jpg" alt="Denim Jeans" style="width:100%; height: 260px;">
+            <h1 id="h1">Gabinete</h1>
+            <p class="preco">R$ 420,00</p>
+            <p><button>Ver mais</button></p>
+        </div>
+
+        <div class="card">
+            <img src="~/img/Produtos/Banheiro/vaso_sanitario.jpg" alt="Denim Jeans" style="width:100%; height: 260px;">
+            <h1 id="h1">Vaso Sanitario</h1>
+            <p class="preco">R$ 500,00</p>
+            <p><button>Ver mais</button></p>
+        </div>
+
+        <div class="card">
+            <img src="~/img/Produtos/Banheiro/1_Gabinete_Banheiro_Evora_Com_Pia_2_Gavetas_Cor_Amendoa_Branco.jpg" alt="Denim Jeans" style="width:100%; height: 260px;">
+            <h1 id="h1">Gabinete</h1>
+            <p class="preco">R$ 390,00</p>
+            <p><button>Ver mais</button></p>
+        </div>
+
+        <div class="card">
+            <img src="~/img/Produtos/Banheiro/1_Torneira_Banheiro_Mesa_Alavanca_1198_C-70_1-4_Volta.jpg" alt="Denim Jeans" style="width:100%; height: 260px;">
+            <h1 id="h1">Torneira</h1>
+            <p class="preco">R$ 15,00</p>
+            <p><button>Ver mais</button></p>
+        </div>
+
+        <div class="card">
+            <img src="~/img/Produtos/Banheiro/1_Vaso_Sanitário_com_Caixa_Acoplada_3-6L_Sabatini_Branco-Icasa.png" alt="Denim Jeans" style="width:100%; height: 260px;">
+            <h1 id="h1">Vaso Sanitario</h1>
+            <p class="preco">R$ 450,00</p>
+            <p><button>Ver mais</button></p>
+        </div>
+
+        <div class="card">
+            <img src="~/img/Produtos/Banheiro/2_conjunto-vaso-sanitario-com-caixa-acoplada-e-assento-soft-close-boss-incepa_branco.jpg" alt="Denim Jeans" style="width:100%; height: 260px;">
+            <h1 id="h1">Vaso sanitario</h1>
+            <p class="preco">R$ 600,00</p>
+            <p><button>Ver mais</button></p>
+        </div>
+
+        <div class="card">
+            <img src="~/img/Produtos/Banheiro/2_Gabinete_Banheiro_Evora_80cm_com_Pia_2_Gavetas_Branco.jpg" alt="Denim Jeans" style="width:100%; height: 260px;">
+            <h1 id="h1">Gabinete</h1>
+            <p class="preco">R$ 560,00</p>
+            <p><button>Ver mais</button></p>
+        </div>
+
+        <div class="card">
+            <img src="~/img/Produtos/Banheiro/2_torneira-para-lavatorio-de-mesa-e-uso-geral-bica-movel-cromada.png" alt="Denim Jeans" style="width:100%; height: 260px;">
+            <h1 id="h1">Torneira</h1>
+            <p class="preco">R$ 20,00</p>
+            <p><button>Ver mais</button></p>
+        </div>
+
+        <div class="card">
+            <img src="~/img/Produtos/Banheiro/3_Gabinete_Banheiro_Armario_Evora_CPia_2_Gavetas_Branco_Preto.jpg" alt="Denim Jeans" style="width:100%; height: 260px;">
+            <h1 id="h1">Gabinete</h1>
+            <p class="preco">R$ 600,00</p>
+            <p><button>Ver mais</button></p>
+        </div>
+
+        <div class="card">
+            <img src="~/img/Produtos/Banheiro/3_Torneira_Lavatório_Mesa_Bica_Móvel_1-4_de_Volta_C40.jpg" alt="Denim Jeans" style="width:100%; height: 260px;">
+            <h1 id="h1">Torneira</h1>
+            <p class="preco">R$ 10,00</p>
+            <p><button>Ver mais</button></p>
+        </div>
+
+        <div class="card">
+            <img src="~/img/Produtos/Banheiro/4_Gabinete_Banheiro_Lavabo_Travertino_Branco_80Cm-Tomdo.jpg" alt="Denim Jeans" style="width:100%; height: 260px;">
+            <h1 id="h1">Gabinete</h1>
+            <p class="preco">R$ 530,00</p>
+            <p><button>Ver mais</button></p>
+        </div>
+    </div>
+    <br /><br /><br /><br />
+
+
+
+</body>
+</html>

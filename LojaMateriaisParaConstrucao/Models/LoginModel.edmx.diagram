@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e05b8b0d94244465846cb8b4dc0852fa" Name="Diagram1" ZoomLevel="84">
+        <EntityTypeShape EntityType="LojaDeMateriaisParaConstrucaoModel.tbFuncionario" Width="1.5" PointX="0.75" PointY="1" />
+        <EntityTypeShape EntityType="LojaDeMateriaisParaConstrucaoModel.tbNivelAcesso" Width="1.5" PointX="2.875" PointY="6.125" />
+        <EntityTypeShape EntityType="LojaDeMateriaisParaConstrucaoModel.tbUsuario" Width="1.5" PointX="5.75" PointY="3.75" />
+        <EntityTypeShape EntityType="LojaDeMateriaisParaConstrucaoModel.tbFornecedore" Width="1.5" PointX="5.375" PointY="8.5" />
+        <EntityTypeShape EntityType="LojaDeMateriaisParaConstrucaoModel.tbProduto" Width="1.5" PointX="7.625" PointY="8" />
+        <AssociationConnector Association="LojaDeMateriaisParaConstrucaoModel.fk_forn_prod" />
+        <EntityTypeShape EntityType="LojaDeMateriaisParaConstrucaoModel.tbCliente" Width="1.5" PointX="8.375" PointY="0.75" />
+        <EntityTypeShape EntityType="LojaDeMateriaisParaConstrucaoModel.tbCargo" Width="1.5" PointX="1.125" PointY="11.375" />
+        <EntityTypeShape EntityType="LojaDeMateriaisParaConstrucaoModel.tbCategoria" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="LojaDeMateriaisParaConstrucaoModel.tbDestinatario" Width="1.5" PointX="0.75" PointY="14.875" />
+        <EntityTypeShape EntityType="LojaDeMateriaisParaConstrucaoModel.tbEstoque" Width="1.5" PointX="10.25" PointY="10.25" />
+        <EntityTypeShape EntityType="LojaDeMateriaisParaConstrucaoModel.tbFormaPgto" Width="1.5" PointX="15.75" PointY="11.5" />
+        <EntityTypeShape EntityType="LojaDeMateriaisParaConstrucaoModel.tbOrcamento" Width="1.5" PointX="11" PointY="6" />
+        <EntityTypeShape EntityType="LojaDeMateriaisParaConstrucaoModel.tbPedido" Width="1.5" PointX="11" PointY="19.5" />
+        <EntityTypeShape EntityType="LojaDeMateriaisParaConstrucaoModel.tbUnidadeVenda" Width="1.5" PointX="5.75" PointY="16.25" />
+        <EntityTypeShape EntityType="LojaDeMateriaisParaConstrucaoModel.tbVenda" Width="1.5" PointX="13" PointY="1.875" />
+        <EntityTypeShape EntityType="LojaDeMateriaisParaConstrucaoModel.tbItem_Orcamento" Width="1.5" PointX="13.25" PointY="9.875" />
+        <EntityTypeShape EntityType="LojaDeMateriaisParaConstrucaoModel.tbItem_Pedido" Width="1.5" PointX="13.25" PointY="12.875" />
+        <EntityTypeShape EntityType="LojaDeMateriaisParaConstrucaoModel.tbItem_Venda" Width="1.5" PointX="15.25" PointY="6.875" />
+        <EntityTypeShape EntityType="LojaDeMateriaisParaConstrucaoModel.tbLancamento" Width="1.5" PointX="3.75" PointY="12.875" />
+        <EntityTypeShape EntityType="LojaDeMateriaisParaConstrucaoModel.tbPeriodo" Width="1.5" PointX="15.75" PointY="0.875" />
+        <EntityTypeShape EntityType="LojaDeMateriaisParaConstrucaoModel.tbPgto_Orcamento" Width="1.5" PointX="18" PointY="12.875" />
+        <EntityTypeShape EntityType="LojaDeMateriaisParaConstrucaoModel.tbPgto_Pedido" Width="1.5" PointX="18" PointY="10.125" />
+        <EntityTypeShape EntityType="LojaDeMateriaisParaConstrucaoModel.tbPgto_Venda" Width="1.5" PointX="15.75" PointY="3.875" />
+        <EntityTypeShape EntityType="LojaDeMateriaisParaConstrucaoModel.tbTipoTitulo" Width="1.5" PointX="12.75" PointY="15.875" />
+        <AssociationConnector Association="LojaDeMateriaisParaConstrucaoModel.FK_idCargoFunc" />
+        <AssociationConnector Association="LojaDeMateriaisParaConstrucaoModel.fk_cat_Prod" />
+        <AssociationConnector Association="LojaDeMateriaisParaConstrucaoModel.fk_cli_orcamento" />
+        <AssociationConnector Association="LojaDeMateriaisParaConstrucaoModel.fk_cli_venda" />
+        <AssociationConnector Association="LojaDeMateriaisParaConstrucaoModel.fk_prod_est" />
+        <AssociationConnector Association="LojaDeMateriaisParaConstrucaoModel.fk_orc_pgtoOrcamento" />
+        <AssociationConnector Association="LojaDeMateriaisParaConstrucaoModel.fk_orc_pgtoPedido" />
+        <AssociationConnector Association="LojaDeMateriaisParaConstrucaoModel.fk_func_orcamento" />
+        <AssociationConnector Association="LojaDeMateriaisParaConstrucaoModel.fk_func_venda" />
+        <AssociationConnector Association="LojaDeMateriaisParaConstrucaoModel.fk_orc_itemOrc" />
+        <AssociationConnector Association="LojaDeMateriaisParaConstrucaoModel.fk_ped_itemPed" />
+        <AssociationConnector Association="LojaDeMateriaisParaConstrucaoModel.fk_prod_itemOrc" />
+        <AssociationConnector Association="LojaDeMateriaisParaConstrucaoModel.fk_prod_itemPed" />
+        <AssociationConnector Association="LojaDeMateriaisParaConstrucaoModel.fk_produto_itemVenda" />
+        <AssociationConnector Association="LojaDeMateriaisParaConstrucaoModel.fk_UnidVenda" />
+        <AssociationConnector Association="LojaDeMateriaisParaConstrucaoModel.fk_venda_itemVenda" />
+        <EntityTypeShape EntityType="LojaDeMateriaisParaConstrucaoModel.tbContato" Width="1.5" PointX="8" PointY="16.5" />
+        <AssociationConnector Association="LojaDeMateriaisParaConstrucaoModel.fk_msg_usu" />
+        <EntityTypeShape EntityType="LojaDeMateriaisParaConstrucaoModel.tbCupom" Width="1.5" PointX="15.375" PointY="15.75" />
+        <EntityTypeShape EntityType="LojaDeMateriaisParaConstrucaoModel.tbCupom_Cliente" Width="1.5" PointX="17.375" PointY="6.75" />
+        <EntityTypeShape EntityType="LojaDeMateriaisParaConstrucaoModel.tbLog_Entrada_Produto" Width="1.5" PointX="9.875" PointY="23.25" />
+        <EntityTypeShape EntityType="LojaDeMateriaisParaConstrucaoModel.tbLog_Saida_Produto" Width="1.5" PointX="9.875" PointY="13.5" />
+        <AssociationConnector Association="LojaDeMateriaisParaConstrucaoModel.fk_prod_entr" />
+        <AssociationConnector Association="LojaDeMateriaisParaConstrucaoModel.fk_prod_sai" />
+        <EntityTypeShape EntityType="LojaDeMateriaisParaConstrucaoModel.tbComentario" Width="1.5" PointX="10.625" PointY="1.875" />
+        <AssociationConnector Association="LojaDeMateriaisParaConstrucaoModel.fk_cli_coment" />
+        <AssociationConnector Association="LojaDeMateriaisParaConstrucaoModel.fk_prod_coment" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

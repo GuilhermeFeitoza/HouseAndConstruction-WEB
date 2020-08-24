@@ -1,0 +1,60 @@
+﻿@charset "utf-8";
+
+.animateOpacity1 {
+    -webkit-animation-name: opacityAnimation;
+    -moz-animation-name: opacityAnimation;
+    -o-animation-name: opacityAnimation;
+    animation-name: opacityAnimation;
+    -webkit-animation-duration: 2s;
+    -moz-animation-duration: 2s;
+    animation-duration: 2s;
+}
+
+@-webkit-keyframes opacityAnimation {
+    from {
+        opacity: 0.1;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes opacityAnimation {
+    from {
+        opacity: 0.1;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes opacityAnimation {
+    from {
+        opacity: 0.1;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes opacityAnimation {
+    from {
+        opacity: 0.1;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+img.slide1 {
+    display: none;
+}
+
+    img.slide1:nth-child(1) {
+        display: block;
+    }
+

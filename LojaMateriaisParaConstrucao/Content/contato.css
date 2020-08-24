@@ -1,0 +1,93 @@
+﻿@charset "utf-8";
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #1e90ff;
+}
+
+#logo{
+    position: relative;
+    left: 385px;
+    margin: 0;
+    padding: 0;
+    top: 34px;
+}
+
+#contato{
+    margin: 0;
+    padding: 0;
+}
+
+form{
+    position: relative;
+    font-size: 15px;
+    background-color: #1e90ff;
+    max-width: 600px;
+    left: 350px;
+    top: 25px;
+    box-shadow: 2px 2px 2px 2px #fff;
+    margin: 0;
+}
+
+h1{
+    margin-bottom: 20px;
+    margin-left: 20px;
+    color: #fff;
+    text-shadow: 1px 2px 1px #1e90ff;
+}
+
+input, textarea{
+    width: 200px;
+    padding: 10px;
+    color: #000;
+    margin-left:20px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid;
+}
+
+input:hover, textarea:hover, input:focus, textarea:focus{
+    border-color: #000066;
+    box-shadow: 5px 0 9px #fff;
+    color: black;
+    font-weight: bold;
+}
+
+.submit input {
+    position: relative;
+    font-size: 12pt;
+    bottom: 4px;
+    background-color: #ef3838;
+    height: 40px;
+    width: 100px;
+    font-weight: bold;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid;
+    color: #fff;
+}
+
+textarea{
+    width: 400px;
+    height: 120px;
+    line-height: 20px;
+    max-width: 400px;
+}
+
+form label{
+    margin-left: 20px;
+    color: #fff;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<LojaMateriaisParaConstrucao.Models.tbFornecedores>
+@{ 
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
+    <title>Index</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="http://localhost:2216/scripts/jquery.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="http://localhost:2216/scripts/bootstrap.min.js"></script>
+</head>
+<body>
+    <h2>Fornecedores</h2>
+    <p>
+        @Html.ActionLink("Incluir Novo Fornecedor", "Adicionar", "Login", new { @class = "btn btn-success" })
+    </p>
+    @*Criando nota tabela , que será preenchido com o laço abaixo*@
+    <table class="table">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.CodigoFornecedor)</th>
+            <th>@Html.DisplayNameFor(model => model.NomeFantasia) </th>
+            <th>@Html.DisplayNameFor(model => model.RazaoSocial)</th>
+            <th>@Html.DisplayNameFor(model => model.CNPJ) </th>
+            <th></th>
+        </tr>
+        @*Esse Laço irá percorrer a lista enviada pelo controler*@
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.CodigoFornecedor)</td>
+                <td>@Html.DisplayFor(modelItem => item.NomeFantasia)</td>
+                <td>@Html.DisplayFor(modelItem => item.RazaoSocial)</td>
+                <td>@Html.DisplayFor(modelItem => item.CNPJ)</td>
+                @*Adicionando os link para editar, detalhes e exliur*@
+                <td>
+                    @Html.ActionLink("Editar", "Editar", new { id = item.CodigoFornecedor }) |
+                    @Html.ActionLink("Detalhes", "Detalhes", new { id = item.CodigoFornecedor }) |
+                    @Html.ActionLink("Deletar", "Deletar", new { id = item.CodigoFornecedor })
+                </td>
+            </tr>
+        }
+    </table>
+</body>
+</html>
+

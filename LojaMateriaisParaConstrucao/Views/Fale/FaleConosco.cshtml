@@ -1,0 +1,130 @@
+﻿@model  LojaMateriaisParaConstrucao.Models.tbContato
+
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml"; ;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/fotos.css" rel="stylesheet" />
+
+    <link href="~/Content/css/FaleConosco.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/scripts/jquery.js"></script>
+
+
+
+    <title>Fale Conosco - House and Construction</title>
+
+</head>
+<body>
+    @using (Html.BeginForm("CadastrarMensagem", "Fale", FormMethod.Post))
+    {
+        <script src="~/scripts/bootstrap.js"></script>
+        <script src="~/scripts/jquery.min.js"></script>
+
+
+        @Html.AntiForgeryToken()//previne um ataque CSRF
+        <div id="page">
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div id="artigo">
+                        <div class=" row">
+                            <div class="col-sm-6">
+                                <h2>Fale Conosco</h2>
+                            </div>
+                            <div class="col-sm-6">
+                                <h2> Envie um e-mail </h2>
+                            </div>
+                        </div>
+                        <div class="box-default split">
+                            <div class="row row-flex">
+                                <div class="col-sm-6 col-md-6 col-lg-6">
+                                    <div class="ltEmbeddedContent">
+                                        <br>
+                                        <p>Nossa Empresa possui uma equipe de suporte ao cliente preparada para ajudá-lo a esclarecer dúvidas sobre produtos, sobre o site, pedidos efetuados entre outras informações.</p>
+                                        <p> Se preferir, tire suas dúvidas através dos tópicos de nossa página de Central de Atendimento ou ligue para o Atendimento ao Cliente no número (11)0000-0000.</p>
+                                        <br>
+                                        <p><b> Horario de atendimento telefônico</b></p>
+                                        <br>
+                                        <p> Segunda a Sexta das 8:00h às 18:00h. Sábados das 8:00h as 16:00h </p>
+                                        <p> Os e-mail enviados serão respondidos em até 72h úteis. </p>
+                                        <p> Você pode entrar em contato conosco mandando uma mensagem. Selecione um dos assuntos ao lado, preencha o campo com suas dúvidas e envie a mensagem: </p>
+                                    </div>
+                                </div>
+                                <div class="hidden-mobile col-md-6 col-lg-6">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <label>Nome Completo:</label>
+                                            @Html.TextBoxFor(m => Model.NomeContato, new { @class = "form-control", name = "txtNomeCompleto", id = "txtNomeCompleto", placeholder = "Nome Completo", maxlength = "50" })
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <label>E-Mail:</label>
+                                            @Html.TextBoxFor(m => Model.EmailContato, new { @class = "form-control", name = "txtEmail", id = "email", placeholder = "exemplo@email.com", maxlength = "50", onblur = "checarEmail();" })
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Telefone:</label>
+                                                @Html.TextBoxFor(m => Model.TelContato, new { @class = "form-control", name = "txtTel", id = "txtTel", placeholder = "(00) 00000-0000", maxlength = "14" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <label>Assunto:</label>
+                                            @Html.TextBoxFor(m => Model.AssuntoContato, new { @class = "form-control", name = "txtAssunto", id = "txtAssunto", placeholder = "Assunto", maxlength = "100" })
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <label>Mensagem:</label> <br>
+                                            @Html.TextAreaFor(m => Model.Mensagem, new { @class = "form-control", id = "txtMensagem", rows = "5", cols = "92", maxlength = "1000" })
+                                        </div>
+                                    </div> <br>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="text-right">
+                                                <button type="submit" id="btnEnviar" name="btnEnviar" class="btn btn-default" data-toggle="modal"
+                                                        data-target="#modal-mensagem" onclick="vercpf();">
+                                                    Enviar
+
+                                                </button>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <br /><br />
+        <script src="~/scripts/jquery.mask.js"></script>
+        <script src="~/scripts/jquery.mask.min.js"></script>
+        <script src="~/scripts/FaleConosco.js"></script>
+
+    }
+</body>
+</html>
